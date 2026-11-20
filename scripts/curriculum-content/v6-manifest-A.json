@@ -1,0 +1,145 @@
+[
+  {
+    "curriculumId": "cur1",
+    "levelId": "l_p4",
+    "subjectId": "sub_math",
+    "unit": "الكسور",
+    "lessons": [
+      "مفهوم الكسر",
+      "مقارنة الكسور",
+      "جمع الكسور"
+    ]
+  },
+  {
+    "curriculumId": "cur9",
+    "levelId": "l_p1",
+    "subjectId": "sub_en",
+    "unit": "وحدة 9 — اللغة الإنجليزية (الأول ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur17",
+    "levelId": "l_p4",
+    "subjectId": "sub_ar",
+    "unit": "وحدة 17 — اللغة العربية (الرابع ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur25",
+    "levelId": "l_p6",
+    "subjectId": "sub_es",
+    "unit": "وحدة 25 — الإسبانية (السادس ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_pre_sub_art",
+    "levelId": "l_pre",
+    "subjectId": "sub_art",
+    "unit": "التعبير الفني",
+    "lessons": [
+      "الرسم",
+      "التلوين",
+      "الموسيقى",
+      "المسرح"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p1_sub_cul",
+    "levelId": "l_p1",
+    "subjectId": "sub_cul",
+    "unit": "الثقافة العامة",
+    "lessons": [
+      "الثقافة",
+      "الفن",
+      "الرياضة",
+      "المجتمع"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p2_sub_sci",
+    "levelId": "l_p2",
+    "subjectId": "sub_sci",
+    "unit": "البيئة والتجارب",
+    "lessons": [
+      "النباتات",
+      "الحيوانات",
+      "التجارب",
+      "الصحة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p3_sub_math",
+    "levelId": "l_p3",
+    "subjectId": "sub_math",
+    "unit": "الأعداد والعمليات",
+    "lessons": [
+      "الأعداد الكبيرة",
+      "القسمة",
+      "كسور بسيطة",
+      "هندسة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p4_sub_fr",
+    "levelId": "l_p4",
+    "subjectId": "sub_fr",
+    "unit": "Lecture et expression",
+    "lessons": [
+      "Texte",
+      "Compréhension",
+      "Expression",
+      "Grammaire"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p4_sub_art",
+    "levelId": "l_p4",
+    "subjectId": "sub_art",
+    "unit": "التعبير الفني",
+    "lessons": [
+      "الرسم",
+      "التلوين",
+      "الموسيقى",
+      "المسرح"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p5_sub_sci",
+    "levelId": "l_p5",
+    "subjectId": "sub_sci",
+    "unit": "العلوم والمنهج",
+    "lessons": [
+      "الفيزياء",
+      "الكيمياء",
+      "الأحياء",
+      "المنهج العلمي"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p6_sub_amz",
+    "levelId": "l_p6",
+    "subjectId": "sub_amz",
+    "unit": "Littérature et expression",
+    "lessons": [
+      "Texte littéraire",
+      "Analyse",
+      "Production écrite",
+      "Culture amazighe"
+    ]
+  }
+]

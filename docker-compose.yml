@@ -1,0 +1,96 @@
+services:
+  # ---------------------------------------------------------------------------
+  # Prototype (runs today, zero external dependencies)
+  # ---------------------------------------------------------------------------
+  app:
+    build: .
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - APP_SECRET=${APP_SECRET:-change-this-in-production}
+      - USE_HTTPS=false
+      - STORAGE_TYPE=json
+    volumes:
+      - ./backend/data.json:/app/backend/data.json
+    restart: unless-stopped
+
+  # ---------------------------------------------------------------------------
+  # ML advisory service (optional): docker compose --profile ml up -d
+  # ---------------------------------------------------------------------------
+  ml:
+    build: ./services/ml
+    profiles: ["ml"]
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+
+  # ---------------------------------------------------------------------------
+  # Production stack (enable once apps/api + apps/web images are verified)
+  # docker compose --profile production up -d
+  # ---------------------------------------------------------------------------
+  db:
+    image: postgres:16-alpine
+    profiles: ["production"]
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-ryad_alaqsa}
+      POSTGRES_USER: ${POSTGRES_USER:-ryad}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-this}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-ryad} -d ${POSTGRES_DB:-ryad_alaqsa}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    profiles: ["production"]
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redisdata:/data
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    profiles: ["production"]
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - DATABASE_URL=postgresql://${POSTGRES_USER:-ryad}:${POSTGRES_PASSWORD:-change-this}@db:5432/${POSTGRES_DB:-ryad_alaqsa}
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=${JWT_SECRET:-change-this-to-a-long-random-secret}
+      - CORS_ORIGIN=${CORS_ORIGIN:-http://localhost:8080}
+      - ML_SERVICE_URL=http://ml:8000
+    ports:
+      - "3002:3001"
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    profiles: ["production"]
+    depends_on:
+      - api
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+  redisdata:

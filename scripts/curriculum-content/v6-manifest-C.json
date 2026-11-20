@@ -1,0 +1,145 @@
+[
+  {
+    "curriculumId": "cur3",
+    "levelId": "l_p2",
+    "subjectId": "sub_fr",
+    "unit": "Lecture de base",
+    "lessons": [
+      "Alphabet",
+      "Mots simples",
+      "Phrases"
+    ]
+  },
+  {
+    "curriculumId": "cur11",
+    "levelId": "l_p2",
+    "subjectId": "sub_ar",
+    "unit": "وحدة 11 — اللغة العربية (الثاني ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur19",
+    "levelId": "l_p4",
+    "subjectId": "sub_amz",
+    "unit": "وحدة 19 — اللغة الأمازيغية (الرابع ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_pre_sub_ar",
+    "levelId": "l_pre",
+    "subjectId": "sub_ar",
+    "unit": "الحروف والأصوات",
+    "lessons": [
+      "التعرف على حروف الهجاء",
+      "أصوات الحروف",
+      "مفردات بسيطة",
+      "قصص مصورة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p1_sub_ar",
+    "levelId": "l_p1",
+    "subjectId": "sub_ar",
+    "unit": "القراءة والكتابة",
+    "lessons": [
+      "قراءة مقاطع",
+      "كتابة حروف وكلمات",
+      "فهم نص بسيط",
+      "تعبير شفهي"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p1_sub_sport",
+    "levelId": "l_p1",
+    "subjectId": "sub_sport",
+    "unit": "الحركية",
+    "lessons": [
+      "الحركات",
+      "الألعاب",
+      "التعاون",
+      "الصحة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p2_sub_art",
+    "levelId": "l_p2",
+    "subjectId": "sub_art",
+    "unit": "التعبير الفني",
+    "lessons": [
+      "الرسم",
+      "التلوين",
+      "الموسيقى",
+      "المسرح"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p3_sub_sci",
+    "levelId": "l_p3",
+    "subjectId": "sub_sci",
+    "unit": "العلوم والتجارب",
+    "lessons": [
+      "المواد",
+      "الطاقة",
+      "التجارب",
+      "البيئة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p4_sub_amz",
+    "levelId": "l_p4",
+    "subjectId": "sub_amz",
+    "unit": "Lecture et expression",
+    "lessons": [
+      "Texte",
+      "Compréhension",
+      "Expression",
+      "Culture amazighe"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p5_sub_ar",
+    "levelId": "l_p5",
+    "subjectId": "sub_ar",
+    "unit": "التحليل والتعبير",
+    "lessons": [
+      "نص أدبي",
+      "تحليل وتفسير",
+      "تعبير كتابي منظم",
+      "قواعد متقدمة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p5_sub_cul",
+    "levelId": "l_p5",
+    "subjectId": "sub_cul",
+    "unit": "الثقافة والمواطنة",
+    "lessons": [
+      "الثقافة",
+      "الفن",
+      "الرياضة",
+      "المواطنة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p6_sub_isl",
+    "levelId": "l_p6",
+    "subjectId": "sub_isl",
+    "unit": "الفقه والأخلاق",
+    "lessons": [
+      "ال transactions",
+      "الأخلاق",
+      "التعاون",
+      "التاريخ الإسلامي"
+    ]
+  }
+]

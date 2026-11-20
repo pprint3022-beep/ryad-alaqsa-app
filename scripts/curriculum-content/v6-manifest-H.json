@@ -1,0 +1,146 @@
+[
+  {
+    "curriculumId": "cur8",
+    "levelId": "l_p1",
+    "subjectId": "sub_fr",
+    "unit": "وحدة 8 — اللغة الفرنسية (الأول ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur16",
+    "levelId": "l_p3",
+    "subjectId": "sub_en",
+    "unit": "وحدة 16 — اللغة الإنجليزية (الثالث ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur24",
+    "levelId": "l_p6",
+    "subjectId": "sub_en",
+    "unit": "وحدة 24 — اللغة الإنجليزية (السادس ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_pre_sub_sci",
+    "levelId": "l_pre",
+    "subjectId": "sub_sci",
+    "unit": "اكتشاف المحيط",
+    "lessons": [
+      "الحواس",
+      "النباتات",
+      "الحيوانات",
+      "الماء"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p1_sub_sci",
+    "levelId": "l_p1",
+    "subjectId": "sub_sci",
+    "unit": "البيئة والكائنات",
+    "lessons": [
+      "الكائنات الحية",
+      "البيئة",
+      "التجارب",
+      "الصحة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p2_sub_isl",
+    "levelId": "l_p2",
+    "subjectId": "sub_isl",
+    "unit": "العبادات والقيم",
+    "lessons": [
+      "الوضوء",
+      "البر وال孝顺",
+      "التعاون",
+      "قصص"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p3_sub_amz",
+    "levelId": "l_p3",
+    "subjectId": "sub_amz",
+    "unit": "Lecture et expression",
+    "lessons": [
+      "Texte court",
+      "Compréhension",
+      "Expression",
+      "Culture"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p4_sub_ar",
+    "levelId": "l_p4",
+    "subjectId": "sub_ar",
+    "unit": "القراءة والفهم",
+    "lessons": [
+      "نص قرائي",
+      "استخراج الأفكار",
+      "تعبير",
+      "قواعد نحوية"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p4_sub_cul",
+    "levelId": "l_p4",
+    "subjectId": "sub_cul",
+    "unit": "الثقافة والمواطنة",
+    "lessons": [
+      "الثقافة",
+      "الفن",
+      "الرياضة",
+      "المواطنة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p5_sub_isl",
+    "levelId": "l_p5",
+    "subjectId": "sub_isl",
+    "unit": "الفقه والأخلاق",
+    "lessons": [
+      "الحج",
+      "الأخلاق",
+      "التعاون",
+      "التاريخ الإسلامي"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p6_sub_en",
+    "levelId": "l_p6",
+    "subjectId": "sub_en",
+    "unit": "Communication & Expression",
+    "lessons": [
+      "Reading & Comprehension",
+      "Writing Paragraphs",
+      "Grammar",
+      "Speaking Practice"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p6_sub_sport",
+    "levelId": "l_p6",
+    "subjectId": "sub_sport",
+    "unit": "الحركية",
+    "lessons": [
+      "الحركات",
+      "الألعاب",
+      "التعاون",
+      "الصحة"
+    ]
+  }
+]

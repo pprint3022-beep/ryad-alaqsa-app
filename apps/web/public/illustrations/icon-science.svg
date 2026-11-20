@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160" role="img" aria-labelledby="iraTitle">
+  <title id="iraTitle">Science icon with flask, leaf and droplet</title>
+
+  <rect x="6" y="6" width="148" height="148" rx="34" fill="#FFF8E1" stroke="#F5B301" stroke-width="4"/>
+
+  <path d="M42 80Q18 74 20 50q22 2 28 20z" fill="#4CAF50" stroke="#2E7D32" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M25 70q9-6 15-14" fill="none" stroke="#2E7D32" stroke-width="2" stroke-linecap="round"/>
+
+  <path d="M126 42q12 18 12 25a12 12 0 0 1-24 0q0-7 12-25z" fill="#64B5F6" stroke="#1565C0" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M122 62q-2 5 0 8" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+
+  <path d="M68 32h24v32l20 46q3 7-4 7H52q-7 0-4-7l20-46z" fill="#FFFFFF" stroke="#1565C0" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M61 86h38l9 21q2 6-4 6H56q-6 0-4-6z" fill="#4CAF50"/>
+  <g fill="#C8E6C9">
+    <circle cx="70" cy="100" r="3"/>
+    <circle cx="84" cy="106" r="2.5"/>
+    <circle cx="94" cy="98" r="2"/>
+  </g>
+  <path d="M74 44v16" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+  <rect x="64" y="26" width="32" height="8" rx="4" fill="#90CAF9" stroke="#1565C0" stroke-width="3"/>
+</svg>

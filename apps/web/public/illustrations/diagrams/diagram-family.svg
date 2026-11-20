@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-labelledby="diaTitle diaDesc">
+  <title id="diaTitle">La famille</title>
+  <desc id="diaDesc">Quatre personnages souriants : le père, la mère, la sœur et le frère, avec leurs noms en français et en arabe.</desc>
+  <rect width="640" height="360" fill="#fffaf0"/>
+  <rect x="12" y="12" width="616" height="56" rx="18" fill="#1f6b3a"/>
+  <text x="32" y="48" font-family="sans-serif" font-size="24" font-weight="bold" fill="#fffaf0">La famille — العائلة</text>
+  <line x1="30" y1="248" x2="610" y2="248" stroke="#f4c542" stroke-width="4" stroke-linecap="round"/>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <g transform="translate(100 62)">
+      <path d="M-9 78v28M9 78v28" stroke="#1f2937" stroke-width="9"/>
+      <path d="M-17 44h34v40h-34z" fill="#1f6b3a" stroke="#1f2937" stroke-width="3"/>
+      <path d="M-17 50l-14 26M17 50l14 26" stroke="#1f6b3a" stroke-width="11"/>
+      <circle cx="0" cy="18" r="16" fill="#f6c89a" stroke="#1f2937" stroke-width="3"/>
+      <path d="M-16 16a16 16 0 0 1 32 0q-6-9-16-9t-16 9z" fill="#3f332b"/>
+      <circle cx="-6" cy="20" r="1.8" fill="#1f2937"/><circle cx="6" cy="20" r="1.8" fill="#1f2937"/>
+      <path d="M-6 27q6 6 12 0" fill="none" stroke="#1f2937" stroke-width="2"/>
+    </g>
+    <g transform="translate(245 62)">
+      <path d="M-8 88v18M8 88v18" stroke="#1f2937" stroke-width="8"/>
+      <path d="M-17 40h34l10 50h-54z" fill="#f08a24" stroke="#1f2937" stroke-width="3"/>
+      <path d="M-17 46l-14 26M17 46l14 26" stroke="#f08a24" stroke-width="10"/>
+      <path d="M-18 20q0-22 18-22t18 22v18h-8V20q-4-6-10-6t-10 6v18h-8z" fill="#4a3527"/>
+      <circle cx="0" cy="18" r="16" fill="#f6c89a" stroke="#1f2937" stroke-width="3"/>
+      <path d="M-16 14q4-12 16-12t16 12q-6-6-16-6t-16 6z" fill="#4a3527"/>
+      <circle cx="-6" cy="20" r="1.8" fill="#1f2937"/><circle cx="6" cy="20" r="1.8" fill="#1f2937"/>
+      <path d="M-6 27q6 6 12 0" fill="none" stroke="#1f2937" stroke-width="2"/>
+    </g>
+    <g transform="translate(390 76) scale(0.9)">
+      <path d="M-8 86v18M8 86v18" stroke="#1f2937" stroke-width="8"/>
+      <path d="M-16 40h32l9 48h-50z" fill="#ff9f1c" stroke="#1f2937" stroke-width="3"/>
+      <path d="M-16 46l-12 24M16 46l12 24" stroke="#ff9f1c" stroke-width="10"/>
+      <circle cx="-18" cy="14" r="8" fill="#4a3527"/><circle cx="18" cy="14" r="8" fill="#4a3527"/>
+      <circle cx="0" cy="18" r="16" fill="#f6c89a" stroke="#1f2937" stroke-width="3"/>
+      <path d="M-16 14q4-12 16-12t16 12q-6-7-16-7t-16 7z" fill="#4a3527"/>
+      <circle cx="-6" cy="20" r="1.8" fill="#1f2937"/><circle cx="6" cy="20" r="1.8" fill="#1f2937"/>
+      <path d="M-6 27q6 6 12 0" fill="none" stroke="#1f2937" stroke-width="2"/>
+    </g>
+    <g transform="translate(535 76) scale(0.9)">
+      <path d="M-9 78v26M9 78v26" stroke="#1f2937" stroke-width="9"/>
+      <path d="M-17 42h34v40h-34z" fill="#2e8b57" stroke="#1f2937" stroke-width="3"/>
+      <path d="M-17 48l-14 24M17 48l14 24" stroke="#2e8b57" stroke-width="11"/>
+      <circle cx="0" cy="18" r="16" fill="#f6c89a" stroke="#1f2937" stroke-width="3"/>
+      <path d="M-16 16a16 16 0 0 1 32 0q-7-9-16-9t-16 9z" fill="#3f332b"/>
+      <circle cx="-6" cy="20" r="1.8" fill="#1f2937"/><circle cx="6" cy="20" r="1.8" fill="#1f2937"/>
+      <path d="M-6 27q6 6 12 0" fill="none" stroke="#1f2937" stroke-width="2"/>
+    </g>
+  </g>
+  <g font-family="sans-serif" text-anchor="middle" font-size="19" font-weight="bold" fill="#1f2937">
+    <text x="100" y="278">père</text><text x="245" y="278">mère</text>
+    <text x="390" y="278">sœur</text><text x="535" y="278">frère</text>
+  </g>
+  <g font-family="sans-serif" text-anchor="middle" font-size="19" fill="#1f6b3a" direction="rtl">
+    <text x="100" y="308">أب</text><text x="245" y="308">أم</text>
+    <text x="390" y="308">أخت</text><text x="535" y="308">أخ</text>
+  </g>
+</svg>

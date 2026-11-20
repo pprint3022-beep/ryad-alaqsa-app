@@ -1,0 +1,24 @@
+{
+  "id": "/",
+  "name": "رياض الأقصى - Institut Ryad Al Aqsa",
+  "short_name": "رياض الأقصى",
+  "description": "منصة تعلم وتتبع تربوي (تمهيدي - سادس ابتدائي)",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FBFBF7",
+  "theme_color": "#F5B800",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "لوحة القيادة", "short_name": "اللوحة", "url": "/?view=dashboard" },
+    { "name": "مساري", "short_name": "مساري", "url": "/?view=journey" }
+  ],
+  "lang": "ar",
+  "dir": "rtl",
+  "categories": ["education"],
+  "screenshots": []
+}

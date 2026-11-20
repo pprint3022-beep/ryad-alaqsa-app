@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160" role="img" aria-labelledby="iraTitle">
+  <title id="iraTitle">Gold star reward sticker with a soft white outline</title>
+  <defs>
+    <path id="star" d="M80 24l14.7 35.8 38.6 2.9-29.5 25 9.1 37.6L80 105l-32.9 20.3 9.1-37.6-29.5-25 38.6-2.9z"/>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFD54F"/>
+      <stop offset="1" stop-color="#F5B301"/>
+    </linearGradient>
+  </defs>
+
+  <g fill="#FFD54F" opacity="0.9">
+    <path d="M26 40l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+    <path d="M136 116l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/>
+  </g>
+
+  <use href="#star" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linejoin="round"/>
+  <use href="#star" fill="url(#gold)" stroke="#D98A00" stroke-width="4" stroke-linejoin="round"/>
+  <use href="#star" transform="translate(17.6 17.6) scale(0.78)" fill="#FFF3C4" opacity="0.55"/>
+</svg>

@@ -1,0 +1,159 @@
+{
+  "source": "Tamazight TTS (VITS) — tamazight-nlp-tts.hf.space",
+  "variant": "shi",
+  "speaker": "yan",
+  "script": "Tifinagh",
+  "generated": "2026-11-19T21:17:30.541Z",
+  "items": {
+    "azul": {
+      "text": "ⴰⵣⵓⵍ",
+      "file": "azul.wav",
+      "bytes": 51276
+    },
+    "azul-fellawen": {
+      "text": "ⴰⵣⵓⵍ ⴼⵍⵍⴰⵡⵏ",
+      "file": "azul-fellawen.wav",
+      "bytes": 71756
+    },
+    "tamazight": {
+      "text": "ⵜⴰⵎⴰⵣⵉⵖⵜ",
+      "file": "tamazight.wav",
+      "bytes": 65100
+    },
+    "tifinagh": {
+      "text": "ⵜⵉⴼⵉⵏⴰⵖ",
+      "file": "tifinagh.wav",
+      "bytes": 57932
+    },
+    "inelmaden": {
+      "text": "ⵉⵏⵍⵎⴰⴷⴰⵏ",
+      "file": "inelmaden.wav",
+      "bytes": 63052
+    },
+    "uslmad": {
+      "text": "ⵓⵙⵍⵎⴰⴷ",
+      "file": "uslmad.wav",
+      "bytes": 59468
+    },
+    "tamazirt": {
+      "text": "ⵜⴰⵎⴰⵣⵉⵔⵜ",
+      "file": "tamazirt.wav",
+      "bytes": 65612
+    },
+    "asdas": {
+      "text": "ⴰⵙⴷⴰⵙ",
+      "file": "asdas.wav",
+      "bytes": 48716
+    },
+    "tamawant": {
+      "text": "ⵜⴰⵎⴰⵡⴰⵏⵜ",
+      "file": "tamawant.wav",
+      "bytes": 66124
+    },
+    "tidyannin": {
+      "text": "ⵜⵉⴷⴰⵢⵏⵉⵏ",
+      "file": "tidyannin.wav",
+      "bytes": 64076
+    },
+    "asdurus": {
+      "text": "ⴰⵙⴷⵔⵓⵙ",
+      "file": "asdurus.wav",
+      "bytes": 47180
+    },
+    "asmil": {
+      "text": "ⴰⵙⵎⵉⵍ",
+      "file": "asmil.wav",
+      "bytes": 56396
+    },
+    "tanazza": {
+      "text": "ⵜⴰⵏⴰⵣⵣⴰ",
+      "file": "tanazza.wav",
+      "bytes": 59468
+    },
+    "amnaw": {
+      "text": "ⴰⵎⵏⴰⵡ",
+      "file": "amnaw.wav",
+      "bytes": 50764
+    },
+    "tarract": {
+      "text": "ⵜⴰⵔⵔⴰⵃⵜ",
+      "file": "tarract.wav",
+      "bytes": 58956
+    },
+    "asufagh": {
+      "text": "ⴰⵙⵓⴼⵖ",
+      "file": "asufagh.wav",
+      "bytes": 50764
+    },
+    "yan": {
+      "text": "ⵢⴰⵏ",
+      "file": "yan.wav",
+      "bytes": 48716
+    },
+    "sin": {
+      "text": "ⵙⵉⵏ",
+      "file": "sin.wav",
+      "bytes": 50252
+    },
+    "kradd": {
+      "text": "ⴽⵔⴰⴹ",
+      "file": "kradd.wav",
+      "bytes": 47180
+    },
+    "kkoz": {
+      "text": "ⴽⴽⵓⵣ",
+      "file": "kkoz.wav",
+      "bytes": 44108
+    },
+    "smmus": {
+      "text": "ⵙⵎⵎⵓⵙ",
+      "file": "smmus.wav",
+      "bytes": 52300
+    },
+    "slemad": {
+      "text": "ⵙⵍⵎⴰⴷ",
+      "file": "slemad.wav",
+      "bytes": 54860
+    },
+    "suf": {
+      "text": "ⵙⵓⴼ",
+      "file": "suf.wav",
+      "bytes": 48204
+    },
+    "aran": {
+      "text": "ⴰⵔⴰⵏ",
+      "file": "aran.wav",
+      "bytes": 48204
+    },
+    "gher": {
+      "text": "ⵖⵔ",
+      "file": "gher.wav",
+      "bytes": 40012
+    },
+    "ass": {
+      "text": "ⴰⵙⵙ",
+      "file": "ass.wav",
+      "bytes": 41036
+    },
+    "asgas": {
+      "text": "ⴰⵙⴳⴰⵙ",
+      "file": "asgas.wav",
+      "bytes": 47180
+    },
+    "immalayn": {
+      "text": "ⵉⵎⴰⵍⴰⵢⵏ",
+      "file": "immalayn.wav",
+      "bytes": 64076
+    },
+    "lesson-new": {
+      "text": "ⴰⵙⴷⵔⵓⵙ ⴰⵎⴰⵢⵏⵓⵜ",
+      "file": "lesson-new.wav",
+      "bytes": 83020
+    },
+    "students-learn": {
+      "text": "ⵉⵏⵍⵎⴰⴷⴰⵏ ⵙⵙⵍⵎⴰⴷⴰⵏ",
+      "file": "students-learn.wav",
+      "bytes": 89164
+    }
+  }
+}

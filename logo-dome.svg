@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#58CC02"/>
+      <stop offset="100%" style="stop-color:#46A302"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- App icon background (rounded, vibrant) -->
+  <rect width="512" height="512" rx="115" fill="url(#bgGreen)"/>
+  
+  <!-- Friendly mascot container -->
+  <circle cx="256" cy="230" r="150" fill="#89E219"/>
+  
+  <!-- Stylized dome as friendly character base -->
+  <path d="M 256 120 C 320 120 360 165 360 225 L 360 300 L 152 300 L 152 225 C 152 165 192 120 256 120 Z" fill="#FFFFFF"/>
+  <path d="M 256 145 C 300 145 330 178 330 225 L 330 300 L 182 300 L 182 225 C 182 178 212 145 256 145 Z" fill="#58CC02"/>
+  
+  <!-- Golden dome cap -->
+  <ellipse cx="256" cy="155" rx="38" ry="42" fill="#FFC800"/>
+  <ellipse cx="256" cy="150" rx="32" ry="36" fill="#FFD84D"/>
+  <ellipse cx="246" cy="138" rx="10" ry="13" fill="#FFF3B0" opacity="0.7"/>
+  
+  <!-- Crescent -->
+  <path d="M 256 100 Q 249 92 256 84 Q 263 92 256 100" fill="#FFC800"/>
+  
+  <!-- Big friendly eyes -->
+  <circle cx="220" cy="210" r="26" fill="#FFFFFF"/>
+  <circle cx="292" cy="210" r="26" fill="#FFFFFF"/>
+  <circle cx="226" cy="215" r="13" fill="#1C1C1C"/>
+  <circle cx="298" cy="215" r="13" fill="#1C1C1C"/>
+  <circle cx="220" cy="208" r="5" fill="#FFFFFF"/>
+  <circle cx="292" cy="208" r="5" fill="#FFFFFF"/>
+  
+  <!-- Friendly smile -->
+  <path d="M 225 255 Q 256 280 287 255" stroke="#FFFFFF" stroke-width="8" fill="none" stroke-linecap="round"/>
+  
+  <!-- Open book at base -->
+  <path d="M 200 290 L 200 330 Q 200 336 206 338 L 256 338 L 256 290 Z" fill="#FFFFFF"/>
+  <path d="M 312 290 L 312 330 Q 312 336 306 338 L 256 338 L 256 290 Z" fill="#E8F5E9"/>
+  <line x1="256" y1="290" x2="256" y2="338" stroke="#58CC02" stroke-width="2"/>
+  <line x1="214" y1="305" x2="248" y2="305" stroke="#58CC02" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+  <line x1="214" y1="318" x2="248" y2="318" stroke="#58CC02" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+  <line x1="264" y1="305" x2="298" y2="305" stroke="#58CC02" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+  <line x1="264" y1="318" x2="298" y2="318" stroke="#58CC02" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+  
+  <!-- Text -->
+  <text x="256" y="400" text-anchor="middle" font-family="Arial, 'Segoe UI', sans-serif" font-size="40" fill="#FFFFFF" font-weight="bold">رياض الأقصى</text>
+  <text x="256" y="435" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#E8F5E9" font-weight="600">Institut Ryad Al Aqsa</text>
+  <text x="256" y="462" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#C8E6C9">Groupe scolaire AL-AKSA</text>
+</svg>

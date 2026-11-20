@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-labelledby="diaTitle diaDesc">
+  <title id="diaTitle">La multiplication : 4 × 3 = 12</title>
+  <desc id="diaDesc">Quatre sacs contenant chacun trois pommes, soit douze pommes en tout. Légende : 4 × 3 = 12 et٤ × ٣ = ١٢.</desc>
+  <rect width="640" height="360" fill="#fffaf0"/>
+  <rect x="12" y="12" width="616" height="56" rx="18" fill="#1f6b3a"/>
+  <text x="32" y="48" font-family="sans-serif" font-size="24" font-weight="bold" fill="#fffaf0">La multiplication — الضرب</text>
+  <text x="320" y="100" font-family="sans-serif" font-size="18" fill="#1f2937" text-anchor="middle">4 sacs, 3 pommes dans chaque sac</text>
+  <g stroke="#1f2937" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <g transform="translate(90 190)">
+      <path d="M-26-30q0-26 26-26t26 26" fill="none" stroke="#c96d0e" stroke-width="5"/>
+      <path d="M-38-30h76l6 74q0 12-14 12h-60q-14 0-14-12z" fill="#ff9f1c"/>
+      <g fill="#e5484d"><circle cx="-19" cy="-38" r="11"/><circle cx="2" cy="-44" r="11"/><circle cx="22" cy="-38" r="11"/></g>
+      <path d="M-19-49v-6M2-55v-6M22-49v-6" stroke="#2e8b57" stroke-width="3"/>
+    </g>
+    <g transform="translate(243 190)">
+      <path d="M-26-30q0-26 26-26t26 26" fill="none" stroke="#c96d0e" stroke-width="5"/>
+      <path d="M-38-30h76l6 74q0 12-14 12h-60q-14 0-14-12z" fill="#ff9f1c"/>
+      <g fill="#e5484d"><circle cx="-19" cy="-38" r="11"/><circle cx="2" cy="-44" r="11"/><circle cx="22" cy="-38" r="11"/></g>
+      <path d="M-19-49v-6M2-55v-6M22-49v-6" stroke="#2e8b57" stroke-width="3"/>
+    </g>
+    <g transform="translate(396 190)">
+      <path d="M-26-30q0-26 26-26t26 26" fill="none" stroke="#c96d0e" stroke-width="5"/>
+      <path d="M-38-30h76l6 74q0 12-14 12h-60q-14 0-14-12z" fill="#ff9f1c"/>
+      <g fill="#e5484d"><circle cx="-19" cy="-38" r="11"/><circle cx="2" cy="-44" r="11"/><circle cx="22" cy="-38" r="11"/></g>
+      <path d="M-19-49v-6M2-55v-6M22-49v-6" stroke="#2e8b57" stroke-width="3"/>
+    </g>
+    <g transform="translate(549 190)">
+      <path d="M-26-30q0-26 26-26t26 26" fill="none" stroke="#c96d0e" stroke-width="5"/>
+      <path d="M-38-30h76l6 74q0 12-14 12h-60q-14 0-14-12z" fill="#ff9f1c"/>
+      <g fill="#e5484d"><circle cx="-19" cy="-38" r="11"/><circle cx="2" cy="-44" r="11"/><circle cx="22" cy="-38" r="11"/></g>
+      <path d="M-19-49v-6M2-55v-6M22-49v-6" stroke="#2e8b57" stroke-width="3"/>
+    </g>
+  </g>
+  <rect x="120" y="286" width="400" height="46" rx="16" fill="#1f6b3a"/>
+  <text x="320" y="319" font-family="sans-serif" font-size="30" font-weight="bold" fill="#ffffff" text-anchor="middle">4 × 3 = 12</text>
+  <text x="320" y="350" font-family="sans-serif" font-size="20" fill="#f08a24" text-anchor="middle" direction="rtl">٤ × ٣ = ١٢</text>
+</svg>

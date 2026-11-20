@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160" role="img" aria-labelledby="iraTitle">
+  <title id="iraTitle">Playful maths icon with beads and shapes</title>
+  <defs>
+    <g id="bead">
+      <ellipse rx="7" ry="8" stroke-width="2.5"/>
+    </g>
+  </defs>
+
+  <rect x="6" y="6" width="148" height="148" rx="34" fill="#FFF8E1" stroke="#F5B301" stroke-width="4"/>
+
+  <circle cx="50" cy="42" r="13" fill="#F5B301" stroke="#D98A00" stroke-width="3"/>
+  <path d="M80 28l14 25H66z" fill="#4CAF50" stroke="#2E7D32" stroke-width="3" stroke-linejoin="round"/>
+  <rect x="104" y="29" width="26" height="26" rx="6" fill="#F57C00" stroke="#C96300" stroke-width="3"/>
+
+  <rect x="28" y="72" width="104" height="64" rx="12" fill="#FFE0B2" stroke="#D98A00" stroke-width="4"/>
+  <g stroke="#B7794A" stroke-width="4" stroke-linecap="round">
+    <path d="M36 90h88M36 104h88M36 118h88"/>
+  </g>
+  <g fill="#F5B301" stroke="#D98A00">
+    <use href="#bead" x="52" y="90"/><use href="#bead" x="70" y="90"/><use href="#bead" x="88" y="90"/><use href="#bead" x="106" y="90"/>
+  </g>
+  <g fill="#4CAF50" stroke="#2E7D32">
+    <use href="#bead" x="58" y="104"/><use href="#bead" x="80" y="104"/><use href="#bead" x="102" y="104"/>
+  </g>
+  <g fill="#F57C00" stroke="#C96300">
+    <use href="#bead" x="48" y="118"/><use href="#bead" x="68" y="118"/><use href="#bead" x="88" y="118"/><use href="#bead" x="108" y="118"/>
+  </g>
+</svg>

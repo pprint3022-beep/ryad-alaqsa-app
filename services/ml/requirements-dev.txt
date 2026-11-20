@@ -1,0 +1,4 @@
+# Test-only dependencies for the ML service.
+# Runtime dependencies (including httpx, required by FastAPI's TestClient) come from requirements.txt.
+-r requirements.txt
+pytest==8.2.2

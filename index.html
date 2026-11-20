@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>رياض الأقصى - Institut Ryad Al Aqsa</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="apple-touch-icon" href="logo.svg" />
+  <meta name="theme-color" content="#F5B800" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <script src="i18n.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- Splash -->
+    <section id="screen-splash" class="screen active">
+      <div class="splash-card">
+        <img src="logo.svg" alt="رياض الأقصى" class="logo" onerror="this.style.display='none'"/>
+        <h1>رياض الأقصى</h1>
+        <p class="subtitle">Institut Ryad Al Aqsa</p>
+        <p class="muted">Groupe scolaire AL-AKSA</p>
+        <p class="muted" style="font-size:12px;margin-top:8px">دعم 4 لغات: العربية · Français · English · ⵜⴰⵎⴰⵣⵉⵖⵜ</p>
+        <div style="margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+          <span class="tag ok">تعلّم تفاعلي</span>
+          <span class="tag info">RBAC + Scope</span>
+          <span class="tag warn">AI-Assisted</span>
+        </div>
+        <button class="btn primary" style="margin-top:20px" onclick="showScreen('screen-portal')">ابدأ</button>
+      </div>
+    </section>
+
+    <!-- Portal select -->
+    <section id="screen-portal" class="screen">
+      <div class="card">
+        <h2>اختيار بوابة الولوج</h2>
+        <p class="muted">يتم الفصل بين منصة الإدارة والحسابات الخاصة بعد تسجيل الدخول.</p>
+        <div class="role-grid">
+          <button class="role-btn" onclick="choosePortal('admin')"><span>🖥️</span><strong>منصة المدير والإدارة</strong><small>ولوج عبر الخادم الرئيسي (أقسام خاصة)</small></button>
+          <button class="role-btn" onclick="choosePortal('private')"><span>👤</span><strong>الحسابات الخاصة</strong><small>المعلمون، أولياء الأمور، التلاميذ</small></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Login -->
+    <section id="screen-login" class="screen">
+      <div class="card narrow">
+        <h2 id="login-title">تسجيل الدخول</h2>
+        <p class="muted" id="login-subtitle">أدخل بياناتك للوصول إلى مساحتك</p>
+        <label>البريد الإلكتروني أو الهاتف</label>
+        <input id="login-id" type="text" placeholder="example@email.com" />
+        <label>كلمة المرور</label>
+        <input id="login-pass" type="password" placeholder="••••••••" />
+        <button class="btn primary full" onclick="doLogin()">دخول</button>
+        <button class="btn secondary full" style="margin-top:8px" onclick="showScreen('screen-portal')">رجوع لاختيار البوابة</button>
+        <p class="hint" id="login-hint">تجريبي: سيتم عرض الأدوار المتاحة ضمن البوابة المختارة فقط.</p>
+      </div>
+    </section>
+
+    <!-- Role select -->
+    <section id="screen-roles" class="screen">
+      <div class="card">
+        <h2 id="roles-title">اختر المساحة</h2>
+        <p class="muted" id="roles-subtitle"></p>
+        <div id="roles-grid" class="role-grid"></div>
+        <div class="cta-row" style="margin-top:14px">
+          <button class="btn secondary" onclick="showScreen('screen-login')">تسجيل خروج</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main app shell -->
+    <section id="screen-app" class="screen">
+      <header class="topbar">
+        <div class="topbar-left">
+          <img src="logo.svg" alt="رياض الأقصى" style="width:32px;height:32px;border-radius:8px;margin-left:8px" onerror="this.style.display='none'" />
+          <div class="brand-mini">رياض الأقصى</div>
+          <div id="role-badge" class="badge"></div>
+          <input id="global-search" type="text" placeholder="🔍 بحث..." style="padding:6px 12px;border-radius:12px;border:1px solid #ddd;font-size:13px;width:180px;transition:all 0.3s" onfocus="this.style.width='260px';this.style.borderColor='#58CC02'" onblur="this.style.width='180px';this.style.borderColor='#ddd'" onkeydown="if(event.key==='Enter')doGlobalSearch()" />
+        </div>
+        <div class="topbar-right">
+          <span id="lang-selector-wrap"></span>
+          <button class="icon-btn" title="الإشعارات" onclick="openPanel('notifications')" onmouseenter="this.style.transform='scale(1.2) rotate(10deg)'" onmouseleave="this.style.transform=''">🔔</button>
+          <button class="icon-btn" title="المؤسسة" onclick="openPanel('info')" onmouseenter="this.style.transform='scale(1.2)'" onmouseleave="this.style.transform=''">ℹ️</button>
+          <button class="icon-btn" title="تبديل الحساب/الدور" onclick="showRolesForPortal()" onmouseenter="this.style.transform='scale(1.2) rotate(180deg)'" onmouseleave="this.style.transform=''">⇄</button>
+        </div>
+      </header>
+      <div class="layout">
+        <nav id="sidebar" class="sidebar"></nav>
+        <main id="main" class="main"></main>
+      </div>
+    </section>
+
+    <!-- Panels -->
+    <div id="panel-overlay" class="overlay hidden" onclick="closePanel()"></div>
+    <aside id="panel" class="panel hidden">
+      <div class="panel-header">
+        <h3 id="panel-title"></h3>
+        <button class="icon-btn" onclick="closePanel()">✕</button>
+      </div>
+      <div id="panel-body" class="panel-body"></div>
+    </aside>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

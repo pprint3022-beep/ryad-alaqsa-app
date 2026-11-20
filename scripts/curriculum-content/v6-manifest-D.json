@@ -1,0 +1,145 @@
+[
+  {
+    "curriculumId": "cur4",
+    "levelId": "l_pre",
+    "subjectId": "sub_sci",
+    "unit": "اكتشاف المحيط",
+    "lessons": [
+      "الحواس",
+      "النباتات",
+      "الحيوانات"
+    ]
+  },
+  {
+    "curriculumId": "cur12",
+    "levelId": "l_p2",
+    "subjectId": "sub_fr",
+    "unit": "وحدة 12 — اللغة الفرنسية (الثاني ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur20",
+    "levelId": "l_p4",
+    "subjectId": "sub_es",
+    "unit": "وحدة 20 — الإسبانية (الرابع ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_pre_sub_fr",
+    "levelId": "l_pre",
+    "subjectId": "sub_fr",
+    "unit": "Éveil au français",
+    "lessons": [
+      "Sons et lettres",
+      "Mots simples",
+      "Chansons",
+      "Images"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p1_sub_fr",
+    "levelId": "l_p1",
+    "subjectId": "sub_fr",
+    "unit": "Découverte du français",
+    "lessons": [
+      "Alphabet",
+      "Mots et images",
+      "Phrases simples",
+      "Compréhension orale"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p2_sub_ar",
+    "levelId": "l_p2",
+    "subjectId": "sub_ar",
+    "unit": "القراءة والفهم",
+    "lessons": [
+      "نص قرائي قصير",
+      "استخراج الأفكار",
+      "كتابة جمل",
+      "إملاء"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p2_sub_sport",
+    "levelId": "l_p2",
+    "subjectId": "sub_sport",
+    "unit": "الحركية",
+    "lessons": [
+      "الحركات",
+      "الألعاب",
+      "التعاون",
+      "الصحة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p3_sub_histgeo",
+    "levelId": "l_p3",
+    "subjectId": "sub_histgeo",
+    "unit": "المحيط والزمن",
+    "lessons": [
+      "محيطي",
+      "الزمن",
+      "الخريطة",
+      "البيئة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p4_sub_math",
+    "levelId": "l_p4",
+    "subjectId": "sub_math",
+    "unit": "الكسور والعمليات",
+    "lessons": [
+      "الكسور",
+      "مقارنة الكسور",
+      "جمع الكسور",
+      "مسائل"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p5_sub_fr",
+    "levelId": "l_p5",
+    "subjectId": "sub_fr",
+    "unit": "Analyse et production",
+    "lessons": [
+      "Texte littéraire",
+      "Analyse",
+      "Production écrite",
+      "Grammaire avancée"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p5_sub_art",
+    "levelId": "l_p5",
+    "subjectId": "sub_art",
+    "unit": "التعبير الفني",
+    "lessons": [
+      "الرسم",
+      "التلوين",
+      "الموسيقى",
+      "المسرح"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p6_sub_sci",
+    "levelId": "l_p6",
+    "subjectId": "sub_sci",
+    "unit": "العلوم والمنهج",
+    "lessons": [
+      "الفيزياء",
+      "الكيمياء",
+      "الأحياء",
+      "المنهج العلمي"
+    ]
+  }
+]

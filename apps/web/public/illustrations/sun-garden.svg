@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420" role="img" aria-labelledby="iraTitle">
+  <title id="iraTitle">Institut Ryad Al Aqsa sun garden with two happy children</title>
+  <defs>
+    <radialGradient id="sunCore" cx="38%" cy="32%" r="70%">
+      <stop offset="0" stop-color="#FFD54F"/>
+      <stop offset="0.62" stop-color="#F5B301"/>
+      <stop offset="1" stop-color="#F59F00"/>
+    </radialGradient>
+    <linearGradient id="lawn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4CAF50"/>
+      <stop offset="1" stop-color="#2E7D32"/>
+    </linearGradient>
+    <filter id="chipShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#7A5A00" flood-opacity="0.18"/>
+    </filter>
+    <g id="ira">
+      <path d="M5 2h10v2.5h-3v15h3V22H5v-2.5h3v-15H5z" fill="#2E7D32"/>
+      <circle cx="26" cy="11.5" r="2.6" fill="#F57C00"/>
+      <path d="M36 2h10q7 0 7 5.2 0 4-4 5.4L54 22h-5.2l-7.1-8.4H40V22h-4zm4 3.2v6h5.6q3.3 0 3.3-3 0-3-3.4-3z" fill="#C62828"/>
+      <circle cx="61" cy="11.5" r="2.6" fill="#F57C00"/>
+      <path d="M79.6 2h4.8L92 22h-5l-2.2-5.6h-9.6L72.8 22h-5zm1.6 11h5.6L83.9 6z" fill="#1565C0"/>
+    </g>
+    <g id="kids" stroke-linecap="round" stroke-linejoin="round">
+      <g>
+        <path d="M48 30q12-6 11 8t-12 10" fill="#5D4037" stroke="#3E2723" stroke-width="3"/>
+        <path d="M31 82 29 98M39 82 41 98" fill="none" stroke="#B7794A" stroke-width="9"/>
+        <path d="M31 82 29 98M39 82 41 98" fill="none" stroke="#F6C89A" stroke-width="6"/>
+        <path d="M25 99q5-3 10 0M36 99q5-3 10 0" fill="none" stroke="#C62828" stroke-width="6"/>
+        <path d="M27 54q8-5 16 0l5 30q-13 5-26 0z" fill="#FF8A80" stroke="#C62828" stroke-width="3"/>
+        <path d="M28 58q-9 8-10 20M43 58q10 3 13 9" fill="none" stroke="#B7794A" stroke-width="9"/>
+        <path d="M28 58q-9 8-10 20M43 58q10 3 13 9" fill="none" stroke="#F6C89A" stroke-width="6"/>
+        <circle cx="35" cy="38" r="15" fill="#F6C89A" stroke="#B7794A" stroke-width="3"/>
+        <path d="M20 37a15 15 0 0 1 30 0q-4-11-15-11t-15 11z" fill="#5D4037"/>
+        <circle cx="30" cy="39" r="1.9" fill="#4E342E"/>
+        <circle cx="40" cy="39" r="1.9" fill="#4E342E"/>
+        <path d="M30 45q5 5 10 0" fill="none" stroke="#4E342E" stroke-width="2.4"/>
+        <circle cx="25.5" cy="44" r="3" fill="#FF8A80" opacity="0.65"/>
+        <circle cx="44.5" cy="44" r="3" fill="#FF8A80" opacity="0.65"/>
+      </g>
+      <g>
+        <path d="M79 86 77 98M91 86 93 98" fill="none" stroke="#B7794A" stroke-width="9"/>
+        <path d="M79 86 77 98M91 86 93 98" fill="none" stroke="#F6C89A" stroke-width="6"/>
+        <path d="M72 99q5-3 10 0M88 99q5-3 10 0" fill="none" stroke="#1565C0" stroke-width="6"/>
+        <path d="M74 74h22v11h-8v-5h-6v5h-8z" fill="#1565C0" stroke="#0D47A1" stroke-width="3"/>
+        <path d="M76 56q9-5 18 0l2 20H74z" fill="#64B5F6" stroke="#1565C0" stroke-width="3"/>
+        <path d="M77 60q-8 2-12 8M94 60q10 8 9 20" fill="none" stroke="#B7794A" stroke-width="9"/>
+        <path d="M77 60q-8 2-12 8M94 60q10 8 9 20" fill="none" stroke="#F6C89A" stroke-width="6"/>
+        <circle cx="85" cy="40" r="15" fill="#F6C89A" stroke="#B7794A" stroke-width="3"/>
+        <path d="M70 39a15 15 0 0 1 30 0q-5-10-15-10t-15 10z" fill="#3E2723"/>
+        <circle cx="80" cy="41" r="1.9" fill="#4E342E"/>
+        <circle cx="90" cy="41" r="1.9" fill="#4E342E"/>
+        <path d="M80 47q5 5 10 0" fill="none" stroke="#4E342E" stroke-width="2.4"/>
+        <circle cx="75.5" cy="46" r="3" fill="#FF8A80" opacity="0.65"/>
+        <circle cx="94.5" cy="46" r="3" fill="#FF8A80" opacity="0.65"/>
+      </g>
+      <circle cx="60" cy="68" r="6" fill="#F6C89A" stroke="#B7794A" stroke-width="2.5"/>
+    </g>
+  </defs>
+
+  <g stroke="#F57C00" stroke-width="11" stroke-linecap="round">
+    <path d="M320 52V26M360 63l12-21M389 92l21-12M400 132h26M389 172l21 12M360 201l12 21M320 212v26M280 201l-12 21M251 172l-21 12M240 132h-26M251 92l-21-12M280 63l-12-21"/>
+  </g>
+  <circle cx="320" cy="132" r="68" fill="url(#sunCore)" stroke="#D98A00" stroke-width="5"/>
+  <g fill="#4E342E">
+    <circle cx="300" cy="124" r="6"/>
+    <circle cx="340" cy="124" r="6"/>
+  </g>
+  <g fill="#FFFFFF" opacity="0.9">
+    <circle cx="298" cy="122" r="2"/>
+    <circle cx="338" cy="122" r="2"/>
+  </g>
+  <path d="M296 148q24 26 48 0" fill="none" stroke="#4E342E" stroke-width="6" stroke-linecap="round"/>
+  <g fill="#FF8A80" opacity="0.6">
+    <ellipse cx="282" cy="141" rx="12" ry="7"/>
+    <ellipse cx="358" cy="141" rx="12" ry="7"/>
+  </g>
+
+  <g fill="#FFD54F">
+    <path d="M166 146l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/>
+    <path d="M468 168l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+    <circle cx="196" cy="208" r="4"/>
+    <circle cx="452" cy="218" r="3.5"/>
+  </g>
+
+  <path d="M0 344q80-26 160-6t160-4q80-24 160 2t160-6v90H0z" fill="url(#lawn)"/>
+  <path d="M0 386q120-22 240-2t240-4q80-18 160 0v40H0z" fill="#2E7D32" opacity="0.3"/>
+  <g fill="none" stroke="#2E7D32" stroke-width="4" stroke-linecap="round">
+    <path d="M56 358l-5-12M62 358l4-14M150 366l-5-12M156 366l5-13M476 356l-5-12M482 356l5-13M580 364l-5-12M586 364l5-13"/>
+  </g>
+  <g fill="#FFF8E1">
+    <circle cx="94" cy="376" r="4"/><circle cx="214" cy="390" r="3.5"/><circle cx="430" cy="382" r="4"/><circle cx="548" cy="396" r="3.5"/>
+  </g>
+  <g fill="#F5B301">
+    <circle cx="94" cy="376" r="1.8"/><circle cx="430" cy="382" r="1.8"/>
+  </g>
+
+  <g transform="translate(212 168) scale(1.8)">
+    <use href="#kids"/>
+  </g>
+
+  <g filter="url(#chipShadow)">
+    <g transform="rotate(-4 159 61)">
+      <rect x="64" y="34" width="190" height="54" rx="20" fill="#FFFFFF" stroke="#E8C86A" stroke-width="2"/>
+      <use href="#ira" transform="translate(86.25 43) scale(1.5)"/>
+    </g>
+    <g transform="rotate(5 505 272)">
+      <rect x="430" y="250" width="150" height="44" rx="16" fill="#FFFFFF" stroke="#E8C86A" stroke-width="2"/>
+      <use href="#ira" transform="translate(454.08 259.4) scale(1.05)"/>
+    </g>
+  </g>
+</svg>

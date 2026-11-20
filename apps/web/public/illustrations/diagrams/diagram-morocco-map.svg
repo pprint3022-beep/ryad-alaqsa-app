@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-labelledby="mapTitle mapDesc">
+  <title id="mapTitle">خريطة المملكة المغربية / Carte du Royaume du Maroc</title>
+  <desc id="mapDesc">خريطة توضيحية تمثل إقليم المملكة المغربية كوحدة واحدة متصلة، مع مدن الرباط والدار البيضاء ومراكش في مواضعها الصحيحة، وعلم المملكة بنجمة خماسية خضراء. Carte illustrée représentant le territoire du Royaume du Maroc de façon continue, avec Rabat, Casablanca et Marrakech à leur emplacement, ainsi que le drapeau du Royaume orné d'une étoile verte à cinq branches.</desc>
+
+  <rect width="640" height="360" fill="#fffaf0"/>
+
+  <!-- Header -->
+  <rect x="12" y="12" width="616" height="50" rx="18" fill="#1f6b3a"/>
+  <text x="320" y="45" font-family="sans-serif" font-size="22" font-weight="bold" fill="#fffaf0" text-anchor="middle" direction="rtl">المملكة المغربية · Royaume du Maroc</text>
+
+  <!-- National territory: one continuous outline (Morocco + southern provinces) -->
+  <path d="M375.3 76.1 L383.9 82.9 L397.4 81.8 L412.1 85.4 L418.2 85.5 L423.6 95.9 L424.4 105.7 L429.3 122.7 L433.1 126.1 L430.5 132.4 L411.9 135.1 L405.5 141.1 L397.3 142.5 L396.7 154.4 L380.1 160.8 L374.6 168.9 L363 173.2 L348.9 175.7 L326 187.6 L326.1 206.7 L323.9 206.7 L323.9 206.7 L324.2 215.3 L315.5 215.8 L310.9 219.5 L304.5 219.5 L299.3 217.4 L287.4 219.1 L282.8 231.7 L278.3 232.9 L271.7 253.2 L251.9 270.6 L247.3 292.9 L241.5 300.1 L239.7 305.9 L207.8 307.2 L207.6 307.2 L208.2 299.7 L213.7 295.3 L218.3 286.9 L217.4 281.5 L222.3 270.1 L230.2 259.8 L234.9 257.2 L238.7 247.8 L239 239.2 L244.2 229.3 L253.6 223.4 L262.6 206.9 L262.9 206.7 L270 200.5 L283.2 198.7 L294.4 187.7 L301.5 183.4 L313.3 169.9 L309.8 149.9 L315.2 136 L317.1 127.5 L326.2 116.6 L340.4 109.3 L350.9 102.6 L360.4 85.9 L364.9 76 L375.3 76.1 Z M324.2 215.3 L323.9 206.7 L326.1 206.7 L326.1 207.7 L325.8 210.9 L325.8 235.3 L279.2 234.4 L279.7 275.7 L266.4 277.2 L262.9 285.4 L265.6 308.7 L210 308.6 L206.9 314 L207.6 307.2 L207.8 307.2 L239.7 305.9 L241.5 300.1 L247.3 292.9 L251.9 270.6 L271.7 253.2 L278.3 232.9 L282.8 231.7 L287.4 219.1 L299.3 217.4 L304.5 219.5 L310.9 219.5 L315.5 215.8 L324.2 215.3 Z"
+        fill="#2e8b57" stroke="#1f6b3a" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- Cities, positioned from their real coordinates -->
+  <g>
+    <circle cx="352" cy="104.1" r="6.5" fill="#f4c542" stroke="#1f2937" stroke-width="2"/>
+    <text x="352" y="104.1" dy="0.34em" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1f2937" text-anchor="middle">1</text>
+    <circle cx="341.3" cy="111.3" r="6.5" fill="#f4c542" stroke="#1f2937" stroke-width="2"/>
+    <text x="341.3" y="111.3" dy="0.34em" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1f2937" text-anchor="middle">2</text>
+    <circle cx="335.7" cy="142.6" r="6.5" fill="#f4c542" stroke="#1f2937" stroke-width="2"/>
+    <text x="335.7" y="142.6" dy="0.34em" font-family="sans-serif" font-size="9" font-weight="bold" fill="#1f2937" text-anchor="middle">3</text>
+  </g>
+
+  <!-- City legend -->
+  <rect x="444" y="82" width="182" height="142" rx="14" fill="#ffffff" stroke="#cfe8d5" stroke-width="2"/>
+  <text x="614" y="102" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1f6b3a" text-anchor="start" direction="rtl">المدن الرئيسية</text>
+  <text x="614" y="118" font-family="sans-serif" font-size="11" font-weight="bold" fill="#f08a24" text-anchor="end">Villes principales</text>
+
+  <circle cx="459" cy="140" r="9" fill="#f4c542" stroke="#1f2937" stroke-width="2"/>
+  <text x="459" y="140" dy="0.34em" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937" text-anchor="middle">1</text>
+  <text x="614" y="138" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f2937" text-anchor="start" direction="rtl">الرباط</text>
+  <text x="614" y="152" font-family="sans-serif" font-size="11" fill="#4b5563" text-anchor="end">Rabat</text>
+
+  <circle cx="459" cy="168" r="9" fill="#f4c542" stroke="#1f2937" stroke-width="2"/>
+  <text x="459" y="168" dy="0.34em" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937" text-anchor="middle">2</text>
+  <text x="614" y="166" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f2937" text-anchor="start" direction="rtl">الدار البيضاء</text>
+  <text x="614" y="180" font-family="sans-serif" font-size="11" fill="#4b5563" text-anchor="end">Casablanca</text>
+
+  <circle cx="459" cy="196" r="9" fill="#f4c542" stroke="#1f2937" stroke-width="2"/>
+  <text x="459" y="196" dy="0.34em" font-family="sans-serif" font-size="10" font-weight="bold" fill="#1f2937" text-anchor="middle">3</text>
+  <text x="614" y="194" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1f2937" text-anchor="start" direction="rtl">مراكش</text>
+  <text x="614" y="208" font-family="sans-serif" font-size="11" fill="#4b5563" text-anchor="end">Marrakech</text>
+
+  <!-- Flag of the Kingdom of Morocco: authentic interlaced green pentagram -->
+  <rect x="500" y="236" width="90" height="60" rx="2" fill="#c1272d" stroke="#1f2937" stroke-width="2"/>
+  <g transform="translate(500 236) scale(0.001)">
+    <path fill="none" stroke="#006233" stroke-width="1426" stroke-linejoin="miter" d="m45000 17308 7460 22960-19531-14190h24142L37540 40268z"/>
+  </g>
+  <text x="545" y="316" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1f6b3a" text-anchor="middle" direction="rtl">المغرب / Maroc</text>
+
+  <!-- Caption -->
+  <text x="320" y="344" font-family="sans-serif" font-size="13" fill="#1f6b3a" text-anchor="middle">خريطة توضيحية للمدن الرئيسية — Carte illustrative des villes principales</text>
+</svg>

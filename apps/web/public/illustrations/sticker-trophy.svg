@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160" role="img" aria-labelledby="iraTitle">
+  <title id="iraTitle">Gold trophy reward sticker with I · R · A on the base</title>
+  <defs>
+    <linearGradient id="cupGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFD54F"/>
+      <stop offset="1" stop-color="#F5B301"/>
+    </linearGradient>
+    <g id="ira">
+      <path d="M5 2h10v2.5h-3v15h3V22H5v-2.5h3v-15H5z" fill="#2E7D32"/>
+      <circle cx="26" cy="11.5" r="2.6" fill="#F57C00"/>
+      <path d="M36 2h10q7 0 7 5.2 0 4-4 5.4L54 22h-5.2l-7.1-8.4H40V22h-4zm4 3.2v6h5.6q3.3 0 3.3-3 0-3-3.4-3z" fill="#C62828"/>
+      <circle cx="61" cy="11.5" r="2.6" fill="#F57C00"/>
+      <path d="M79.6 2h4.8L92 22h-5l-2.2-5.6h-9.6L72.8 22h-5zm1.6 11h5.6L83.9 6z" fill="#1565C0"/>
+    </g>
+  </defs>
+
+  <rect x="8" y="8" width="144" height="144" rx="34" fill="#FFF8E1" stroke="#F5B301" stroke-width="4"/>
+
+  <g fill="none" stroke="#D98A00" stroke-width="8" stroke-linecap="round">
+    <path d="M48 46q-18 0-18 14t18 14M112 46q18 0 18 14t-18 14"/>
+  </g>
+  <path d="M46 36h68v26q0 28-34 34-34-6-34-34z" fill="url(#cupGold)" stroke="#D98A00" stroke-width="4" stroke-linejoin="round"/>
+  <rect x="42" y="30" width="76" height="11" rx="5" fill="#FFD54F" stroke="#D98A00" stroke-width="3"/>
+  <path d="M56 48v16" fill="none" stroke="#FFF6D0" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+  <path d="M80 50l3 9 9 0-7 6 3 9-8-6-8 6 3-9-7-6 9 0z" fill="#FFFFFF" opacity="0.8"/>
+
+  <path d="M72 96h16v16H72z" fill="#E8A100" stroke="#D98A00" stroke-width="3"/>
+  <path d="M58 112h44l6 20H52z" fill="#FFD54F" stroke="#D98A00" stroke-width="4" stroke-linejoin="round"/>
+
+  <rect x="54" y="115" width="52" height="16" rx="7" fill="#FFFFFF" stroke="#D98A00" stroke-width="2"/>
+  <use href="#ira" transform="translate(55.75 117) scale(0.5)"/>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160" role="img" aria-labelledby="iraTitle">
+  <title id="iraTitle">Reading icon with an open book and a little sun</title>
+  <defs>
+    <radialGradient id="sunCore" cx="38%" cy="32%" r="70%">
+      <stop offset="0" stop-color="#FFD54F"/>
+      <stop offset="1" stop-color="#F5B301"/>
+    </radialGradient>
+    <g id="ira">
+      <path d="M5 2h10v2.5h-3v15h3V22H5v-2.5h3v-15H5z" fill="#2E7D32"/>
+      <circle cx="26" cy="11.5" r="2.6" fill="#F57C00"/>
+      <path d="M36 2h10q7 0 7 5.2 0 4-4 5.4L54 22h-5.2l-7.1-8.4H40V22h-4zm4 3.2v6h5.6q3.3 0 3.3-3 0-3-3.4-3z" fill="#C62828"/>
+      <circle cx="61" cy="11.5" r="2.6" fill="#F57C00"/>
+      <path d="M79.6 2h4.8L92 22h-5l-2.2-5.6h-9.6L72.8 22h-5zm1.6 11h5.6L83.9 6z" fill="#1565C0"/>
+    </g>
+  </defs>
+
+  <rect x="6" y="6" width="148" height="148" rx="34" fill="#FFF8E1" stroke="#F5B301" stroke-width="4"/>
+
+  <g stroke="#F57C00" stroke-width="4" stroke-linecap="round">
+    <path d="M80 14V8M94 20l5-5M100 34h6M66 20l-5-5M60 34h-6"/>
+  </g>
+  <circle cx="80" cy="34" r="13" fill="url(#sunCore)" stroke="#D98A00" stroke-width="3"/>
+  <circle cx="75.5" cy="32" r="1.8" fill="#4E342E"/>
+  <circle cx="84.5" cy="32" r="1.8" fill="#4E342E"/>
+  <path d="M75 39q5 5 10 0" fill="none" stroke="#4E342E" stroke-width="2.4" stroke-linecap="round"/>
+
+  <path d="M78 62q-18-12-38-10v52q20-2 38 10z" fill="#FFFFFF" stroke="#1565C0" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M82 62q18-12 38-10v52q-20-2-38 10z" fill="#FFFFFF" stroke="#1565C0" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M80 62v52" fill="none" stroke="#1565C0" stroke-width="3"/>
+  <g fill="none" stroke="#90CAF9" stroke-width="3" stroke-linecap="round">
+    <path d="M48 72q14-2 24 6M48 84q14-2 24 6M48 96q14-2 24 6"/>
+    <path d="M88 78q10-8 24-6M88 90q10-8 24-6M88 102q10-8 24-6"/>
+  </g>
+
+  <rect x="50" y="120" width="60" height="20" rx="9" fill="#FFFFFF" stroke="#E8C86A" stroke-width="2"/>
+  <use href="#ira" transform="translate(56.72 124.24) scale(0.48)"/>
+</svg>

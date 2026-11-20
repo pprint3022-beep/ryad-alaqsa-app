@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-labelledby="iraTitle">
+  <title id="iraTitle">Celebrating sun mascot with raised arms and confetti</title>
+  <defs>
+    <radialGradient id="sunCore" cx="38%" cy="32%" r="70%">
+      <stop offset="0" stop-color="#FFD54F"/>
+      <stop offset="0.62" stop-color="#F5B301"/>
+      <stop offset="1" stop-color="#F59F00"/>
+    </radialGradient>
+    <g id="ira">
+      <path d="M5 2h10v2.5h-3v15h3V22H5v-2.5h3v-15H5z" fill="#2E7D32"/>
+      <circle cx="26" cy="11.5" r="2.6" fill="#F57C00"/>
+      <path d="M36 2h10q7 0 7 5.2 0 4-4 5.4L54 22h-5.2l-7.1-8.4H40V22h-4zm4 3.2v6h5.6q3.3 0 3.3-3 0-3-3.4-3z" fill="#C62828"/>
+      <circle cx="61" cy="11.5" r="2.6" fill="#F57C00"/>
+      <path d="M79.6 2h4.8L92 22h-5l-2.2-5.6h-9.6L72.8 22h-5zm1.6 11h5.6L83.9 6z" fill="#1565C0"/>
+    </g>
+  </defs>
+
+  <g>
+    <rect x="24" y="54" width="12" height="7" rx="3.5" fill="#4CAF50" transform="rotate(28 30 57.5)"/>
+    <rect x="46" y="28" width="10" height="6" rx="3" fill="#1565C0" transform="rotate(-24 51 31)"/>
+    <rect x="190" y="38" width="12" height="7" rx="3.5" fill="#C62828" transform="rotate(-32 196 41.5)"/>
+    <rect x="210" y="68" width="10" height="6" rx="3" fill="#4CAF50" transform="rotate(22 215 71)"/>
+    <rect x="26" y="172" width="10" height="6" rx="3" fill="#F57C00" transform="rotate(-20 31 175)"/>
+    <rect x="204" y="176" width="12" height="7" rx="3.5" fill="#1565C0" transform="rotate(30 210 179.5)"/>
+    <circle cx="36" cy="88" r="4" fill="#FFD54F"/>
+    <circle cx="202" cy="94" r="3.5" fill="#F57C00"/>
+    <circle cx="62" cy="204" r="4" fill="#C62828"/>
+    <circle cx="178" cy="204" r="4" fill="#4CAF50"/>
+  </g>
+
+  <g stroke="#F57C00" stroke-width="9" stroke-linecap="round">
+    <path d="M120 50V30M158 61l11-19M186 89l19-11M196 126h22M186 163l19 11M158 191l11 19M120 202v22M82 191l-11 19M54 163l-19 11M44 126H22M54 89l-19-11M82 61l-11-19"/>
+  </g>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M78 166Q48 152 42 116M162 166Q192 152 198 116" stroke="#D98A00" stroke-width="11"/>
+    <path d="M78 166Q48 152 42 116M162 166Q192 152 198 116" stroke="#F5B301" stroke-width="7"/>
+    <path d="M104 186v18M136 186v18" stroke="#D98A00" stroke-width="9"/>
+  </g>
+  <g fill="#F57C00" stroke="#D98A00" stroke-width="3">
+    <ellipse cx="100" cy="208" rx="12" ry="6"/>
+    <ellipse cx="140" cy="208" rx="12" ry="6"/>
+  </g>
+
+  <circle cx="120" cy="126" r="64" fill="url(#sunCore)" stroke="#D98A00" stroke-width="4"/>
+  <g fill="#F5B301" stroke="#D98A00" stroke-width="4">
+    <circle cx="42" cy="110" r="10"/>
+    <circle cx="198" cy="110" r="10"/>
+  </g>
+  <g fill="none" stroke="#D98A00" stroke-width="2.5" stroke-linecap="round">
+    <path d="M35 103v-6M42 100v-7M49 103v-6M191 103v-6M198 100v-7M205 103v-6"/>
+  </g>
+
+  <g fill="none" stroke="#4E342E" stroke-width="5" stroke-linecap="round">
+    <path d="M96 116q8-10 16 0M128 116q8-10 16 0"/>
+  </g>
+  <path d="M104 142q16 20 32 0z" fill="#5D4037" stroke="#4E342E" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M114 153q6 5 12 0" fill="none" stroke="#FF8A80" stroke-width="4" stroke-linecap="round"/>
+  <g fill="#FF8A80" opacity="0.7">
+    <ellipse cx="86" cy="136" rx="9" ry="5"/>
+    <ellipse cx="154" cy="136" rx="9" ry="5"/>
+  </g>
+
+  <rect x="64" y="214" width="112" height="24" rx="12" fill="#FFFFFF" stroke="#E8C86A" stroke-width="2"/>
+  <use href="#ira" transform="translate(81.2 215.4) scale(0.8)"/>
+</svg>

@@ -1,0 +1,145 @@
+[
+  {
+    "curriculumId": "cur2",
+    "levelId": "l_p4",
+    "subjectId": "sub_ar",
+    "unit": "القراءة والفهم",
+    "lessons": [
+      "نص قرائي",
+      "استخراج الأفكار",
+      "تعبير"
+    ]
+  },
+  {
+    "curriculumId": "cur10",
+    "levelId": "l_p1",
+    "subjectId": "sub_de",
+    "unit": "وحدة 10 — الألمانية (الأول ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur18",
+    "levelId": "l_p4",
+    "subjectId": "sub_fr",
+    "unit": "وحدة 18 — اللغة الفرنسية (الرابع ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur26",
+    "levelId": "l_p6",
+    "subjectId": "sub_de",
+    "unit": "وحدة 26 — الألمانية (السادس ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_pre_sub_sport",
+    "levelId": "l_pre",
+    "subjectId": "sub_sport",
+    "unit": "الحركية",
+    "lessons": [
+      "الحركات",
+      "الألعاب",
+      "التعاون",
+      "الصحة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p1_sub_art",
+    "levelId": "l_p1",
+    "subjectId": "sub_art",
+    "unit": "التعبير الفني",
+    "lessons": [
+      "الرسم",
+      "التلوين",
+      "الموسيقى",
+      "المسرح"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p2_sub_cul",
+    "levelId": "l_p2",
+    "subjectId": "sub_cul",
+    "unit": "الثقافة العامة",
+    "lessons": [
+      "الثقافة",
+      "الفن",
+      "الرياضة",
+      "المجتمع"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p3_sub_isl",
+    "levelId": "l_p3",
+    "subjectId": "sub_isl",
+    "unit": "العبادات والأخلاق",
+    "lessons": [
+      "الصوم",
+      "الأخلاق",
+      "التعاون",
+      "السيرة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p4_sub_en",
+    "levelId": "l_p4",
+    "subjectId": "sub_en",
+    "unit": "Basic English",
+    "lessons": [
+      "Greetings",
+      "Colors & Numbers",
+      "Simple Sentences",
+      "Listening"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p4_sub_sport",
+    "levelId": "l_p4",
+    "subjectId": "sub_sport",
+    "unit": "الحركية",
+    "lessons": [
+      "الحركات",
+      "الألعاب",
+      "التعاون",
+      "الصحة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p5_sub_histgeo",
+    "levelId": "l_p5",
+    "subjectId": "sub_histgeo",
+    "unit": "المغرب والعالم",
+    "lessons": [
+      "المغرب",
+      "العالم",
+      "الخريطة",
+      "البيئة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p6_sub_math",
+    "levelId": "l_p6",
+    "subjectId": "sub_math",
+    "unit": "الاستدلال والمسائل",
+    "lessons": [
+      "الكسور والنسب",
+      "المسائل المركبة",
+      "الهندسة",
+      "الإحصاء"
+    ]
+  }
+]

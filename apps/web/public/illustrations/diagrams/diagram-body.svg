@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-labelledby="diaTitle diaDesc">
+  <title id="diaTitle">Les parties du corps</title>
+  <desc id="diaDesc">Un enfant souriant avec des flèches vers la tête, l'œil, la main et le pied, étiquetés en français et en arabe.</desc>
+  <rect width="640" height="360" fill="#fffaf0"/>
+  <rect x="12" y="12" width="616" height="56" rx="18" fill="#1f6b3a"/>
+  <text x="32" y="48" font-family="sans-serif" font-size="24" font-weight="bold" fill="#fffaf0">Le corps humain — جسم الإنسان</text>
+  <g stroke="#1f2937" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M300 258v50M340 258v50" stroke="#2e8b57" stroke-width="16"/>
+    <path d="M285 190l-38 48M355 190l38 48" stroke="#f6c89a" stroke-width="14"/>
+    <circle cx="243" cy="241" r="10" fill="#f6c89a"/><circle cx="397" cy="241" r="10" fill="#f6c89a"/>
+    <rect x="280" y="162" width="80" height="100" rx="24" fill="#f08a24"/>
+    <path d="M280 200q40 16 80 0" fill="none" stroke="#ffb35c" stroke-width="5"/>
+    <circle cx="320" cy="120" r="38" fill="#f6c89a"/>
+    <path d="M282 116a38 38 0 0 1 76 0q-8-22-38-22t-38 22z" fill="#4a3527"/>
+    <circle cx="306" cy="118" r="4" fill="#1f2937" stroke="none"/><circle cx="334" cy="118" r="4" fill="#1f2937" stroke="none"/>
+    <circle cx="304" cy="116" r="1.4" fill="#ffffff" stroke="none"/><circle cx="332" cy="116" r="1.4" fill="#ffffff" stroke="none"/>
+    <path d="M308 140q12 12 24 0" fill="none" stroke="#1f2937" stroke-width="3"/>
+    <circle cx="290" cy="134" r="6" fill="#f48fb1" stroke="none" opacity="0.7"/><circle cx="350" cy="134" r="6" fill="#f48fb1" stroke="none" opacity="0.7"/>
+    <ellipse cx="296" cy="310" rx="17" ry="9" fill="#1f2937"/><ellipse cx="344" cy="310" rx="17" ry="9" fill="#1f2937"/>
+  </g>
+  <g stroke="#f08a24" stroke-width="3" stroke-linecap="round">
+    <path d="M168 118h100"/><path d="M452 108h-96"/><path d="M470 238h-62"/><path d="M166 306h116"/>
+  </g>
+  <g fill="#f08a24"><circle cx="284" cy="118" r="4"/><circle cx="340" cy="118" r="4"/><circle cx="396" cy="238" r="4"/><circle cx="290" cy="306" r="4"/></g>
+  <g font-family="sans-serif" font-weight="bold" fill="#1f2937" font-size="19">
+    <text x="24" y="108">tête</text><text x="462" y="98">œil</text>
+    <text x="480" y="228">main</text><text x="24" y="296">pied</text>
+  </g>
+  <g font-family="sans-serif" fill="#1f6b3a" font-size="18" direction="rtl">
+    <text x="24" y="136">رأس</text><text x="470" y="126">عين</text>
+    <text x="490" y="256">يد</text><text x="24" y="324">قدم</text>
+  </g>
+</svg>

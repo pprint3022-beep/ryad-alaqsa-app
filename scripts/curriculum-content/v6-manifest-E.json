@@ -1,0 +1,146 @@
+[
+  {
+    "curriculumId": "cur5",
+    "levelId": "l_pre",
+    "subjectId": "sub_ar",
+    "unit": "وحدة 5 — اللغة العربية (تمهيدي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur13",
+    "levelId": "l_p2",
+    "subjectId": "sub_en",
+    "unit": "وحدة 13 — اللغة الإنجليزية (الثاني ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur21",
+    "levelId": "l_p4",
+    "subjectId": "sub_de",
+    "unit": "وحدة 21 — الألمانية (الرابع ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_pre_sub_amz",
+    "levelId": "l_pre",
+    "subjectId": "sub_amz",
+    "unit": "Tifinagh & Oral",
+    "lessons": [
+      "Tifinagh letters",
+      "Simple words",
+      "Songs",
+      "Culture"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p1_sub_amz",
+    "levelId": "l_p1",
+    "subjectId": "sub_amz",
+    "unit": "Découverte",
+    "lessons": [
+      "Tifinagh",
+      "Mots simples",
+      "Phrases",
+      "Culture amazighe"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p2_sub_fr",
+    "levelId": "l_p2",
+    "subjectId": "sub_fr",
+    "unit": "Lecture de base",
+    "lessons": [
+      "Alphabet",
+      "Mots simples",
+      "Phrases",
+      "Compréhension"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p3_sub_ar",
+    "levelId": "l_p3",
+    "subjectId": "sub_ar",
+    "unit": "القراءة والتحليل",
+    "lessons": [
+      "نص قرائي",
+      "فهم واستنتاج",
+      "تعبير كتابي",
+      "قواعد نحوية أساسية"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p3_sub_cul",
+    "levelId": "l_p3",
+    "subjectId": "sub_cul",
+    "unit": "الثقافة والمواطنة",
+    "lessons": [
+      "الثقافة",
+      "الفن",
+      "الرياضة",
+      "المواطنة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p4_sub_isl",
+    "levelId": "l_p4",
+    "subjectId": "sub_isl",
+    "unit": "العبادات والأخلاق",
+    "lessons": [
+      "الزكاة",
+      "الأخلاق",
+      "التعاون",
+      "السيرة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p5_sub_en",
+    "levelId": "l_p5",
+    "subjectId": "sub_en",
+    "unit": "Communication",
+    "lessons": [
+      "Daily Expressions",
+      "Reading Short Texts",
+      "Writing Sentences",
+      "Grammar Basics"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p5_sub_sport",
+    "levelId": "l_p5",
+    "subjectId": "sub_sport",
+    "unit": "الحركية",
+    "lessons": [
+      "الحركات",
+      "الألعاب",
+      "التعاون",
+      "الصحة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p6_sub_histgeo",
+    "levelId": "l_p6",
+    "subjectId": "sub_histgeo",
+    "unit": "المغرب والعالم",
+    "lessons": [
+      "المغرب",
+      "العالم",
+      "الخريطة",
+      "البيئة"
+    ]
+  }
+]

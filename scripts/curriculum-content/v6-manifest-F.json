@@ -1,0 +1,146 @@
+[
+  {
+    "curriculumId": "cur6",
+    "levelId": "l_pre",
+    "subjectId": "sub_en",
+    "unit": "وحدة 6 — اللغة الإنجليزية (تمهيدي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur14",
+    "levelId": "l_p2",
+    "subjectId": "sub_amz",
+    "unit": "وحدة 14 — اللغة الأمازيغية (الثاني ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur22",
+    "levelId": "l_p5",
+    "subjectId": "sub_es",
+    "unit": "وحدة 22 — الإسبانية (الخامس ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_pre_sub_math",
+    "levelId": "l_pre",
+    "subjectId": "sub_math",
+    "unit": "العد والأشكال",
+    "lessons": [
+      "العد حتى 10",
+      "الأشكال",
+      "المقارنة",
+      "التصنيف"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p1_sub_math",
+    "levelId": "l_p1",
+    "subjectId": "sub_math",
+    "unit": "الأعداد والعمليات",
+    "lessons": [
+      "الأعداد حتى 100",
+      "الجمع والطرح",
+      "حل مسائل",
+      "الهندسة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p2_sub_amz",
+    "levelId": "l_p2",
+    "subjectId": "sub_amz",
+    "unit": "Lecture de base",
+    "lessons": [
+      "Tifinagh",
+      "Mots",
+      "Phrases simples",
+      "Compréhension"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p3_sub_fr",
+    "levelId": "l_p3",
+    "subjectId": "sub_fr",
+    "unit": "Lecture et expression",
+    "lessons": [
+      "Texte court",
+      "Compréhension",
+      "Expression écrite",
+      "Grammaire de base"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p3_sub_art",
+    "levelId": "l_p3",
+    "subjectId": "sub_art",
+    "unit": "التعبير الفني",
+    "lessons": [
+      "الرسم",
+      "التلوين",
+      "الموسيقى",
+      "المسرح"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p4_sub_sci",
+    "levelId": "l_p4",
+    "subjectId": "sub_sci",
+    "unit": "العلوم والتجارب",
+    "lessons": [
+      "المواد",
+      "الطاقة",
+      "التجارب",
+      "البيئة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p5_sub_amz",
+    "levelId": "l_p5",
+    "subjectId": "sub_amz",
+    "unit": "Analyse et production",
+    "lessons": [
+      "Texte littéraire",
+      "Analyse",
+      "Production",
+      "Culture"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p6_sub_ar",
+    "levelId": "l_p6",
+    "subjectId": "sub_ar",
+    "unit": "الأدب والتعبير",
+    "lessons": [
+      "نص أدبي/شعري",
+      "تحليل وتقييم",
+      "تعبير إنشائي",
+      "قواعد وصرف"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p6_sub_cul",
+    "levelId": "l_p6",
+    "subjectId": "sub_cul",
+    "unit": "الثقافة والمواطنة",
+    "lessons": [
+      "الثقافة",
+      "الفن",
+      "الرياضة",
+      "المواطنة"
+    ]
+  }
+]

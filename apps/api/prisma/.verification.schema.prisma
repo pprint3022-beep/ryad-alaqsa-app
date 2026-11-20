@@ -1,0 +1,713 @@
+// Prisma Schema for Ryad Al Aqsa Educational Platform
+// Migrated from prototype (JSON file) to PostgreSQL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Enums
+enum Role {
+  director
+  deputy
+  supervisor
+  clerk
+  admin
+  teacher
+  parent
+  student
+}
+
+enum Portal {
+  admin_portal
+  private
+}
+
+enum CardStatus {
+  proposed
+  approved
+  rejected
+  in_progress
+  completed
+}
+
+enum CaseStatus {
+  active
+  paused
+  closed
+}
+
+enum InterventionType {
+  support_program
+  enrichment_program
+}
+
+enum AssessmentType {
+  diagnostic
+  formative
+  summative
+  intake
+}
+
+enum CompetencyStatus {
+  gap
+  needs_support
+  in_progress
+  mastered
+}
+
+enum CommStatus {
+  draft
+  approved
+  sent
+  cancelled
+}
+
+enum ActivityType {
+  club
+  competition
+  community
+  event
+}
+
+// Models
+model User {
+  id        String   @id
+  name      String
+  email     String?  @unique
+  phone     String?
+  password  String
+  role      Role
+  portal    Portal
+  scope     Json     @default("{}")
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  sessions  Session[]
+  auditLogs AuditLog[]
+  taughtClasses Class[] @relation("TeacherClasses")
+  children  Student[] @relation("Guardian")
+  feedbackCards FeedbackCard[]
+  cases Case[]
+  engagementLogs EngagementLog[]
+}
+
+model Session {
+  id          String    @id
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  refreshHash String
+  expiresAt   DateTime
+  rotatedAt   DateTime?
+  createdAt   DateTime  @default(now())
+  revokedAt   DateTime?
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model AuditLog {
+  id         String   @id
+  actorId    String?
+  actor      User?    @relation(fields: [actorId], references: [id])
+  role       String?
+  action     String
+  entityType String
+  entityId   String?
+  details    Json     @default("{}")
+  at         DateTime @default(now())
+
+  @@index([at(sort: Desc)])
+  @@index([entityType, entityId])
+  @@index([actorId])
+}
+
+model Level {
+  id     String  @id
+  name   String  @unique
+  order  Int
+  classes Class[]
+  students Student[]
+  curricula Curriculum[]
+  competencyReferences CompetencyReference[]
+  contentSamples ContentSample[]
+}
+
+model Class {
+  id       String    @id
+  name     String
+  levelId  String
+  level    Level     @relation(fields: [levelId], references: [id])
+  teacherId String?
+  teacher  User?     @relation("TeacherClasses", fields: [teacherId], references: [id])
+  students Student[]
+  attendance Attendance[]
+  assignments Assignment[]
+}
+
+model Student {
+  id          String    @id
+  name        String
+  levelId     String
+  level       Level     @relation(fields: [levelId], references: [id])
+  classId     String
+  class       Class     @relation(fields: [classId], references: [id])
+  guardianId  String?
+  guardian    User?     @relation("Guardian", fields: [guardianId], references: [id])
+  profile     Json      @default("{}")
+
+  competencies     StudentCompetency[]
+  talents          Talent[]
+  learningPaths    LearningPath[]
+  interventions    Intervention[]
+  alerts           Alert[]
+  feedbackCards    FeedbackCard[]
+  cases            Case[]
+  assessments      Assessment[]
+  grades           Grade[]
+  attendance       Attendance[]
+  submissions      Submission[]
+  activityEnrollments ActivityEnrollment[]
+  wellbeingCheckins  WellbeingCheckin[]
+  impactLogs       ImpactLog[]
+  communications   Communication[]
+  agentRuns AgentRun[]
+  evidence Evidence[]
+  drafts Draft[]
+}
+
+model Subject {
+  id       String @id
+  name     String @unique
+  category String
+  curriculum Curriculum[]
+  grades     Grade[]
+  assignments Assignment[]
+  assessments Assessment[]
+  studentCompetencies StudentCompetency[]
+}
+
+enum AttendanceStatus {
+  present
+  late
+  absent
+  excused
+}
+
+enum AssignmentStatus {
+  open
+  closed
+  archived
+}
+
+enum SubmissionStatus {
+  pending
+  submitted
+  late
+  graded
+}
+
+model Assessment {
+  id          String            @id
+  studentId   String
+  student     Student           @relation(fields: [studentId], references: [id])
+  subjectId   String?
+  subject     Subject?          @relation(fields: [subjectId], references: [id])
+  refId       String?
+  ref         CompetencyReference? @relation(fields: [refId], references: [id])
+  refSkill    String
+  subjectName String?
+  levelName   String?
+  type        AssessmentType    @default(formative)
+  score       Float
+  scale       Float             @default(1)
+  term        String?
+  date        DateTime
+  evidence    String?
+  notes       String?
+  createdAt   DateTime          @default(now())
+
+  @@index([studentId, date])
+  @@index([subjectName, refSkill])
+}
+
+model Grade {
+  id        String   @id
+  studentId String
+  student   Student  @relation(fields: [studentId], references: [id])
+  subjectId String
+  subject   Subject  @relation(fields: [subjectId], references: [id])
+  classId   String?
+  score     Float
+  scale     Float    @default(20)
+  term      String?
+  teacherId String?
+  date      DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  @@index([studentId, subjectId])
+  @@index([classId, term])
+}
+
+model Attendance {
+  id         String           @id
+  studentId  String
+  student    Student          @relation(fields: [studentId], references: [id])
+  classId    String
+  class      Class            @relation(fields: [classId], references: [id])
+  date       DateTime
+  status     AttendanceStatus
+  note       String?
+  recordedBy String?
+  createdAt  DateTime         @default(now())
+
+  @@index([studentId, date])
+  @@index([classId, date])
+}
+
+model Assignment {
+  id          String           @id
+  classId     String
+  class       Class            @relation(fields: [classId], references: [id])
+  subjectId   String
+  subject     Subject          @relation(fields: [subjectId], references: [id])
+  title       String
+  description String?
+  dueDate     DateTime?
+  teacherId   String?
+  status      AssignmentStatus @default(open)
+  createdAt   DateTime         @default(now())
+
+  submissions Submission[]
+
+  @@index([classId, dueDate])
+}
+
+model Submission {
+  id           String           @id
+  assignmentId String
+  assignment   Assignment       @relation(fields: [assignmentId], references: [id])
+  studentId    String
+  student      Student          @relation(fields: [studentId], references: [id])
+  status       SubmissionStatus @default(pending)
+  submittedAt  DateTime?
+  grade        Float?
+  feedback     String?
+  createdAt    DateTime         @default(now())
+
+  @@unique([assignmentId, studentId])
+}
+
+model Curriculum {
+  id        String   @id
+  levelId   String
+  level     Level    @relation(fields: [levelId], references: [id])
+  subjectId String
+  subject   Subject  @relation(fields: [subjectId], references: [id])
+  unit      String
+  lessons   String[]
+  status    String   @default("draft")
+  language  String   @default("ar")
+  createdAt DateTime @default(now())
+
+  @@index([levelId, subjectId])
+}
+
+model CompetencyReference {
+  id             String   @id
+  levelName      String
+  subject        String
+  skill          String
+  description    String?
+  indicators     String[]
+  targetMastery  Float    @default(0.7)
+  levelId        String?
+  level          Level?   @relation(fields: [levelId], references: [id])
+  assessments    Assessment[]
+
+  @@index([levelName, subject])
+  studentCompetencies StudentCompetency[]
+}
+
+model StudentCompetency {
+  id          String            @id
+  studentId   String
+  student     Student           @relation(fields: [studentId], references: [id])
+  subjectId   String
+  subject     Subject           @relation(fields: [subjectId], references: [id])
+  skill       String
+  mastery     Float
+  status      CompetencyStatus
+  lastAssessed DateTime?
+  refId       String?
+  ref         CompetencyReference? @relation(fields: [refId], references: [id])
+}
+
+model Talent {
+  id        String   @id
+  studentId String
+  student   Student  @relation(fields: [studentId], references: [id])
+  domain    String
+  talent    String
+  level     String
+  evidence  String[]
+  program   String?
+}
+
+model LearningPath {
+  id           String   @id
+  studentId    String
+  student      Student  @relation(fields: [studentId], references: [id])
+  type         String
+  focus        String?
+  nextSteps    String[]
+  reassessDate DateTime?
+  status       String   @default("active")
+}
+
+model Intervention {
+  id        String            @id
+  studentId String
+  student   Student           @relation(fields: [studentId], references: [id])
+  type      InterventionType
+  reason    String?
+  plan      String?
+  status    String            @default("active")
+  owner     String?
+}
+
+model Alert {
+  id        String   @id
+  studentId String
+  student   Student  @relation(fields: [studentId], references: [id])
+  level     String
+  type      String
+  message   String
+  date      DateTime @default(now())
+}
+
+model FeedbackCard {
+  id            String     @id
+  studentId     String
+  student       Student    @relation(fields: [studentId], references: [id])
+  agent         String?
+  term          String?
+  year          String?
+  priority      String?
+  status        CardStatus @default(proposed)
+  summary       String
+  evidenceIds   String[]
+  recommendations String[]
+  resources     String[]
+  assigneeId    String?
+  assignee      User?      @relation(fields: [assigneeId], references: [id])
+  reviewNotes   String?
+  actions       Json       @default("[]")
+  nextReview    DateTime?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime?
+  updatedBy     String?
+  history       FeedbackCardHistory[]
+
+  @@index([studentId, status])
+  @@index([nextReview])
+  impactLogs ImpactLog[]
+}
+
+model FeedbackCardHistory {
+  id     Int      @id @default(autoincrement())
+  cardId String
+  card   FeedbackCard @relation(fields: [cardId], references: [id])
+  at     DateTime @default(now())
+  byUser String?
+  action String
+  note   String?
+
+  @@index([cardId, at(sort: Desc)])
+}
+
+model Case {
+  id        String     @id
+  studentId String
+  student   Student    @relation(fields: [studentId], references: [id])
+  year      String?
+  status    CaseStatus @default(active)
+  ownerRole String?
+  ownerId   String?
+  owner     User?      @relation(fields: [ownerId], references: [id])
+  focus     String?
+  openedAt  DateTime?
+  nextReview DateTime?
+  createdAt DateTime   @default(now())
+  updatedAt DateTime?
+  timeline  CaseTimeline[]
+
+  @@index([studentId, status])
+  @@index([nextReview])
+}
+
+model CaseTimeline {
+  id        Int      @id @default(autoincrement())
+  caseId    String
+  case      Case     @relation(fields: [caseId], references: [id])
+  term      String?
+  eventDate DateTime
+  event     String
+  type      String?
+  byUser    String?
+  createdAt DateTime @default(now())
+
+  @@index([caseId, eventDate(sort: Desc)])
+}
+
+model Activity {
+  id        String       @id
+  name      String
+  category  String?
+  type      ActivityType?
+  audience  String?
+  schedule  String?
+  outreach  Boolean      @default(false)
+  publish   Boolean      @default(false)
+  enrollments ActivityEnrollment[]
+}
+
+model ActivityEnrollment {
+  id         String   @id
+  studentId  String
+  student    Student  @relation(fields: [studentId], references: [id])
+  activityId String
+  activity   Activity @relation(fields: [activityId], references: [id])
+  enrolledAt DateTime @default(now())
+  enrolledBy String?
+  status     String   @default("active")
+
+  @@unique([studentId, activityId])
+}
+
+model Publication {
+  id        String   @id
+  title     String
+  type      String?
+  date      DateTime
+  audience  String?
+  impact    String?
+  status    String   @default("published")
+  publishedAt DateTime?
+  reviewedBy  String?
+}
+
+model AgentProfile {
+  id     String @id
+  name   String
+  domain String?
+  level  String?
+  runs   AgentRun[]
+}
+
+model AgentRun {
+  id        String      @id
+  agentId   String
+  agent     AgentProfile @relation(fields: [agentId], references: [id])
+  target    String
+  student   Student?    @relation(fields: [target], references: [id])
+  term      String?
+  year      String?
+  at        DateTime    @default(now())
+  status    String
+  summary   String?
+  evidence  Evidence[]
+}
+
+model Evidence {
+  id         String    @id
+  agentRunId String
+  agentRun   AgentRun  @relation(fields: [agentRunId], references: [id])
+  studentId  String
+  student    Student   @relation(fields: [studentId], references: [id])
+  type       String
+  ref        String
+  weight     String?
+}
+
+model LibraryResource {
+  id      String   @id
+  title   String
+  domain  String?
+  tags    String[]
+  summary String?
+  source  String?
+}
+
+model Draft {
+  id        String   @id
+  type      String
+  studentId String?
+  student   Student? @relation(fields: [studentId], references: [id])
+  tone      String?
+  subject   String?
+  body      String?
+  createdAt DateTime @default(now())
+}
+
+model Communication {
+  id        String     @id
+  studentId String?
+  student   Student?   @relation(fields: [studentId], references: [id])
+  type      String
+  channel   String?
+  status    CommStatus @default(draft)
+  draftId   String?
+  byUser    String?
+  governance Json      @default("{}")
+  notes     String?
+  sentAt    DateTime?
+  sentBy    String?
+  createdAt DateTime   @default(now())
+  updatedAt DateTime?
+}
+
+model WellbeingCheckin {
+  id        String   @id
+  studentId String
+  student   Student  @relation(fields: [studentId], references: [id])
+  mood      Int
+  energy    Int
+  stress    Int
+  notes     String?
+  checkedAt DateTime @default(now())
+  checkedBy String?
+}
+
+model MentoringPair {
+  id        String   @id
+  mentorId  String
+  menteeId  String
+  subject   String?
+  status    String   @default("active")
+  createdAt DateTime @default(now())
+  createdBy String?
+}
+
+model Alumni {
+  id             String  @id
+  name           String
+  graduationYear Int?
+  currentRole    String?
+  mentorAvailable Boolean @default(false)
+}
+
+model Volunteer {
+  id           String @id
+  name         String
+  role         String?
+  availability String?
+  hours        Int    @default(0)
+}
+
+model ImpactLog {
+  id        String   @id
+  studentId String
+  student   Student  @relation(fields: [studentId], references: [id])
+  cardId    String?
+  card      FeedbackCard? @relation(fields: [cardId], references: [id])
+  indicator String
+  baseline  Float?
+  target    Float?
+  current   Float?
+  term      String?
+  updatedAt DateTime @default(now())
+}
+
+model EngagementLog {
+  id        String   @id
+  parentId  String
+  parent    User     @relation(fields: [parentId], references: [id])
+  action    String
+  studentId String?
+  at        DateTime @default(now())
+}
+
+model CalendarEvent {
+  id       String   @id
+  title    String
+  date     DateTime
+  type     String?
+  audience String?
+  level    String?
+}
+
+model Goal {
+  id      String @id
+  title   String
+  kpi     String?
+  target  Float
+  current Float
+  owner   String?
+  status  String
+}
+
+model Strategy {
+  id          String @id @default("default")
+  vision      String?
+  pillars     String[]
+  initiatives Json   @default("[]")
+}
+
+model Finance {
+  id       String @id @default("default")
+  currency String @default("MAD")
+  monthly  Json   @default("[]")
+  categories Json @default("{}")
+}
+
+model Staff {
+  id     String @id
+  name   String
+  role   String
+  salary Float
+}
+
+model Competitor {
+  id       String @id @default(cuid())
+  name     String
+  area     String?
+  strengths String[]
+  risks    String[]
+  position String?
+}
+
+model Partnership {
+  id          String @id @default(cuid())
+  institution String
+  type        String?
+  status      String?
+  focus       String?
+}
+
+model ContentSample {
+  id         String   @id
+  levelId    String
+  level      Level    @relation(fields: [levelId], references: [id])
+  levelName  String
+  languages  String[]
+  subjects   String[]
+  totalUnits Int
+  createdAt  DateTime @default(now())
+}
+
+model LanguageConfig {
+  id                    String   @id @default("default")
+  supportedLanguages    String[]
+  defaultLanguage       String   @default("ar")
+  rtlLanguages          String[]
+  ltrLanguages          String[]
+  coreLanguages         String[]
+  optionalLanguages     String[]
+  languageNames         Json     @default("{}")
+}

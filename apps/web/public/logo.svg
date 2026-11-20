@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="شعار مؤسسة رياض الأقصى — Institut Ryad Al Aqsa">
+  <defs>
+    <radialGradient id="sun" cx="50%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#FFD24A"/>
+      <stop offset="70%" stop-color="#F7BC00"/>
+      <stop offset="100%" stop-color="#F0A500"/>
+    </radialGradient>
+    <linearGradient id="grass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7BCB4E"/>
+      <stop offset="100%" stop-color="#5AA83A"/>
+    </linearGradient>
+    <filter id="boxShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#7A5A00" flood-opacity="0.22"/>
+    </filter>
+    <clipPath id="appRound">
+      <rect width="512" height="512" rx="96" ry="96"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#appRound)">
+    <!-- White app background, as in the official school logo -->
+    <rect width="512" height="512" fill="#FFFFFF"/>
+
+    <!-- Orange rays around the sun -->
+    <g stroke="#F39C12" stroke-width="10" stroke-linecap="round">
+      <line x1="418" y1="250" x2="456" y2="250"/>
+      <line x1="406" y1="322" x2="441" y2="337"/>
+      <line x1="366" y1="386" x2="393" y2="412"/>
+      <line x1="304" y1="426" x2="318" y2="460"/>
+      <line x1="208" y1="426" x2="194" y2="460"/>
+      <line x1="146" y1="386" x2="119" y2="412"/>
+      <line x1="106" y1="322" x2="71" y2="337"/>
+      <line x1="94" y1="250" x2="56" y2="250"/>
+      <line x1="106" y1="178" x2="71" y2="163"/>
+      <line x1="146" y1="114" x2="119" y2="88"/>
+      <line x1="208" y1="74" x2="194" y2="40"/>
+      <line x1="304" y1="74" x2="318" y2="40"/>
+      <line x1="366" y1="114" x2="393" y2="88"/>
+      <line x1="406" y1="178" x2="441" y2="163"/>
+    </g>
+
+    <!-- Sun -->
+    <circle cx="256" cy="250" r="178" fill="url(#sun)"/>
+    <circle cx="256" cy="250" r="178" fill="none" stroke="#E9A400" stroke-width="3" opacity="0.35"/>
+
+    <!-- Grass -->
+    <path d="M 58 372 Q 124 342 192 368 Q 244 388 302 364 Q 366 338 456 374
+             L 456 444 Q 398 420 338 436 Q 278 452 216 434 Q 146 414 58 440 Z"
+          fill="url(#grass)"/>
+    <path d="M 58 404 Q 132 382 208 404 Q 282 426 352 402 Q 408 384 456 402
+             L 456 444 Q 398 420 338 436 Q 278 452 216 434 Q 146 414 58 440 Z"
+          fill="#4E9E2F" opacity="0.55"/>
+
+    <!-- Two children holding hands (official silhouette motif) -->
+    <g fill="#111111" stroke="#111111" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Girl: head, ponytail, dress -->
+      <circle cx="198" cy="212" r="27" stroke="none"/>
+      <path d="M 178 196 Q 154 186 150 212 Q 147 238 170 244 Q 162 224 178 218 Z" stroke="none"/>
+      <path d="M 186 236 Q 208 236 214 250 L 227 313 Q 230 331 214 335 L 178 335 Q 162 331 165 313 L 178 250 Q 180 240 186 236 Z" stroke="none"/>
+
+      <!-- Girl legs and feet -->
+      <path d="M 190 334 L 181 380" fill="none" stroke-width="14"/>
+      <path d="M 206 334 L 220 378" fill="none" stroke-width="14"/>
+      <path d="M 175 381 L 192 383" fill="none" stroke-width="10"/>
+      <path d="M 214 379 L 231 377" fill="none" stroke-width="10"/>
+
+      <!-- Girl arms -->
+      <path d="M 184 252 Q 168 276 172 300" fill="none" stroke-width="13"/>
+      <path d="M 212 252 Q 236 260 252 266" fill="none" stroke-width="13"/>
+
+      <!-- Boy: head, shirt, shorts -->
+      <circle cx="312" cy="218" r="26" stroke="none"/>
+      <path d="M 296 242 Q 328 242 333 258 L 339 300 Q 341 314 326 317 L 292 317 Q 279 314 281 300 L 287 258 Q 289 246 296 242 Z" stroke="none"/>
+      <path d="M 283 314 L 337 314 L 340 338 Q 322 344 311 337 L 308 323 L 303 337 Q 291 344 280 338 Z" stroke="none"/>
+
+      <!-- Boy legs and feet -->
+      <path d="M 297 336 L 289 380" fill="none" stroke-width="14"/>
+      <path d="M 323 336 L 332 378" fill="none" stroke-width="14"/>
+      <path d="M 283 381 L 300 382" fill="none" stroke-width="10"/>
+      <path d="M 326 379 L 343 376" fill="none" stroke-width="10"/>
+
+      <!-- Boy arms -->
+      <path d="M 330 258 Q 347 282 343 306" fill="none" stroke-width="13"/>
+      <path d="M 298 258 Q 276 264 260 267" fill="none" stroke-width="13"/>
+
+      <!-- Joined hands -->
+      <circle cx="256" cy="267" r="9" stroke="none"/>
+    </g>
+
+    <!-- Initials in white chips: I · R · A -->
+    <g filter="url(#boxShadow)">
+      <g transform="rotate(-8 141 247)">
+        <rect x="112" y="218" width="58" height="58" rx="5" fill="#FFFFFF"/>
+        <text x="141" y="264" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+              font-size="46" font-weight="bold" fill="#2E7D32">I</text>
+      </g>
+
+      <g transform="rotate(7 252 150)">
+        <rect x="224" y="122" width="56" height="56" rx="5" fill="#FFFFFF"/>
+        <text x="252" y="168" text-anchor="middle" font-family="'Segoe Script', 'Brush Script MT', cursive"
+              font-size="44" font-weight="bold" fill="#C62828">R</text>
+      </g>
+
+      <g transform="rotate(12 321 315)">
+        <rect x="292" y="286" width="58" height="58" rx="5" fill="#FFFFFF"/>
+        <text x="321" y="333" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+              font-size="44" font-weight="bold" fill="#1565C0">A</text>
+      </g>
+    </g>
+  </g>
+</svg>

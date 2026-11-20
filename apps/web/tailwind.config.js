@@ -1,0 +1,107 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          50: '#F3F9EF',
+          100: '#E7F3DE',
+          200: '#CDE7BC',
+          300: '#A9D68B',
+          400: '#6DBE45',
+          500: '#5AA83A',
+          600: '#4C9130',
+          700: '#3F7828',
+          800: '#345F23',
+          900: '#2B4E1E',
+          DEFAULT: '#5AA83A',
+        },
+        green: {
+          light: '#6DBE45',
+          DEFAULT: '#5AA83A',
+          dark: '#4C9130',
+        },
+        gold: {
+          50: '#FFFBEB',
+          100: '#FFF4C2',
+          200: '#FFE785',
+          300: '#FFD84A',
+          400: '#FFC800',
+          500: '#F5B800',
+          600: '#D49C00',
+          700: '#A87800',
+          800: '#855E00',
+          900: '#6E4D00',
+          DEFAULT: '#F5B800',
+        },
+        ink: {
+          light: '#6B6B6B',
+          DEFAULT: '#1A1A1A',
+          dark: '#101010',
+        },
+        canvas: 'rgb(var(--canvas) / <alpha-value>)',
+        surface: 'rgb(var(--surface) / <alpha-value>)',
+        'surface-muted': 'rgb(var(--surface-muted) / <alpha-value>)',
+        'brand-soft': 'rgb(var(--brand-soft) / <alpha-value>)',
+        line: 'rgb(var(--line) / <alpha-value>)',
+        content: 'rgb(var(--content) / <alpha-value>)',
+        muted: 'rgb(var(--muted) / <alpha-value>)',
+      },
+      fontFamily: {
+        sans: [
+          'Tajawal',
+          'Cairo',
+          'Noto Sans Arabic',
+          'Segoe UI',
+          'system-ui',
+          '-apple-system',
+          'sans-serif',
+        ],
+        display: [
+          'Tajawal',
+          'Cairo',
+          'Noto Sans Arabic',
+          'Segoe UI',
+          'system-ui',
+          'sans-serif',
+        ],
+        tifinagh: ['Noto Sans Tifinagh', 'Ebrima', 'Segoe UI', 'sans-serif'],
+      },
+      borderRadius: {
+        card: '16px',
+        'card-lg': '24px',
+      },
+      boxShadow: {
+        chunky: '0 4px 0 0 #4C9130',
+        'chunky-sm': '0 3px 0 0 #4C9130',
+        'chunky-gold': '0 4px 0 0 #D49C00',
+        'chunky-danger': '0 4px 0 0 #D33131',
+        card: '0 10px 30px -18px rgb(26 26 26 / 0.28)',
+      },
+      keyframes: {
+        pop: {
+          '0%': { opacity: '0', transform: 'scale(0.9)' },
+          '60%': { opacity: '1', transform: 'scale(1.04)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        shake: {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '20%, 60%': { transform: 'translateX(-4px)' },
+          '40%, 80%': { transform: 'translateX(4px)' },
+        },
+        slide: {
+          '0%': { opacity: '0', transform: 'translateY(12px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        pop: 'pop 240ms ease-out both',
+        shake: 'shake 400ms ease-in-out both',
+        slide: 'slide 300ms ease-out both',
+      },
+    },
+  },
+  plugins: [],
+}

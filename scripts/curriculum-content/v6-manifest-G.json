@@ -1,0 +1,146 @@
+[
+  {
+    "curriculumId": "cur7",
+    "levelId": "l_pre",
+    "subjectId": "sub_de",
+    "unit": "وحدة 7 — الألمانية (تمهيدي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur15",
+    "levelId": "l_p2",
+    "subjectId": "sub_de",
+    "unit": "وحدة 15 — الألمانية (الثاني ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur23",
+    "levelId": "l_p5",
+    "subjectId": "sub_de",
+    "unit": "وحدة 23 — الألمانية (الخامس ابتدائي)",
+    "lessons": [
+      "درس 1",
+      "درس 2",
+      "درس 3",
+      "تقييم"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_pre_sub_isl",
+    "levelId": "l_pre",
+    "subjectId": "sub_isl",
+    "unit": "القيم والسلوك",
+    "lessons": [
+      "السلام",
+      "المحبة",
+      "التعاون",
+      "الأدعية"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p1_sub_isl",
+    "levelId": "l_p1",
+    "subjectId": "sub_isl",
+    "unit": "العبادات والقيم",
+    "lessons": [
+      "الصلاة",
+      "الصدق",
+      "الاحترام",
+      "قصص الأنبياء"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p2_sub_math",
+    "levelId": "l_p2",
+    "subjectId": "sub_math",
+    "unit": "الأعداد والعمليات",
+    "lessons": [
+      "الأعداد حتى 1000",
+      "الضرب",
+      "حل مسائل",
+      "الهندسة والقياس"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p3_sub_en",
+    "levelId": "l_p3",
+    "subjectId": "sub_en",
+    "unit": "Basic English",
+    "lessons": [
+      "Alphabet & Sounds",
+      "Greetings",
+      "Colors & Numbers",
+      "Simple Words"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p3_sub_sport",
+    "levelId": "l_p3",
+    "subjectId": "sub_sport",
+    "unit": "الحركية",
+    "lessons": [
+      "الحركات",
+      "الألعاب",
+      "التعاون",
+      "الصحة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p4_sub_histgeo",
+    "levelId": "l_p4",
+    "subjectId": "sub_histgeo",
+    "unit": "المحيط والزمن",
+    "lessons": [
+      "محيطي",
+      "الزمن",
+      "الخريطة",
+      "البيئة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p5_sub_math",
+    "levelId": "l_p5",
+    "subjectId": "sub_math",
+    "unit": "الأعداد والكسور",
+    "lessons": [
+      "الأعداد الكبيرة",
+      "الكسور والعمليات",
+      "النسب",
+      "هندسة"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p6_sub_fr",
+    "levelId": "l_p6",
+    "subjectId": "sub_fr",
+    "unit": "Littérature et expression",
+    "lessons": [
+      "Texte littéraire/poétique",
+      "Analyse et évaluation",
+      "Production écrite",
+      "Grammaire et conjugaison"
+    ]
+  },
+  {
+    "curriculumId": "cur_l_p6_sub_art",
+    "levelId": "l_p6",
+    "subjectId": "sub_art",
+    "unit": "التعبير الفني",
+    "lessons": [
+      "الرسم",
+      "التلوين",
+      "الموسيقى",
+      "المسرح"
+    ]
+  }
+]

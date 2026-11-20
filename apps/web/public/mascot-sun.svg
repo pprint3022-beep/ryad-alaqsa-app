@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="شمس رياض الأقصى المرحة مع كتاب">
+  <defs>
+    <radialGradient id="g" cx="40%" cy="35%">
+      <stop offset="0" stop-color="#FFE082"/>
+      <stop offset="0.6" stop-color="#FFC107"/>
+      <stop offset="1" stop-color="#F59F00"/>
+    </radialGradient>
+    <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#66BB6A"/>
+      <stop offset="1" stop-color="#2E7D32"/>
+    </linearGradient>
+  </defs>
+  <circle cx="80" cy="74" r="44" fill="url(#g)" stroke="#E8A100" stroke-width="4"/>
+  <g stroke="#FFB300" stroke-width="9" stroke-linecap="round">
+    <path d="M80 16V6M80 142v-10M16 74H6M154 74h-10M35 29l-7-7M132 126l7 7M35 119l-7 7M132 22l7-7"/>
+  </g>
+  <g fill="#4E342E">
+    <ellipse cx="64" cy="66" rx="5" ry="7"/>
+    <ellipse cx="96" cy="66" rx="5" ry="7"/>
+  </g>
+  <path d="M64 86q16 18 32 0" fill="none" stroke="#4E342E" stroke-width="5" stroke-linecap="round"/>
+  <g fill="#FF8A80" opacity="0.7">
+    <ellipse cx="50" cy="80" rx="8" ry="5"/>
+    <ellipse cx="110" cy="80" rx="8" ry="5"/>
+  </g>
+  <g transform="translate(43 100)">
+    <path d="M0 8Q18 0 37 8v30Q18 30 0 38z" fill="#FFF" stroke="#1565C0" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M37 8Q56 0 74 8v30Q56 30 37 38z" fill="#FFF" stroke="#1565C0" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M37 8v30" stroke="#1565C0" stroke-width="3"/>
+    <path d="M8 18h20M8 25h20M46 18h20M46 25h20" stroke="#90CAF9" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <path d="M12 142q34-14 68 0t68 0v18H12z" fill="url(#grass)"/>
+  <g fill="#FFF" opacity="0.85">
+    <circle cx="34" cy="148" r="3"/><circle cx="52" cy="152" r="2.5"/><circle cx="118" cy="149" r="3"/>
+  </g>
+</svg>

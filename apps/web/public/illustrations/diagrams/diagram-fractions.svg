@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-labelledby="diaTitle diaDesc">
+  <title id="diaTitle">Les fractions : trois quarts</title>
+  <desc id="diaDesc">Un gâteau rond partagé en quatre parts égales : trois sont coloriées en vert, orange et jaune, une reste blanche. Étiquettes : 3/4, trois quarts et ثلاثة أرباع.</desc>
+  <rect width="640" height="360" fill="#fffaf0"/>
+  <rect x="12" y="12" width="616" height="56" rx="18" fill="#1f6b3a"/>
+  <text x="32" y="48" font-family="sans-serif" font-size="24" font-weight="bold" fill="#fffaf0">Les fractions — الكسور</text>
+  <circle cx="180" cy="205" r="98" fill="#ffffff" stroke="#1f2937" stroke-width="5"/>
+  <path d="M180 205 L180 107 A98 98 0 0 1 278 205 Z" fill="#2e8b57" stroke="#1f2937" stroke-width="3"/>
+  <path d="M180 205 L278 205 A98 98 0 0 1 180 303 Z" fill="#f08a24" stroke="#1f2937" stroke-width="3"/>
+  <path d="M180 205 L180 303 A98 98 0 0 1 82 205 Z" fill="#f4c542" stroke="#1f2937" stroke-width="3"/>
+  <path d="M180 205 L82 205 A98 98 0 0 1 180 107 Z" fill="#fffaf0" stroke="#1f2937" stroke-width="3" stroke-dasharray="7 5"/>
+  <circle cx="180" cy="205" r="7" fill="#1f2937"/>
+  <text x="330" y="164" font-family="sans-serif" font-size="64" font-weight="bold" fill="#1f6b3a">3/4</text>
+  <text x="332" y="206" font-family="sans-serif" font-size="28" fill="#1f2937">trois quarts</text>
+  <text x="332" y="250" font-family="sans-serif" font-size="26" fill="#f08a24" direction="rtl">ثلاثة أرباع</text>
+  <rect x="330" y="272" width="264" height="40" rx="14" fill="#2e8b57"/>
+  <text x="344" y="299" font-family="sans-serif" font-size="18" fill="#ffffff">3 parts coloriées sur 4</text>
+  <text x="30" y="338" font-family="sans-serif" font-size="16" fill="#1f2937">1 part sur 4 reste blanche : 1/4.</text>
+</svg>
