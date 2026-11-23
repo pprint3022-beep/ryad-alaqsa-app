@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
   ArrowRight,
@@ -301,6 +301,28 @@ function percent(value?: number): string {
   return `${Math.round(value * 100)}%`
 }
 
+/** Build a single readable explanation from lesson content for TTS. */
+function buildLessonSpeechText(content: LessonContent | null): string {
+  if (!content) return ''
+  const parts: string[] = []
+  if (content.title) parts.push(content.title)
+  if (content.intro) parts.push(content.intro)
+  for (const section of content.sections ?? []) {
+    if (section.heading) parts.push(section.heading)
+    if (section.body) parts.push(section.body)
+  }
+  for (const term of content.keyTerms ?? []) {
+    if (term.term && term.definition) parts.push(`${term.term}. ${term.definition}`)
+    else if (term.term) parts.push(term.term)
+  }
+  for (const example of content.workedExamples ?? []) {
+    if (example.prompt) parts.push(example.prompt)
+    if (example.steps?.length) parts.push(example.steps.join('. '))
+    if (example.answer) parts.push(example.answer)
+  }
+  return parts.join('. ').replace(/\s+/g, ' ').trim()
+}
+
 /**
  * A stable colour for each subject area. The same colours are used in the unit
  * list and in the lesson player, so a child can recognise the subject before
@@ -340,7 +362,9 @@ function subjectTone(subject?: string): { dot: string; pill: string } {
 
 export default function LearningPath() {
   const { t, i18n } = useTranslation()
-  const speakLocale: SpeakLocale = (['ar', 'fr', 'en', 'amz'].includes(i18n.resolvedLanguage || i18n.language)
+  // Lesson explanations exist in ar/fr/en only. Amazigh UI never selects a
+  // voice here — it has its own dedicated section with recorded Tifinagh clips.
+  const speakLocale: SpeakLocale = (['ar', 'fr', 'en'].includes(i18n.resolvedLanguage || i18n.language)
     ? (i18n.resolvedLanguage || i18n.language)
     : 'ar') as SpeakLocale
   const contentLang: 'ar' | 'fr' | 'en' = speakLocale === 'fr' || speakLocale === 'en' ? speakLocale : 'ar'
@@ -368,6 +392,27 @@ export default function LearningPath() {
   const [toast, setToast] = useState('')
   const [rawContent, setRawContent] = useState<LessonContent | null>(null)
   const content = useMemo(() => (rawContent ? localizeContent(rawContent, contentLang) : null), [rawContent, contentLang])
+  const voiceReadings = useMemo(() => {
+    if (!rawContent) return []
+    const labels: Record<'ar' | 'fr' | 'en', string> = {
+      ar: t('langArabic', { defaultValue: 'العربية' }),
+      fr: t('langFrench', { defaultValue: 'الفرنسية' }),
+      en: t('langEnglish', { defaultValue: 'الإنجليزية' }),
+    }
+    const seen = new Set<string>()
+    const result: Array<{ locale: 'ar' | 'fr' | 'en'; label: string; text: string }> = []
+    for (const locale of ['ar', 'fr', 'en'] as const) {
+      const text = buildLessonSpeechText(localizeContent(rawContent, locale)).trim()
+      if (!text || seen.has(text)) continue
+      seen.add(text)
+      const hasArabic = /[\u0600-\u06FF]/.test(text)
+      const actualLocale: 'ar' | 'fr' | 'en' = hasArabic ? 'ar' : locale === 'ar' ? 'fr' : locale
+      const label = hasArabic ? labels.ar : locale === 'ar' ? labels.fr : labels[locale]
+      if (result.some((r) => r.text === text || (r.locale === actualLocale && r.label === label))) continue
+      result.push({ locale: actualLocale, label, text })
+    }
+    return result
+  }, [rawContent, t])
   const [remoteQuestions, setRemoteQuestions] = useState<RemoteQuestion[]>([])
   const [showContent, setShowContent] = useState(false)
   const [resumeAvailable, setResumeAvailable] = useState(false)
@@ -375,6 +420,10 @@ export default function LearningPath() {
   const [practiceAnswered, setPracticeAnswered] = useState(false)
   const [practiceRead, setPracticeRead] = useState(false)
   const lessonFetchController = useRef<AbortController | null>(null)
+  const dialogRef = useRef<HTMLDivElement | null>(null)
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null)
+  const contentTabRef = useRef<HTMLButtonElement | null>(null)
+  const quizTabRef = useRef<HTMLButtonElement | null>(null)
 
   // A new lesson starts a fresh play corner: no leftover matches or streaks.
   useEffect(() => {
@@ -553,7 +602,7 @@ export default function LearningPath() {
   const enrichmentStats = subjectStats.filter((item) => !item.focus).slice(0, 6)
   const completedAssignments = assignments.filter((item) => item.status === 'submitted' || item.status === 'graded').length
   const overallMastery = subjectStats.length
-    ? subjectStats.reduce((sum, item) => sum + item.mastery, 0) / subjectStats.filter((item) => item.mastery > 0).length || 0
+    ? subjectStats.reduce((sum, item) => sum + item.mastery, 0) / subjectStats.length
     : 0
 
   const filteredUnits = useMemo(() => {
@@ -599,17 +648,19 @@ export default function LearningPath() {
       }))
     }
     const offline: PracticeQuestion[] = lesson ? questionsFor(lesson.subject, seedFrom(lesson.lessonId)) : []
+    // The shared lesson player never routes a question to the Amazigh voice;
+    // Amazigh content belongs to the dedicated section only.
     return offline.map((item) => ({
       prompt: item.prompt,
       options: item.options,
       answer: item.answer,
       explanation: item.explanation,
-      lang: item.lang,
+      lang: item.lang === 'amz' ? undefined : item.lang,
     }))
   }, [lesson, remoteQuestions])
 
   // Play corner: term matching and one locally graded question, all strings
-  // supplied by i18n so the same widgets serve ar/fr/en/amz learners.
+  // supplied by i18n so the same widgets serve ar/fr/en learners.
   const matchPairs = (content?.keyTerms || [])
     .filter((term) => term.term && term.definition)
     .slice(0, 3)
@@ -667,7 +718,9 @@ export default function LearningPath() {
 
   const chooseAnswer = (index: number) => {
     if (!quiz || quiz.selected !== null || quiz.finished || quiz.hearts <= 0) return
-    const isCorrect = isGraded ? index === questions[quiz.index]?.answer : true
+    // Remote questions are advisory practice: they carry no answer key, so we
+    // must never invent a "correct" result, lose a heart, or inflate the score.
+    const isCorrect = isGraded && index === questions[quiz.index]?.answer
     const hearts = quiz.hearts - (isGraded && !isCorrect ? 1 : 0)
     const next: QuizState = {
       ...quiz,
@@ -690,11 +743,15 @@ export default function LearningPath() {
       writeResume(lesson.lessonId, next, questions.length)
       return
     }
-    const score = questions.length ? quiz.correct / questions.length : 0
-    const xp = Math.round(10 + 20 * score + 10)
+    const score = isGraded && questions.length ? quiz.correct / questions.length : 0
+    const xp = isGraded ? Math.round(10 + 20 * score + 10) : 0
     setQuiz({ ...quiz, finished: true, score, xp })
     clearResume(lesson.lessonId)
     setResumeAvailable(false)
+    if (!isGraded) {
+      setToast(t('lpPracticeAdvisorySaved', { defaultValue: 'تم تسجيل التمرين التدريبي دون درجة.' }))
+      return
+    }
     void apiPost<ProgressPost>('/student/lessons/progress', {
       subjectId: lesson.subjectId,
       subject: lesson.subject,
@@ -748,6 +805,52 @@ export default function LearningPath() {
     setRemoteQuestions([])
     setShowContent(false)
     setResumeAvailable(false)
+  }
+
+  // Keep the lesson player keyboard-accessible: focus moves inside on open,
+  // Escape closes it, Tab is trapped, and focus returns to the trigger on close.
+  useEffect(() => {
+    if (!quiz || !lesson) return
+    const previousFocus = document.activeElement as HTMLElement | null
+    closeButtonRef.current?.focus()
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        closeQuiz()
+        return
+      }
+      if (event.key !== 'Tab' || !dialogRef.current) return
+      const focusable = Array.from(
+        dialogRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((element) => element.offsetParent !== null && element.getAttribute('aria-hidden') !== 'true')
+      if (focusable.length === 0) return
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      previousFocus?.focus?.()
+    }
+    // closeQuiz is stable enough for this lifecycle: it only reads state setters.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [quiz, lesson])
+
+  const onTabKeyDown = (event: ReactKeyboardEvent, next: boolean) => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return
+    event.preventDefault()
+    setShowContent(next)
+    if (next) contentTabRef.current?.focus()
+    else quizTabRef.current?.focus()
   }
 
   const statsCards: ReadonlyArray<{ label: string; value: string; icon: LucideIcon; tone: string; hint: string }> = [
@@ -1365,7 +1468,7 @@ export default function LearningPath() {
 
       {/* --------------------------- lesson player --------------------------- */}
       {quiz && lesson ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink/60 p-3 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label={lesson.lesson}>
+        <div ref={dialogRef} className="fixed inset-0 z-50 flex items-center justify-center bg-ink/60 p-3 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label={lesson.lesson}>
           <div className="max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-card-lg border-2 border-line bg-surface shadow-2xl animate-slide">
             <div className="flex items-start justify-between gap-3 border-b-2 border-line bg-brand-500 p-4 text-white">
               <img
@@ -1399,18 +1502,23 @@ export default function LearningPath() {
                   </p>
                 ) : null}
               </div>
-              <button type="button" onClick={closeQuiz} aria-label={t('closeMenu', { defaultValue: 'إغلاق' })} className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-white/15 text-white transition hover:bg-white/25">
+              <button ref={closeButtonRef} type="button" onClick={closeQuiz} aria-label={t('closeMenu', { defaultValue: 'إغلاق' })} className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/15 text-white transition hover:bg-white/25">
                 <X className="h-4 w-4" aria-hidden="true" />
               </button>
             </div>
 
             {content ? (
-              <div className="flex gap-2 border-b-2 border-line bg-surface-muted px-4 py-2" role="tablist">
+              <div className="flex gap-2 border-b-2 border-line bg-surface-muted px-4 py-2" role="tablist" aria-label={t('lpLessonSections', { defaultValue: 'أقسام الدرس' })}>
                 <button
+                  ref={contentTabRef}
+                  id="lp-content-tab"
                   type="button"
                   role="tab"
                   aria-selected={showContent}
+                  aria-controls="lp-lesson-panel"
+                  tabIndex={showContent ? 0 : -1}
                   onClick={() => setShowContent(true)}
+                  onKeyDown={(event) => onTabKeyDown(event, true)}
                   className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-[11px] font-black transition ${
                     showContent ? 'bg-brand-500 text-white shadow-chunky-sm' : 'text-muted hover:text-content'
                   }`}
@@ -1419,10 +1527,15 @@ export default function LearningPath() {
                   {t('lpReadStep', { defaultValue: 'المحتوى' })}
                 </button>
                 <button
+                  ref={quizTabRef}
+                  id="lp-quiz-tab"
                   type="button"
                   role="tab"
                   aria-selected={!showContent}
+                  aria-controls="lp-lesson-panel"
+                  tabIndex={showContent ? -1 : 0}
                   onClick={() => setShowContent(false)}
+                  onKeyDown={(event) => onTabKeyDown(event, false)}
                   className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-[11px] font-black transition ${
                     !showContent ? 'bg-brand-500 text-white shadow-chunky-sm' : 'text-muted hover:text-content'
                   }`}
@@ -1434,7 +1547,7 @@ export default function LearningPath() {
             ) : null}
 
             {showContent && content ? (
-              <div className="space-y-4 p-4 sm:p-5">
+              <div id="lp-lesson-panel" role="tabpanel" aria-labelledby="lp-content-tab" tabIndex={-1} className="space-y-4 p-4 sm:p-5">
                 {content.intro ? (
                   <div className="flex items-start gap-3 rounded-card-lg border-2 border-brand-200 bg-brand-50 p-3 dark:bg-brand-400/10">
                     <span className="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-white text-xl shadow-chunky-sm dark:bg-surface" aria-hidden="true">🚀</span>
@@ -1442,7 +1555,7 @@ export default function LearningPath() {
                     <SpeakButton text={content.intro} locale={speakLocale} contentLocale={contentLang} size="lg" />
                   </div>
                 ) : null}
-                <VoiceHelper />
+                <VoiceHelper readings={voiceReadings} />
                 <div className="flex flex-wrap items-center justify-between gap-2 text-[10px] font-black text-muted">
                   <div className="flex flex-wrap gap-2">
                     {typeof content.estimatedMinutes === 'number' && content.estimatedMinutes > 0 ? (
@@ -1491,7 +1604,7 @@ export default function LearningPath() {
                             text={[section.heading, section.body].filter(Boolean).join('. ')}
                             locale={speakLocale}
                             contentLocale={contentLang}
-                            size="md"
+                            size="lg"
                             label={t('speakSection', { defaultValue: 'استمع إلى هذا القسم' })}
                           />
                         </div>
@@ -1529,7 +1642,7 @@ export default function LearningPath() {
                             text={[term.term, term.definition].filter(Boolean).join('. ')}
                             locale={speakLocale}
                             contentLocale={contentLang}
-                            size="md"
+                            size="lg"
                             label={t('speakTerm', { defaultValue: 'استمع إلى المصطلح' })}
                           />
                         </li>
@@ -1552,7 +1665,7 @@ export default function LearningPath() {
                             text={[example.prompt, ...(example.steps || []), example.answer].filter(Boolean).join('. ')}
                             locale={speakLocale}
                             contentLocale={contentLang}
-                            size="md"
+                            size="lg"
                             label={t('speakExample', { defaultValue: 'استمع إلى المثال' })}
                           />
                         </div>
@@ -1634,7 +1747,8 @@ export default function LearningPath() {
                       continueLabel={t('lpContinue', { defaultValue: 'متابعة' })}
                       correctLabel={t('lpCorrect', { defaultValue: 'إجابة صحيحة' })}
                       incorrectLabel={t('lpIncorrect', { defaultValue: 'إجابة غير صحيحة' })}
-                      onAnswered={() => setPracticeAnswered(true)}
+                      onAnswered={() => {}}
+                      onComplete={() => setPracticeAnswered(true)}
                     />
                   </div>
                 ) : null}
@@ -1642,9 +1756,9 @@ export default function LearningPath() {
                   src={`${import.meta.env.BASE_URL}illustrations/${
                     playStep > playSteps ? 'mascot-celebrate' : 'mascot-thinking'
                   }.svg`}
-                  alt={playStep > playSteps ? t('lpProgressReward', { defaultValue: 'أحسنت! أكملت الدرس' }) : ''}
+                  alt=""
                   className={`mx-auto ${playStep > playSteps ? 'h-20 w-20' : 'h-16 w-16'}`}
-                  aria-hidden={playStep <= playSteps}
+                  aria-hidden="true"
                 />
               </section>
                 <button type="button" onClick={markRead} className="btn-chunky w-full py-3 text-sm">
@@ -1678,7 +1792,7 @@ export default function LearningPath() {
             ) : null}
 
             {!showContent && !quiz.finished && quiz.hearts > 0 && questions.length > 0 ? (
-              <div className="p-5">
+              <div id="lp-lesson-panel" role="tabpanel" aria-labelledby="lp-quiz-tab" tabIndex={-1} className="p-5">
                 <div className="flex items-center justify-between gap-3 text-[11px] font-black text-muted">
                   <span>
                     {t('lpQuestion', { defaultValue: 'السؤال' })} {quiz.index + 1} / {questions.length}
@@ -1699,9 +1813,9 @@ export default function LearningPath() {
                   <SpeakButton
                     text={questions[quiz.index]?.prompt}
                     locale={speakLocale}
-                    contentLocale={questions[quiz.index]?.lang}
+                    contentLocale={speakLocale}
                     label={t('speakQuestion', { defaultValue: 'استمع إلى السؤال' })}
-                    size="md"
+                    size="lg"
                   />
                 </div>
                 <div className="mt-4 grid gap-2">
@@ -1753,7 +1867,7 @@ export default function LearningPath() {
             ) : null}
 
             {!showContent && quiz.hearts <= 0 && !quiz.finished ? (
-              <div className="p-6 text-center">
+              <div id="lp-lesson-panel" role="tabpanel" aria-labelledby="lp-quiz-tab" tabIndex={-1} className="p-6 text-center">
                 <RotateCcw className="mx-auto h-8 w-8 text-gold-600" aria-hidden="true" />
                 <h3 className="mt-3 text-sm font-black">{t('lpTryAgain', { defaultValue: 'لنحاول من جديد' })}</h3>
                 <p className="mt-1 text-[11px] font-semibold text-muted">{t('lpTryAgainHint', { defaultValue: 'لا بأس، كل محاولة تعلّمك شيئًا جديدًا.' })}</p>
@@ -1762,24 +1876,28 @@ export default function LearningPath() {
             ) : null}
 
             {!showContent && quiz.finished ? (
-              <div className="p-6 text-center">
+              <div id="lp-lesson-panel" role="tabpanel" aria-labelledby="lp-quiz-tab" tabIndex={-1} className="p-6 text-center">
                 <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-gold-100 text-gold-700 dark:bg-gold-400/15 dark:text-gold-300">
                   <Award className="h-8 w-8" aria-hidden="true" />
                 </span>
                 <h3 className="mt-4 text-lg font-black">{t('lpWellDone', { defaultValue: 'أحسنت!' })}</h3>
                 <p className="mt-1 text-xs font-bold text-muted">
-                  {t('lpResult', { defaultValue: 'أجبت بشكل صحيح عن {{correct}} من {{total}} أسئلة.' , correct: quiz.correct, total: questions.length })}
+                  {isGraded
+                    ? t('lpResult', { defaultValue: 'أجبت بشكل صحيح عن {{correct}} من {{total}} أسئلة.' , correct: quiz.correct, total: questions.length })
+                    : t('lpPracticeAdvisoryResult', { defaultValue: 'أكملت التمرين التدريبي. راجع الإجابات مع معلّمك.' })}
                 </p>
-                <div className="mt-4 flex items-center justify-center gap-3">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-100 px-3 py-1.5 text-xs font-black text-brand-700 dark:bg-brand-400/15 dark:text-brand-300">
-                    <Zap className="h-3.5 w-3.5" aria-hidden="true" />
-                    +{quiz.xp} XP
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-gold-100 px-3 py-1.5 text-xs font-black text-gold-800 dark:bg-gold-400/15 dark:text-gold-300">
-                    <Star className="h-3.5 w-3.5" aria-hidden="true" />
-                    {percent(quiz.score)}
-                  </span>
-                </div>
+                {isGraded ? (
+                  <div className="mt-4 flex items-center justify-center gap-3">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-100 px-3 py-1.5 text-xs font-black text-brand-700 dark:bg-brand-400/15 dark:text-brand-300">
+                      <Zap className="h-3.5 w-3.5" aria-hidden="true" />
+                      +{quiz.xp} XP
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-gold-100 px-3 py-1.5 text-xs font-black text-gold-800 dark:bg-gold-400/15 dark:text-gold-300">
+                      <Star className="h-3.5 w-3.5" aria-hidden="true" />
+                      {percent(quiz.score)}
+                    </span>
+                  </div>
+                ) : null}
                 <button type="button" onClick={closeQuiz} className="btn-chunky mt-5 w-full">
                   {t('lpBackToPath', { defaultValue: 'العودة إلى مساري' })}
                 </button>

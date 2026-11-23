@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="weather scene with sun rain and rainbow">
+  <rect width="640" height="360" fill="#eaf8ff"/>
+  <circle cx="130" cy="100" r="52" fill="#ffd45e"/>
+  <g stroke="#ffd45e" stroke-width="12" stroke-linecap="round"><path d="M130 24 L130 6 M130 194 L130 176 M54 100 L36 100 M224 100 L206 100 M78 48 L64 34 M182 152 L196 166 M182 48 L196 34 M78 152 L64 166"/></g>
+  <g fill="none" stroke-width="14" stroke-linecap="round"><path d="M380 250 A150 150 0 0 1 680 250" stroke="#ef6a63"/><path d="M404 250 A126 126 0 0 1 656 250" stroke="#f7b23b"/><path d="M428 250 A102 102 0 0 1 632 250" stroke="#ffd45e"/><path d="M452 250 A78 78 0 0 1 608 250" stroke="#54b56d"/></g>
+  <g fill="#ffffff" stroke="#b9d6e4" stroke-width="6"><ellipse cx="330" cy="100" rx="70" ry="44"/><circle cx="288" cy="92" r="34"/><circle cx="360" cy="78" r="42"/><circle cx="400" cy="108" r="30"/></g>
+  <g stroke="#4a9ad6" stroke-width="10" stroke-linecap="round"><path d="M300 154 L292 178 M340 154 L332 178 M380 154 L372 178 M320 168 L312 192 M360 168 L352 192"/></g>
+  <path d="M0 300 Q160 270 320 300 T640 300 L640 360 L0 360Z" fill="#a8d987"/>
+</svg>

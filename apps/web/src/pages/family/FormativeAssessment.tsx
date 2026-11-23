@@ -246,7 +246,9 @@ function formatClock(totalSeconds: number): string {
 
 export default function FormativeAssessment() {
   const { t, i18n } = useTranslation()
-  const speakLocale: SpeakLocale = (['ar', 'fr', 'en', 'amz'].includes(i18n.resolvedLanguage || i18n.language)
+  // Assessment questions are curriculum content (ar/fr/en); Amazigh has its
+  // own dedicated section, so an amz UI language must not select its voice.
+  const speakLocale: SpeakLocale = (['ar', 'fr', 'en'].includes(i18n.resolvedLanguage || i18n.language)
     ? (i18n.resolvedLanguage || i18n.language)
     : 'ar') as SpeakLocale
 

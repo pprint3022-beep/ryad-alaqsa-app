@@ -2586,9 +2586,18 @@ async function runChecks() {
         throw new Error(`manifest byte size drift for ${id}`);
       }
     }
+    // Clips are now discovered from the manifest at runtime rather than a
+    // hard-coded map, so verify the helper loads that manifest and exposes the
+    // lookup/list APIs instead of asserting on individual hard-coded IDs.
     const speechSource = fs.readFileSync(path.join(root, 'apps', 'web', 'src', 'lib', 'speech.ts'), 'utf8');
-    for (const id of clipIds) {
-      if (!speechSource.includes(`'${id}'`)) throw new Error(`speech helper is missing clip ${id}`);
+    if (!speechSource.includes('audio/amz/manifest.json')) {
+      throw new Error('speech helper does not load the Amazigh clip manifest');
+    }
+    if (!/export async function amzClipFor/.test(speechSource)) {
+      throw new Error('speech helper is missing the amzClipFor lookup');
+    }
+    if (!/export async function listAmzClips/.test(speechSource)) {
+      throw new Error('speech helper is missing listAmzClips');
     }
 
     const mascot = path.join(root, 'apps', 'web', 'public', 'mascot-sun.svg');
@@ -2661,7 +2670,7 @@ async function runChecks() {
 
     const speech = fs.readFileSync(path.join(root, 'apps', 'web', 'src', 'lib', 'speech.ts'), 'utf8');
     if (!/detectLocale/.test(speech)) throw new Error('speech helper is missing script-aware detectLocale');
-    if (!/byPrefix\('ar'\)/.test(speech)) throw new Error('speech helper is missing Arabic voice fallback');
+    if (!/pickVoice\([^)]*'ar'/.test(speech)) throw new Error('speech helper is missing Arabic voice fallback');
 
     const player = fs.readFileSync(
       path.join(root, 'apps', 'web', 'src', 'pages', 'family', 'LearningPath.tsx'), 'utf8',

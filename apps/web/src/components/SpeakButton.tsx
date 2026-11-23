@@ -64,6 +64,7 @@ export default function SpeakButton({
       onClick={onSpeak}
       aria-label={label || t('speakLabel', { defaultValue: 'استمع إلى النطق' })}
       aria-pressed={speaking}
+      aria-busy={speaking}
       title={label || t('speakLabel', { defaultValue: 'استمع إلى النطق' })}
       className={`inline-grid ${dim} shrink-0 place-items-center rounded-full border-2 transition active:scale-95 focus-visible:ring-4 focus-visible:ring-brand-300 ${
         speaking

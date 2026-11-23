@@ -84,7 +84,7 @@ function Notice({ children, error = false }: { children: ReactNode; error?: bool
 export default function Threads() {
   const { t, i18n } = useTranslation()
 
-  const loadError = t('thTeacherLoadError', { defaultValue: 'عربي' })
+  const loadError = t('thTeacherLoadError', { defaultValue: 'تعذّر تحميل المحادثات. يرجى المحاولة مرة أخرى.' })
   const [threads, setThreads] = useState<Thread[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -173,13 +173,13 @@ export default function Threads() {
     } catch (err: unknown) {
       const parsed = extractApiError(err)
       if (parsed?.error === 'governance') {
-        const prefix = t('thGovernanceBlocked', { defaultValue: 'عربي' })
+        const prefix = t('thGovernanceBlocked', { defaultValue: 'لم يُسمح بإرسال الرد بسبب قواعد الحكامة أو الخصوصية: ' })
         setReplyError((current) => ({
           ...current,
           [thread.id]: parsed.message ? `${prefix} — ${parsed.message}` : prefix,
         }))
       } else {
-        const fallback = t('thReplyFailed', { defaultValue: 'عربي' })
+        const fallback = t('thReplyFailed', { defaultValue: 'تعذّر إرسال الرد. يرجى المحاولة مرة أخرى.' })
         setReplyError((current) => ({
           ...current,
           [thread.id]: parsed?.message ? `${fallback} — ${parsed.message}` : fallback,
@@ -203,7 +203,7 @@ export default function Threads() {
       )
       setCloseSuccess((current) => ({ ...current, [thread.id]: true }))
     } catch (err: unknown) {
-      const fallback = t('thCloseFailed', { defaultValue: 'عربي' })
+      const fallback = t('thCloseFailed', { defaultValue: 'تعذّر إغلاق المحادثة.' })
       const detail = messageOf(err, '')
       setCloseError((current) => ({
         ...current,
@@ -221,10 +221,10 @@ export default function Threads() {
         <div className="relative flex items-start justify-between gap-3">
           <div>
             <h1 className="font-display text-2xl font-black sm:text-3xl">
-              {t('thTeacherTitle', { defaultValue: 'عربي' })}
+              {t('thTeacherTitle', { defaultValue: 'محادثات الأسر' })}
             </h1>
             <p className="mt-2 text-sm font-semibold text-white/80">
-              {t('thTeacherHint', { defaultValue: 'عربي' })}
+              {t('thTeacherHint', { defaultValue: 'محادثات الطلاب ضمن نطاق فصولك، مرتبطة بالحالة أو البطاقة.' })}
             </p>
           </div>
           <button
@@ -232,23 +232,23 @@ export default function Threads() {
             onClick={retry}
             disabled={loading}
             className="btn-chunky btn-chunky--secondary btn-chunky--sm shrink-0"
-            aria-label={t('thTeacherRefresh', { defaultValue: 'عربي' })}
+            aria-label={t('thTeacherRefresh', { defaultValue: 'تحديث' })}
           >
             <RefreshCw className="h-4 w-4" aria-hidden="true" />
-            <span className="hidden sm:inline">{t('thTeacherRefresh', { defaultValue: 'عربي' })}</span>
+            <span className="hidden sm:inline">{t('thTeacherRefresh', { defaultValue: 'تحديث' })}</span>
           </button>
         </div>
       </section>
 
       <div className="flex items-start gap-2 rounded-card border-2 border-gold-400/30 bg-gold-50 p-3 text-xs font-bold text-gold-900 dark:bg-gold-400/10 dark:text-gold-200">
         <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
-        <span className="text-start">{t('thAdvisory', { defaultValue: 'عربي' })}</span>
+        <span className="text-start">{t('thAdvisory', { defaultValue: 'المراسلات مكتوبة بأيدٍ بشرية وموثّقة بالتدقيق؛ لا يوجد رد آلي، وتخضع إجابات المعلم لموافقة الخصوصية.' })}</span>
       </div>
 
       {loading ? (
         <div className="card-school flex items-center justify-center gap-2 p-10 text-sm font-bold text-muted">
           <Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" />
-          {t('thTeacherLoading', { defaultValue: 'عربي' })}
+          {t('thTeacherLoading', { defaultValue: 'جارٍ تحميل المحادثات...' })}
         </div>
       ) : error ? (
         <div className="space-y-3">
@@ -259,7 +259,7 @@ export default function Threads() {
             className="btn-chunky btn-chunky--secondary btn-chunky--sm"
           >
             <RefreshCw className="h-4 w-4" aria-hidden="true" />
-            {t('thTeacherRefresh', { defaultValue: 'عربي' })}
+            {t('thTeacherRefresh', { defaultValue: 'تحديث' })}
           </button>
         </div>
       ) : (
@@ -268,7 +268,7 @@ export default function Threads() {
             <div className="flex flex-wrap items-end justify-between gap-3">
               <div className="min-w-[180px] flex-1">
                 <label htmlFor="th-student" className="text-[11px] font-black text-muted">
-                  {t('thTeacherSelectChild', { defaultValue: 'عربي' })}
+                  {t('thTeacherSelectChild', { defaultValue: 'تصفية حسب التلميذ' })}
                 </label>
                 <select
                   id="th-student"
@@ -276,7 +276,7 @@ export default function Threads() {
                   onChange={(event) => setStudentFilter(event.target.value || 'all')}
                   className="input-school mt-1 w-full text-start"
                 >
-                  <option value="all">{t('thTeacherSelectChild', { defaultValue: 'عربي' })}</option>
+                  <option value="all">{t('thTeacherSelectChild', { defaultValue: 'تصفية حسب التلميذ' })}</option>
                   {students.map((student) => (
                     <option key={student.id} value={student.id}>
                       {student.name}
@@ -286,23 +286,23 @@ export default function Threads() {
               </div>
               <div className="flex flex-wrap items-center gap-2">
                 <span className="rounded-full bg-brand-soft px-2 py-0.5 text-[10px] font-black text-brand-700 dark:text-brand-300">
-                  {t('thTeacherOpenCount', { defaultValue: 'عربي' })} · {openCount}
+                  {t('thTeacherOpenCount', { defaultValue: 'محادثات مفتوحة' })} · {openCount}
                 </span>
                 <span className="rounded-full bg-surface-muted px-2 py-0.5 text-[10px] font-black text-muted">
-                  {t('thTeacherClosedCount', { defaultValue: 'عربي' })} · {closedCount}
+                  {t('thTeacherClosedCount', { defaultValue: 'محادثات مغلقة' })} · {closedCount}
                 </span>
               </div>
             </div>
           </section>
 
-          <section className="space-y-4" aria-label={t('thTeacherThreads', { defaultValue: 'عربي' })}>
+          <section className="space-y-4" aria-label={t('thTeacherThreads', { defaultValue: 'محادثات الطلاب' })}>
             <h2 className="font-display text-lg font-black">
-              {t('thTeacherThreads', { defaultValue: 'عربي' })}
+              {t('thTeacherThreads', { defaultValue: 'محادثات الطلاب' })}
             </h2>
 
             {visibleThreads.length === 0 ? (
               <p className="rounded-card border-2 border-dashed border-line bg-surface-muted p-6 text-center text-sm font-semibold text-muted">
-                {t('thTeacherNoThreads', { defaultValue: 'عربي' })}
+                {t('thTeacherNoThreads', { defaultValue: 'لا توجد محادثات ضمن نطاقك.' })}
               </p>
             ) : (
               <div className="grid gap-4">
@@ -328,8 +328,8 @@ export default function Threads() {
                         }`}
                       >
                         {thread.status === 'open'
-                          ? t('thOpen', { defaultValue: 'عربي' })
-                          : t('thClosed', { defaultValue: 'عربي' })}
+                          ? t('thOpen', { defaultValue: 'مفتوحة' })
+                          : t('thClosed', { defaultValue: 'مغلقة' })}
                       </span>
                     </div>
 
@@ -337,7 +337,7 @@ export default function Threads() {
                       {thread.caseId ? (
                         <span className="rounded-card bg-surface-muted px-2 py-1 text-start">
                           <span className="font-black text-content">
-                            {t('thLinkedCase', { defaultValue: 'عربي' })}:
+                            {t('thLinkedCase', { defaultValue: 'الحالة المرتبطة' })}:
                           </span>{' '}
                           {thread.caseFocus}
                         </span>
@@ -345,21 +345,21 @@ export default function Threads() {
                       {thread.cardId ? (
                         <span className="rounded-card bg-surface-muted px-2 py-1 text-start">
                           <span className="font-black text-content">
-                            {t('thLinkedCard', { defaultValue: 'عربي' })}:
+                            {t('thLinkedCard', { defaultValue: 'البطاقة المرتبطة' })}:
                           </span>{' '}
                           {thread.cardSummary}
                         </span>
                       ) : null}
                       {!thread.caseId && !thread.cardId ? (
                         <span className="rounded-card bg-surface-muted px-2 py-1">
-                          {t('thNoLink', { defaultValue: 'عربي' })}
+                          {t('thNoLink', { defaultValue: 'بدون رابط' })}
                         </span>
                       ) : null}
                     </div>
 
                     <div className="mt-3 flex flex-wrap items-center gap-2 rounded-card bg-surface-muted px-3 py-2 text-[11px] font-semibold text-muted">
                       <span className="rounded-full bg-brand-soft px-2 py-0.5 text-[10px] font-black text-brand-700 dark:text-brand-300">
-                        {t('thGovernance', { defaultValue: 'عربي' })}
+                        {t('thGovernance', { defaultValue: 'الحكامة' })}
                       </span>
                       <span className="rounded-full bg-brand-soft px-2 py-0.5 text-[10px] font-black text-brand-700 dark:text-brand-300">
                         {thread.governance?.consent === 'granted'
@@ -385,7 +385,7 @@ export default function Threads() {
                     <div className="mt-4 border-t-2 border-line pt-4">
                       <h4 className="flex items-center gap-2 text-sm font-black">
                         <MessageCircle className="h-4 w-4 text-brand-600" aria-hidden="true" />
-                        {t('thMessages', { defaultValue: 'عربي' })}
+                        {t('thMessages', { defaultValue: 'الرسائل' })}
                       </h4>
 
                       {thread.messages?.length ? (
@@ -404,8 +404,8 @@ export default function Threads() {
                                   }`}
                                 >
                                   {message.fromRole === 'teacher'
-                                    ? t('thFromTeacher', { defaultValue: 'عربي' })
-                                    : t('thFromParent', { defaultValue: 'عربي' })}
+                                    ? t('thFromTeacher', { defaultValue: 'المعلم' })
+                                    : t('thFromParent', { defaultValue: 'ولي الأمر' })}
                                 </span>
                                 <span className="text-[10px] font-bold text-muted">
                                   {formatDate(message.at)}
@@ -419,7 +419,7 @@ export default function Threads() {
                         </ul>
                       ) : (
                         <p className="mt-2 rounded-card bg-surface-muted p-3 text-center text-xs font-semibold text-muted">
-                          {t('thNoMessages', { defaultValue: 'عربي' })}
+                          {t('thNoMessages', { defaultValue: 'لا توجد رسائل بعد.' })}
                         </p>
                       )}
                     </div>
@@ -427,7 +427,7 @@ export default function Threads() {
                     {thread.status === 'open' ? (
                       <div className="mt-4 space-y-3 border-t-2 border-line pt-4">
                         <textarea
-                          aria-label={t('thReplyPlaceholder', { defaultValue: 'عربي' })}
+                          aria-label={t('thReplyPlaceholder', { defaultValue: 'اكتب ردّك هنا...' })}
                           className="input-school min-h-20 w-full text-start"
                           value={replyDrafts[thread.id] || ''}
                           onChange={(event) =>
@@ -436,7 +436,7 @@ export default function Threads() {
                               [thread.id]: event.target.value,
                             }))
                           }
-                          placeholder={t('thReplyPlaceholder', { defaultValue: 'عربي' })}
+                          placeholder={t('thReplyPlaceholder', { defaultValue: 'اكتب ردّك هنا...' })}
                         />
 
                         {replyError[thread.id] ? (
@@ -445,7 +445,7 @@ export default function Threads() {
                         {replySuccess[thread.id] ? (
                           <p className="flex items-center gap-1 text-xs font-bold text-brand-700 dark:text-brand-300">
                             <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
-                            {t('thSent', { defaultValue: 'عربي' })}
+                            {t('thSent', { defaultValue: 'تم إرسال الرد.' })}
                           </p>
                         ) : null}
                         {closeError[thread.id] ? (
@@ -454,7 +454,7 @@ export default function Threads() {
                         {closeSuccess[thread.id] ? (
                           <p className="flex items-center gap-1 text-xs font-bold text-brand-700 dark:text-brand-300">
                             <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
-                            {t('thClosedDone', { defaultValue: 'عربي' })}
+                            {t('thClosedDone', { defaultValue: 'تم إغلاق المحادثة.' })}
                           </p>
                         ) : null}
 
@@ -470,7 +470,7 @@ export default function Threads() {
                             ) : (
                               <Send className="h-4 w-4" aria-hidden="true" />
                             )}
-                            {t('thSend', { defaultValue: 'عربي' })}
+                            {t('thSend', { defaultValue: 'إرسال الرد' })}
                           </button>
                           <button
                             type="button"
@@ -481,7 +481,7 @@ export default function Threads() {
                             {closingId === thread.id ? (
                               <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
                             ) : null}
-                            {t('thClose', { defaultValue: 'عربي' })}
+                            {t('thClose', { defaultValue: 'إغلاق المحادثة' })}
                           </button>
                         </div>
                       </div>

@@ -1,64 +1,77 @@
 import { useTranslation } from 'react-i18next'
-import { Volume2 } from 'lucide-react'
+import { BookAudio } from 'lucide-react'
 import SpeakButton from '../SpeakButton'
-import type { SpeakLocale } from '../../lib/speech'
+
+export interface VoiceReading {
+  /** Speech locale / voice to use for this reading. */
+  locale: 'ar' | 'fr' | 'en'
+  /** Visible language label. */
+  label: string
+  /** Full lesson text to read aloud (intro + sections + terms/examples). */
+  text: string
+}
+
+interface VoiceHelperProps {
+  /** Lesson readings in the available curriculum languages (ar/fr/en). */
+  readings?: VoiceReading[]
+}
 
 /**
- * The four-language listening corner. Each large button is a real, labelled
- * button so it works with a keyboard and a screen reader. The Amazigh button
- * uses an authentic recorded Tifinagh phrase; other languages use a matching
- * browser voice, never an unrelated default voice.
+ * Lesson read-aloud helper.
+ *
+ * Reads the actual lesson explanation (intro, sections, terms and examples)
+ * with a suitable browser voice. Amazigh is intentionally NOT part of this
+ * shared lesson player: it lives in its own dedicated section with recorded
+ * Tifinagh clips, so no lesson text is ever spoken with an unrelated voice.
  */
-const OPTIONS: Array<{ locale: SpeakLocale; phrase: string; labelKey: string; fallback: string }> = [
-  { locale: 'ar', phrase: 'مرحبًا، لنبدأ التعلّم', labelKey: 'langArabic', fallback: 'العربية' },
-  { locale: 'fr', phrase: 'Bonjour, commençons à apprendre', labelKey: 'langFrench', fallback: 'الفرنسية' },
-  { locale: 'en', phrase: 'Hello, let us start learning', labelKey: 'langEnglish', fallback: 'الإنجليزية' },
-  { locale: 'amz', phrase: 'ⴰⵣⵓⵍ', labelKey: 'langAmazigh', fallback: 'الأمازيغية' },
-]
-
-export default function VoiceHelper() {
+export default function VoiceHelper({ readings = [] }: VoiceHelperProps) {
   const { t } = useTranslation()
-  const speakLabel = t('speakLabel', { defaultValue: 'استمع إلى النطق' })
+  const available = readings.filter((reading) => reading.text.trim().length > 0)
+  if (available.length === 0) return null
 
   return (
     <section
       className="rounded-card-lg border-2 border-brand-200 bg-gradient-to-br from-brand-50 to-gold-50 p-4 dark:from-brand-400/10 dark:to-gold-400/10"
-      aria-label={t('voiceHelperTitle', { defaultValue: 'المساعد الصوتي — أربع لغات' })}
+      aria-label={t('voiceLessonTitle', { defaultValue: 'المساعد الصوتي للدرس' })}
     >
       <div className="flex items-start gap-2">
         <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-brand-500 text-white shadow-chunky-sm" aria-hidden="true">
-          <Volume2 className="h-5 w-5" />
+          <BookAudio className="h-5 w-5" />
         </span>
         <div className="min-w-0">
           <h3 className="text-sm font-black">
-            {t('voiceHelperTitle', { defaultValue: 'المساعد الصوتي — أربع لغات' })}
+            {t('voiceLessonTitle', { defaultValue: 'المساعد الصوتي للدرس' })}
           </h3>
           <p className="mt-1 text-[10px] font-semibold leading-relaxed text-muted">
-            {t('voiceHelperHint', {
-              defaultValue:
-                'اختر لغة ثم اضغط زر الاستماع الكبير. الأمازيغية تستخدم المقاطع المسجّلة المتاحة، ولا يعمل الصوت إلا عند طلبك.',
+            {t('voiceLessonHint', {
+              defaultValue: 'اضغط زر الاستماع لسماع شرح الدرس بالعربية أو الفرنسية أو الإنجليزية. لا يُقرأ أي نص بصوت غير مناسب.',
             })}
           </p>
         </div>
       </div>
 
-      <ul className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
-        {OPTIONS.map((option) => {
-          const label = t(option.labelKey, { defaultValue: option.fallback })
-          return (
-            <li key={option.locale} className="flex flex-col items-center gap-1.5 rounded-card border-2 border-line bg-surface p-2">
+      <div className="mt-3">
+        <p className="mb-2 text-[10px] font-black text-brand-700 dark:text-brand-300">
+          {t('voiceReadLesson', { defaultValue: 'استمع إلى شرح الدرس' })}
+        </p>
+        <ul className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+          {available.map((reading) => (
+            <li
+              key={reading.locale}
+              className="flex items-center gap-2 rounded-card border-2 border-line bg-surface p-2"
+            >
               <SpeakButton
-                text={option.phrase}
-                locale={option.locale}
-                contentLocale={option.locale}
+                text={reading.text}
+                locale={reading.locale}
+                contentLocale={reading.locale}
                 size="lg"
-                label={`${speakLabel} — ${label}`}
+                label={`${t('voiceReadLesson', { defaultValue: 'استمع إلى شرح الدرس' })} — ${reading.label}`}
               />
-              <span className="text-center text-[10px] font-black text-content">{label}</span>
+              <span className="min-w-0 text-[11px] font-black text-content">{reading.label}</span>
             </li>
-          )
-        })}
-      </ul>
+          ))}
+        </ul>
+      </div>
     </section>
   )
 }

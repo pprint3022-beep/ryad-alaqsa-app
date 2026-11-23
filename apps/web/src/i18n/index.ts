@@ -1,9 +1,5 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import amz from './locales/amz'
-import ar from './locales/ar'
-import en from './locales/en'
-import fr from './locales/fr'
 
 export const LANGUAGES = [
   { code: 'ar', label: 'العربية', dir: 'rtl' },
@@ -43,28 +39,69 @@ function applyDocumentLanguage(language: string): void {
   document.documentElement.dir = normalized === 'ar' ? 'rtl' : 'ltr'
 }
 
-const initialLanguage = readStoredLanguage()
-applyDocumentLanguage(initialLanguage)
+type LocaleModule = { default: Record<string, string> }
 
-void i18n.use(initReactI18next).init({
-  resources: {
-    ar: { translation: ar },
-    fr: { translation: fr },
-    en: { translation: en },
-    amz: { translation: amz },
-  },
-  lng: initialLanguage,
-  fallbackLng: 'fr',
-  supportedLngs: LANGUAGES.map((language) => language.code),
-  keySeparator: false,
-  nsSeparator: false,
-  interpolation: {
-    escapeValue: false,
-  },
-  react: {
-    useSuspense: false,
-  },
-})
+/**
+ * Locale catalogues are large (~2,000 keys each). Loading all four on first
+ * paint put them in the entry bundle; instead we load only the active language
+ * before render and fetch the others on demand when the user switches.
+ */
+const LOCALE_LOADERS: Record<Language, () => Promise<LocaleModule>> = {
+  ar: () => import('./locales/ar'),
+  fr: () => import('./locales/fr'),
+  en: () => import('./locales/en'),
+  amz: () => import('./locales/amz'),
+}
+
+const loaded = new Set<Language>()
+let initPromise: Promise<void> | null = null
+
+/** Initialise i18next with only the active language. Call once before render. */
+export function initI18n(): Promise<void> {
+  if (initPromise) return initPromise
+  initPromise = (async () => {
+    const initial = readStoredLanguage()
+    applyDocumentLanguage(initial)
+    const module = await LOCALE_LOADERS[initial]()
+    loaded.add(initial)
+    await i18n.use(initReactI18next).init({
+      resources: { [initial]: { translation: module.default } },
+      lng: initial,
+      fallbackLng: initial,
+      supportedLngs: LANGUAGES.map((language) => language.code),
+      partialBundledLanguages: true,
+      keySeparator: false,
+      nsSeparator: false,
+      interpolation: {
+        escapeValue: false,
+      },
+      react: {
+        useSuspense: false,
+      },
+    })
+  })()
+  return initPromise
+}
+
+/**
+ * Switch language only after its catalogue is in the resource store, so
+ * i18next resolves the new language immediately (dates, RTL and read-aloud
+ * voices all rely on `resolvedLanguage`).
+ */
+export async function changeLanguage(language: Language): Promise<void> {
+  if (!isLanguage(language)) return
+  if (!loaded.has(language)) {
+    try {
+      const module = await LOCALE_LOADERS[language]()
+      i18n.addResourceBundle(language, 'translation', module.default, true, true)
+      loaded.add(language)
+    } catch {
+      // A missing chunk must not leave the UI stuck on the old language.
+      return
+    }
+  }
+  await i18n.changeLanguage(language)
+}
 
 i18n.on('languageChanged', (language) => {
   applyDocumentLanguage(language)

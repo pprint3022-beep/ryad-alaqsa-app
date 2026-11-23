@@ -1,0 +1,95 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  verify:
+    name: Typecheck, build, prototype tests, i18n parity
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 20 (npm cache)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
+
+      - name: Prototype smoke tests
+        run: npm run test:smoke
+
+      # This suite boots its own JSON-backed server on port 3198, so no external
+      # service, database or secret is needed here.
+      - name: Prototype extended tests (port 3198)
+        run: node tests/prototype-extended.js
+
+      - name: Extract missing i18n keys
+        run: node scripts/extract-missing-i18n.js
+
+      - name: Assert i18n-missing-keys.json is {}
+        run: |
+          node -e '
+            const fs = require("node:fs");
+            const file = "docs/review/i18n-missing-keys.json";
+            const missing = JSON.parse(fs.readFileSync(file, "utf8"));
+            const keys = Object.keys(missing);
+            if (keys.length) {
+              console.error("Missing i18n keys: " + keys.join(", "));
+              process.exit(1);
+            }
+            console.log("i18n missing keys: {} (OK)");
+          '
+
+      - name: Merge i18n keys and assert PARITY OK
+        run: |
+          set -euo pipefail
+          output="$(node scripts/merge-i18n-keys.js)"
+          printf '%s\n' "$output"
+          case "$output" in
+            *"PARITY OK"*) echo "i18n parity verified" ;;
+            *) echo "::error::merge-i18n-keys.js did not print PARITY OK"; exit 1 ;;
+          esac
+
+  production-deps:
+    name: Production prerequisites (informational, never fails)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 20 (npm cache)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      # Production dependency requirements, documented here rather than installed:
+      # - PostgreSQL: a running server, a psql client, DATABASE_URL and the Prisma
+      #   schema at apps/api/prisma/schema.prisma with apps/api/prisma/seed.ts.
+      #   Apply with `npm run db:migrate` then `npm run db:seed`. This workflow
+      #   deliberately uses no DATABASE_URL secret and runs no migrations.
+      # - Python 3.10+: for services/ml create .venv, install
+      #   services/ml/requirements.txt and requirements-dev.txt, then run
+      #   `pytest -c services/ml/pytest.ini services/ml/tests`.
+      # - Optional local tools (git, psql, Python) are only reported, not required.
+      - name: Report local runtime prerequisites
+        run: node scripts/check-runtime-env.js

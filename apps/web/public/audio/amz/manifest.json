@@ -4,41 +4,78 @@
   "speaker": "yan",
   "script": "Tifinagh",
   "generated": "2026-11-19T21:17:30.541Z",
+  "expanded": "2026-11-21",
+  "note": "المقاطع الأصلية من نصوص واجهة الأمازيغية المُعتمدة في التطبيق؛ لا نصوص مُختلقة.",
   "items": {
     "azul": {
       "text": "ⴰⵣⵓⵍ",
       "file": "azul.wav",
-      "bytes": 51276
+      "bytes": 51276,
+      "meaning": {
+        "ar": "السلام / مرحبًا",
+        "fr": "Bonjour / paix",
+        "en": "Hello / peace"
+      }
     },
     "azul-fellawen": {
       "text": "ⴰⵣⵓⵍ ⴼⵍⵍⴰⵡⵏ",
       "file": "azul-fellawen.wav",
-      "bytes": 71756
+      "bytes": 71756,
+      "meaning": {
+        "ar": "السلام عليكم",
+        "fr": "Bonjour à tous",
+        "en": "Hello everyone"
+      }
     },
     "tamazight": {
       "text": "ⵜⴰⵎⴰⵣⵉⵖⵜ",
       "file": "tamazight.wav",
-      "bytes": 65100
+      "bytes": 65100,
+      "meaning": {
+        "ar": "الأمازيغية",
+        "fr": "Amazighe",
+        "en": "Amazigh"
+      }
     },
     "tifinagh": {
       "text": "ⵜⵉⴼⵉⵏⴰⵖ",
       "file": "tifinagh.wav",
-      "bytes": 57932
+      "bytes": 57932,
+      "meaning": {
+        "ar": "تيفيناغ",
+        "fr": "Tifinagh",
+        "en": "Tifinagh"
+      }
     },
     "inelmaden": {
       "text": "ⵉⵏⵍⵎⴰⴷⴰⵏ",
       "file": "inelmaden.wav",
-      "bytes": 63052
+      "bytes": 63052,
+      "meaning": {
+        "ar": "التلاميذ",
+        "fr": "Les élèves",
+        "en": "The students"
+      }
     },
     "uslmad": {
       "text": "ⵓⵙⵍⵎⴰⴷ",
       "file": "uslmad.wav",
-      "bytes": 59468
+      "bytes": 59468,
+      "meaning": {
+        "ar": "الأستاذ",
+        "fr": "L’enseignant",
+        "en": "The teacher"
+      }
     },
     "tamazirt": {
       "text": "ⵜⴰⵎⴰⵣⵉⵔⵜ",
       "file": "tamazirt.wav",
-      "bytes": 65612
+      "bytes": 65612,
+      "meaning": {
+        "ar": "الوطن",
+        "fr": "La patrie",
+        "en": "The homeland"
+      }
     },
     "asdas": {
       "text": "ⴰⵙⴷⴰⵙ",
@@ -58,7 +95,12 @@
     "asdurus": {
       "text": "ⴰⵙⴷⵔⵓⵙ",
       "file": "asdurus.wav",
-      "bytes": 47180
+      "bytes": 47180,
+      "meaning": {
+        "ar": "الدرس",
+        "fr": "La leçon",
+        "en": "The lesson"
+      }
     },
     "asmil": {
       "text": "ⴰⵙⵎⵉⵍ",
@@ -88,27 +130,52 @@
     "yan": {
       "text": "ⵢⴰⵏ",
       "file": "yan.wav",
-      "bytes": 48716
+      "bytes": 48716,
+      "meaning": {
+        "ar": "واحد",
+        "fr": "Un",
+        "en": "One"
+      }
     },
     "sin": {
       "text": "ⵙⵉⵏ",
       "file": "sin.wav",
-      "bytes": 50252
+      "bytes": 50252,
+      "meaning": {
+        "ar": "اثنان",
+        "fr": "Deux",
+        "en": "Two"
+      }
     },
     "kradd": {
       "text": "ⴽⵔⴰⴹ",
       "file": "kradd.wav",
-      "bytes": 47180
+      "bytes": 47180,
+      "meaning": {
+        "ar": "ثلاثة",
+        "fr": "Trois",
+        "en": "Three"
+      }
     },
     "kkoz": {
       "text": "ⴽⴽⵓⵣ",
       "file": "kkoz.wav",
-      "bytes": 44108
+      "bytes": 44108,
+      "meaning": {
+        "ar": "أربعة",
+        "fr": "Quatre",
+        "en": "Four"
+      }
     },
     "smmus": {
       "text": "ⵙⵎⵎⵓⵙ",
       "file": "smmus.wav",
-      "bytes": 52300
+      "bytes": 52300,
+      "meaning": {
+        "ar": "خمسة",
+        "fr": "Cinq",
+        "en": "Five"
+      }
     },
     "slemad": {
       "text": "ⵙⵍⵎⴰⴷ",
@@ -133,12 +200,22 @@
     "ass": {
       "text": "ⴰⵙⵙ",
       "file": "ass.wav",
-      "bytes": 41036
+      "bytes": 41036,
+      "meaning": {
+        "ar": "اليوم",
+        "fr": "Le jour",
+        "en": "The day"
+      }
     },
     "asgas": {
       "text": "ⴰⵙⴳⴰⵙ",
       "file": "asgas.wav",
-      "bytes": 47180
+      "bytes": 47180,
+      "meaning": {
+        "ar": "السنة",
+        "fr": "L’année",
+        "en": "The year"
+      }
     },
     "immalayn": {
       "text": "ⵉⵎⴰⵍⴰⵢⵏ",
@@ -148,12 +225,682 @@
     "lesson-new": {
       "text": "ⴰⵙⴷⵔⵓⵙ ⴰⵎⴰⵢⵏⵓⵜ",
       "file": "lesson-new.wav",
-      "bytes": 83020
+      "bytes": 83020,
+      "meaning": {
+        "ar": "درس جديد",
+        "fr": "Une nouvelle leçon",
+        "en": "A new lesson"
+      }
     },
     "students-learn": {
       "text": "ⵉⵏⵍⵎⴰⴷⴰⵏ ⵙⵙⵍⵎⴰⴷⴰⵏ",
       "file": "students-learn.wav",
-      "bytes": 89164
+      "bytes": 89164,
+      "meaning": {
+        "ar": "التلاميذ يتعلّمون",
+        "fr": "Les élèves apprennent",
+        "en": "The students learn"
+      }
+    },
+    "ui-b665bd77712e": {
+      "text": "ⴽⵛⵎ",
+      "file": "ui-b665bd77712e.wav",
+      "bytes": 44108,
+      "key": "login",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-bbccdc58194c": {
+      "text": "ⴼⴼⵖ",
+      "file": "ui-bbccdc58194c.wav",
+      "bytes": 38476,
+      "key": "signOut",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-a2766126dc87": {
+      "text": "ⵉⵙⵎ",
+      "file": "ui-a2766126dc87.wav",
+      "bytes": 50764,
+      "key": "admin.name",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-15cec67ba917": {
+      "text": "ⴽⴽⵣ",
+      "file": "ui-15cec67ba917.wav",
+      "bytes": 43596,
+      "key": "admin.remove",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-bb0460c2c77d": {
+      "text": "ⴼⴼⵔ",
+      "file": "ui-bb0460c2c77d.wav",
+      "bytes": 37452,
+      "key": "close",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-6f8350073cb3": {
+      "text": "ⵙⵓⵎ",
+      "file": "ui-6f8350073cb3.wav",
+      "bytes": 50252,
+      "key": "propose",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-53b84e86bba6": {
+      "text": "ⵔⵣⵓ",
+      "file": "ui-53b84e86bba6.wav",
+      "bytes": 42572,
+      "key": "search",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-adb0cb4de561": {
+      "text": "ⴱⴷⵓ",
+      "file": "ui-adb0cb4de561.wav",
+      "bytes": 44620,
+      "key": "lpStart",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-dd9bc04cb98f": {
+      "text": "ⵔⵣⵏ",
+      "file": "ui-dd9bc04cb98f.wav",
+      "bytes": 43596,
+      "key": "lpOpen",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-5947f83ec412": {
+      "text": "ⵍⴽⵎ",
+      "file": "ui-5947f83ec412.wav",
+      "bytes": 45644,
+      "key": "dashOpen",
+      "meaning": {
+        "ar": "افتح",
+        "fr": "Ouvrir",
+        "en": "Open"
+      }
+    },
+    "ui-af06c0b875ad": {
+      "text": "ⵯⵔⴹ",
+      "file": "ui-af06c0b875ad.wav",
+      "bytes": 40524,
+      "key": "chubReject",
+      "meaning": {
+        "ar": "رفض",
+        "fr": "Rejeter",
+        "en": "Reject"
+      }
+    },
+    "ui-5b14f875f49c": {
+      "text": "ⴱⴷⴰ",
+      "file": "ui-5b14f875f49c.wav",
+      "bytes": 42060,
+      "key": "chubStart",
+      "meaning": {
+        "ar": "بدء التنفيذ",
+        "fr": "Démarrer",
+        "en": "Start work"
+      }
+    },
+    "ui-26dfbdc381c4": {
+      "text": "ⵙⴽⵔ",
+      "file": "ui-26dfbdc381c4.wav",
+      "bytes": 50252,
+      "key": "qbCreate",
+      "meaning": {
+        "ar": "إنشاء",
+        "fr": "Créer",
+        "en": "Create"
+      }
+    },
+    "ui-32b7b3ba8ff8": {
+      "text": "ⴷⵉⵎⵓ",
+      "file": "ui-32b7b3ba8ff8.wav",
+      "bytes": 44108,
+      "key": "demo",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-77d7230ecc14": {
+      "text": "ⵉⵔⴰⵔ",
+      "file": "ui-77d7230ecc14.wav",
+      "bytes": 46156,
+      "key": "navActivities",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-3123987d446c": {
+      "text": "ⴰⵣⵣⵏ",
+      "file": "ui-3123987d446c.wav",
+      "bytes": 46156,
+      "key": "admin.send",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-7593737ed12d": {
+      "text": "ⵙⵙⵉⵏ",
+      "file": "ui-7593737ed12d.wav",
+      "bytes": 46156,
+      "key": "admin.search",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-41d2d81a6940": {
+      "text": "ⴰⵣⵡⵍ",
+      "file": "ui-41d2d81a6940.wav",
+      "bytes": 46156,
+      "key": "admin.title",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-5e2d08b79dfc": {
+      "text": "ⴰⵣⵎⵣ",
+      "file": "ui-5e2d08b79dfc.wav",
+      "bytes": 50764,
+      "key": "admin.period",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-b332484b6b70": {
+      "text": "ⵢⴰⵔⵓ",
+      "file": "ui-b332484b6b70.wav",
+      "bytes": 48204,
+      "key": "add",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-af460f13149e": {
+      "text": "ⵙⴷⵉⴷ",
+      "file": "ui-af460f13149e.wav",
+      "bytes": 49228,
+      "key": "approve",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-411f5a4ce5af": {
+      "text": "ⵙⵓⴼⵖ",
+      "file": "ui-411f5a4ce5af.wav",
+      "bytes": 52300,
+      "key": "remove",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-badb9199e1be": {
+      "text": "ⵙⴼⵖⵔ",
+      "file": "ui-badb9199e1be.wav",
+      "bytes": 48204,
+      "key": "curPublish",
+      "meaning": {
+        "ar": "نشر",
+        "fr": "Publier",
+        "en": "Publish"
+      }
+    },
+    "ui-2d2621c4927c": {
+      "text": "ⴼⵓⴽⴽ",
+      "file": "ui-2d2621c4927c.wav",
+      "bytes": 45644,
+      "key": "chubComplete",
+      "meaning": {
+        "ar": "إكمال",
+        "fr": "Terminer",
+        "en": "Complete"
+      }
+    },
+    "ui-ff1c12a04e47": {
+      "text": "ⵙⵜⵉ.",
+      "file": "ui-ff1c12a04e47.wav",
+      "bytes": 55372,
+      "key": "labSelect",
+      "meaning": {
+        "ar": "اختر…",
+        "fr": "Sélectionner…",
+        "en": "Select…"
+      }
+    },
+    "ui-b0ab167445b4": {
+      "text": "ⵉⵔⴰⵢ",
+      "file": "ui-b0ab167445b4.wav",
+      "bytes": 48204,
+      "key": "faAnswered",
+      "meaning": {
+        "ar": "مُجابة",
+        "fr": "Répondu",
+        "en": "Answered"
+      }
+    },
+    "ui-5ab86de2ec65": {
+      "text": "ⵙⵏⴼⵍ",
+      "file": "ui-5ab86de2ec65.wav",
+      "bytes": 50764,
+      "key": "leEdit",
+      "meaning": {
+        "ar": "تعديل",
+        "fr": "Modifier",
+        "en": "Edit"
+      }
+    },
+    "ui-b0b30715ea9d": {
+      "text": "ⵙⴽⴰⵔ",
+      "file": "ui-b0b30715ea9d.wav",
+      "bytes": 49740,
+      "key": "grTSave",
+      "meaning": {
+        "ar": "حفظ",
+        "fr": "Enregistrer",
+        "en": "Save"
+      }
+    },
+    "ui-0eddc796a8f8": {
+      "text": "ⴰⵎⵎⴰⵙ",
+      "file": "ui-0eddc796a8f8.wav",
+      "bytes": 50764,
+      "key": "portal",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-5486d58ae44e": {
+      "text": "ⵖⴼ 20",
+      "file": "ui-5486d58ae44e.wav",
+      "bytes": 63564,
+      "key": "statAverageHint",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-9cc4c310bd55": {
+      "text": "ⵉⵣⵔⵉⵏ",
+      "file": "ui-9cc4c310bd55.wav",
+      "bytes": 60492,
+      "key": "navInsights",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-a1b268bae707": {
+      "text": "ⴰⵎⵔⴰⵢ",
+      "file": "ui-a1b268bae707.wav",
+      "bytes": 49228,
+      "key": "navPortfolio",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-e5d40684ec11": {
+      "text": "ⴰⵎⵣⵔⵓ",
+      "file": "ui-e5d40684ec11.wav",
+      "bytes": 56396,
+      "key": "admin.history",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-33890bf03fd7": {
+      "text": "ⵉⵙⵙⴰⵏ",
+      "file": "ui-33890bf03fd7.wav",
+      "bytes": 47692,
+      "key": "admin.days",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-9cf7e0a18b90": {
+      "text": "ⴰⵙⵡⵉⵔ",
+      "file": "ui-9cf7e0a18b90.wav",
+      "bytes": 53836,
+      "key": "admin.level",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-4860ee371cbe": {
+      "text": "ⴰⵢⵢⵓⵔ",
+      "file": "ui-4860ee371cbe.wav",
+      "bytes": 54348,
+      "key": "admin.month",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-77668878ef61": {
+      "text": "ⴰⵎⵢⴰⵣ",
+      "file": "ui-77668878ef61.wav",
+      "bytes": 57932,
+      "key": "admin.knowledgeAgent",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-81bc372d4819": {
+      "text": "ⵎⵉⵏⵓⴹ",
+      "file": "ui-81bc372d4819.wav",
+      "bytes": 54860,
+      "key": "lpMinutes",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-59d33e325157": {
+      "text": "ⴰⵥⵡⴰⵔ",
+      "file": "ui-59d33e325157.wav",
+      "bytes": 51276,
+      "key": "lpFocusTag",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-a846955f3633": {
+      "text": "ⵙⵍⵎⴰⵎ",
+      "file": "ui-a846955f3633.wav",
+      "bytes": 55884,
+      "key": "lpSubmit",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-78eb171a8212": {
+      "text": "ⴰⵙⵇⵙⵉ",
+      "file": "ui-78eb171a8212.wav",
+      "bytes": 52300,
+      "key": "lpQuestion",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-215ed9da6c47": {
+      "text": "ⵙⵔⵖⴰⵏ",
+      "file": "ui-215ed9da6c47.wav",
+      "bytes": 57932,
+      "key": "curPrint",
+      "meaning": {
+        "ar": "طباعة",
+        "fr": "Imprimer",
+        "en": "Print"
+      }
+    },
+    "ui-991b7f870505": {
+      "text": "ⵙⵏⴼⴰⴷ",
+      "file": "ui-991b7f870505.wav",
+      "bytes": 54860,
+      "key": "curRefresh",
+      "meaning": {
+        "ar": "تحديث",
+        "fr": "Actualiser",
+        "en": "Refresh"
+      }
+    },
+    "ui-806b12d6fc40": {
+      "text": "ⴰⵎⵉⵏⵜ",
+      "file": "ui-806b12d6fc40.wav",
+      "bytes": 57420,
+      "key": "chubTotal",
+      "meaning": {
+        "ar": "الإجمالي",
+        "fr": "Total",
+        "en": "Total"
+      }
+    },
+    "ui-1259466f8c5a": {
+      "text": "ⴰⵏⵛⴰⴹ",
+      "file": "ui-1259466f8c5a.wav",
+      "bytes": 55372,
+      "key": "qbActive",
+      "meaning": {
+        "ar": "نشط",
+        "fr": "Actif",
+        "en": "Active"
+      }
+    },
+    "ui-d3abdba9ffab": {
+      "text": "ⴰⵎⵡⴰⵏ",
+      "file": "ui-d3abdba9ffab.wav",
+      "bytes": 55372,
+      "key": "thFromParent",
+      "meaning": {
+        "ar": "ولي الأمر",
+        "fr": "Parent",
+        "en": "Parent"
+      }
+    },
+    "ui-c59fea60412f": {
+      "text": "ⴰⴳⵔⴰⵡ",
+      "file": "ui-c59fea60412f.wav",
+      "bytes": 50252,
+      "key": "leDiffGroup",
+      "meaning": {
+        "ar": "الفئة",
+        "fr": "Groupe",
+        "en": "Group"
+      }
+    },
+    "ui-6bdf393feb0b": {
+      "text": "ⴽⵓⵍⵍⵓ",
+      "file": "ui-6bdf393feb0b.wav",
+      "bytes": 47180,
+      "key": "leDiffAll",
+      "meaning": {
+        "ar": "الجميع",
+        "fr": "Tous",
+        "en": "All"
+      }
+    },
+    "ui-e28b12348847": {
+      "text": "ⵢⴰⴹⴰⵏ",
+      "file": "ui-e28b12348847.wav",
+      "bytes": 55884,
+      "key": "enumOther",
+      "meaning": {
+        "ar": "أخرى",
+        "fr": "Autre",
+        "en": "Other"
+      }
+    },
+    "ui-9680273d7d39": {
+      "text": "ⴰⵎⴽⴰⵢ",
+      "file": "ui-9680273d7d39.wav",
+      "bytes": 54348,
+      "key": "grTTestCoef",
+      "meaning": {
+        "ar": "المعامل",
+        "fr": "Coefficient",
+        "en": "Coefficient"
+      }
+    },
+    "ui-e301a1ffd863": {
+      "text": "ⵖⴼ 10",
+      "file": "ui-e301a1ffd863.wav",
+      "bytes": 54860,
+      "key": "bulGradeScale",
+      "meaning": {
+        "ar": "من /10",
+        "fr": "Sur /10",
+        "en": "Out of /10"
+      }
+    },
+    "ui-f8b533e839cd": {
+      "text": "ⵢⴰⵖⵓⴷ",
+      "file": "ui-f8b533e839cd.wav",
+      "bytes": 49740,
+      "key": "lpLevel_easy",
+      "meaning": {
+        "ar": "سهل",
+        "fr": "Facile",
+        "en": "Easy"
+      }
+    },
+    "ui-f0b353d4fde5": {
+      "text": "ⵜⴰⵎⵀⵍⴰ",
+      "file": "ui-f0b353d4fde5.wav",
+      "bytes": 58956,
+      "key": "portalAdmin",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-a5fb3f221073": {
+      "text": "ⴰⵎⵣⵉⵏⵏ",
+      "file": "ui-a5fb3f221073.wav",
+      "bytes": 55372,
+      "key": "roleDirector",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-e73ce1d38ae0": {
+      "text": "ⴰⵎⴰⵡⴰⵍ",
+      "file": "ui-e73ce1d38ae0.wav",
+      "bytes": 57932,
+      "key": "roleParent",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-00259d487da7": {
+      "text": "ⴰⵏⵍⵎⴰⴷ",
+      "file": "ui-00259d487da7.wav",
+      "bytes": 53836,
+      "key": "roleStudent",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-8d8411437b3d": {
+      "text": "ⵉⵎⴰⴷⴰⵏ",
+      "file": "ui-8d8411437b3d.wav",
+      "bytes": 61004,
+      "key": "navPeople",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-865863563168": {
+      "text": "ⵉⵙⴽⵉⵍⵏ",
+      "file": "ui-865863563168.wav",
+      "bytes": 60492,
+      "key": "navGrades",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-717be24c0b20": {
+      "text": "ⵉⵏⵏⴰⵢⵏ",
+      "file": "ui-717be24c0b20.wav",
+      "bytes": 55372,
+      "key": "navAlerts",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
+    },
+    "ui-ac00add96669": {
+      "text": "ⵉⵣⵣⴰⵢⵏ",
+      "file": "ui-ac00add96669.wav",
+      "bytes": 53836,
+      "key": "navMessages",
+      "meaning": {
+        "ar": "",
+        "fr": "",
+        "en": ""
+      }
     }
   }
 }

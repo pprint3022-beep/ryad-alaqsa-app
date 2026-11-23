@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="happy family at home">
+  <rect width="640" height="360" fill="#fff4e6"/>
+  <rect x="40" y="60" width="560" height="230" rx="18" fill="#ffe0bd" stroke="#e0a86a" stroke-width="6"/>
+  <path d="M40 150 L320 30 L600 150Z" fill="#d9685a" stroke="#a9433a" stroke-width="6" stroke-linejoin="round"/>
+  <rect x="276" y="196" width="88" height="94" rx="8" fill="#8a5a3b"/>
+  <rect x="92" y="190" width="70" height="66" rx="8" fill="#9ed8f0" stroke="#5c9dbd" stroke-width="6"/>
+  <rect x="478" y="190" width="70" height="66" rx="8" fill="#9ed8f0" stroke="#5c9dbd" stroke-width="6"/>
+  <g stroke="#264a4a" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <g transform="translate(210 235)"><path d="M-38 80 Q0 34 38 80 L38 110 L-38 110Z" fill="#2aa9a0"/><circle cx="0" cy="14" r="34" fill="#f6c79b"/><path d="M-34 6 Q0 -30 34 6 Q0 -10 -34 6Z" fill="#3b332c"/></g>
+    <g transform="translate(310 235)"><path d="M-38 80 Q0 34 38 80 L38 110 L-38 110Z" fill="#f08a5d"/><circle cx="0" cy="14" r="34" fill="#f2b98d"/><path d="M-34 6 Q0 -30 34 6 Q0 -10 -34 6Z" fill="#2f2a26"/></g>
+    <g transform="translate(265 290)"><path d="M-28 50 Q0 20 28 50 L28 70 L-28 70Z" fill="#7b5cd6"/><circle cx="0" cy="4" r="26" fill="#f6c79b"/></g>
+    <g transform="translate(365 290)"><path d="M-28 50 Q0 20 28 50 L28 70 L-28 70Z" fill="#4a9ad6"/><circle cx="0" cy="4" r="26" fill="#f2b98d"/></g>
+  </g>
+</svg>

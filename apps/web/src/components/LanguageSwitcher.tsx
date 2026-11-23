@@ -1,7 +1,7 @@
 import { ChevronDown, Globe2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import type { ChangeEvent } from 'react'
-import { LANGUAGES, type Language } from '../i18n'
+import { changeLanguage, LANGUAGES, type Language } from '../i18n'
 
 interface LanguageSwitcherProps {
   className?: string
@@ -9,10 +9,11 @@ interface LanguageSwitcherProps {
 
 export default function LanguageSwitcher({ className = '' }: LanguageSwitcherProps) {
   const { t, i18n } = useTranslation()
-  const current = LANGUAGES.find((language) => language.code === i18n.resolvedLanguage) ?? LANGUAGES[0]
+  const active = i18n.language || i18n.resolvedLanguage
+  const current = LANGUAGES.find((language) => language.code === active) ?? LANGUAGES[0]
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    void i18n.changeLanguage(event.target.value as Language)
+    void changeLanguage(event.target.value as Language)
   }
 
   return (
