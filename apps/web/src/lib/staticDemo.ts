@@ -114,10 +114,11 @@ export async function staticDemoAdapter(
     const body = bodyOf(config.data)
     const login = String(body.login ?? body.email ?? '').trim().toLowerCase()
     const password = String(body.password ?? '')
-    const portal = body.portal as Portal | undefined
     const account = ACCOUNTS.find((item) => item.email.toLowerCase() === login)
 
-    if (!account || password !== '1234' || (portal && portal !== account.portal)) {
+    // The demo only checks the published credentials; the account's own portal
+    // wins so typing an email manually never gets stuck on a portal toggle.
+    if (!account || password !== '1234') {
       deny(config)
     }
 
