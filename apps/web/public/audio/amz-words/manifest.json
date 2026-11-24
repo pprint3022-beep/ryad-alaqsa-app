@@ -1,4 +1,6 @@
 {
-  "source": "VITS Tachelhit (shi/yan) from authored A1 vocabulary",
+  "source": "Legacy VITS Tachelhit (shi/yan) clips — NOT used by the word cards",
+  "status": "deprecated",
+  "reason": "User review found the synthetic pronunciation incorrect. Word cards now play human lesson audio from /audio/amz-human/ instead.",
   "words": []
 }

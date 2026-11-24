@@ -52,6 +52,41 @@ export const CATEGORIES: Array<{ id: DictWord['category']; labelAr: string; emoj
   { id: 'people', labelAr: 'الناس', emoji: '🙋' },
 ]
 
+/**
+ * Human pronunciation comes from the reference lessons supplied by the user.
+ * These are full lesson recordings, not isolated word clips, so the UI labels
+ * them honestly as "from the reference lesson". The old VITS `audio` field is
+ * kept in the data only as a legacy reference and is never played in the cards.
+ */
+export const HUMAN_LESSON_BY_CATEGORY: Record<
+  DictWord['category'],
+  { id: string; file: string; topic: string }
+> = {
+  greetings: { id: 'l12', file: asset('/audio/amz-human/l12.m4a'), topic: 'الحوار' },
+  family: { id: 'l07', file: asset('/audio/amz-human/l07.m4a'), topic: 'قصة العائلة' },
+  numbers: { id: 'l01', file: asset('/audio/amz-human/l01.m4a'), topic: 'درس القراءة' },
+  food: { id: 'l09', file: asset('/audio/amz-human/l09.m4a'), topic: 'الحكاية 3' },
+  world: { id: 'l10', file: asset('/audio/amz-human/l10.m4a'), topic: 'حالة الطقس' },
+  people: { id: 'l12', file: asset('/audio/amz-human/l12.m4a'), topic: 'الحوار' },
+}
+
+/**
+ * Genuine human, word-level recordings found in the earlier reference work.
+ * Keys are the `latin` values above. Sources/licenses are in
+ * /audio/amz-words-human/credits.json. Words not listed here fall back to the
+ * human lesson clip via HUMAN_LESSON_BY_CATEGORY.
+ */
+export const HUMAN_WORD_AUDIO: Record<string, string> = {
+  Azul: asset('/audio/amz-words-human/azul.wav'),
+  yan: asset('/audio/amz-words-human/yan.wav'),
+  sin: asset('/audio/amz-words-human/sin.ogg'),
+  'aɣrum': asset('/audio/amz-words-human/aghrum.ogg'),
+  aman: asset('/audio/amz-words-human/aman.ogg'),
+  aksum: asset('/audio/amz-words-human/aksum.ogg'),
+  tafukt: asset('/audio/amz-words-human/tafukt.wav'),
+  ayyur: asset('/audio/amz-words-human/ayyur.ogg'),
+}
+
 export interface StoryPage {
   tz: string
   ar: string

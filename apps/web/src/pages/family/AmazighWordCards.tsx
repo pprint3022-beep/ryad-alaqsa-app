@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ArrowLeft, ArrowRight, Check, Mic, Sparkles, Volume2 } from 'lucide-react'
-import { CATEGORIES, DICTIONARY, type DictWord } from '../../data/amzExtraContent'
+import { CATEGORIES, DICTIONARY, HUMAN_LESSON_BY_CATEGORY, HUMAN_WORD_AUDIO, type DictWord } from '../../data/amzExtraContent'
 import { asset } from '../../lib/asset'
 
 /** Redesigned first experience: one photo, one word, its real recorded voice. */
@@ -30,11 +30,18 @@ export default function AmazighWordCards() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  const humanLesson = HUMAN_LESSON_BY_CATEGORY[word?.category ?? 'greetings']
+  const humanWordAudio = word ? HUMAN_WORD_AUDIO[word.latin] : undefined
+  const pronunciationSrc = humanWordAudio ?? humanLesson.file
+
   const play = () => {
     if (!word) return
-    if (!audio.current) audio.current = new Audio(word.audio)
-    else { audio.current.pause(); audio.current.src = word.audio }
+    // Human recordings only: an isolated word clip when we have one, otherwise
+    // the reference lesson that contains the word. Never the legacy VITS clips.
+    if (!audio.current) audio.current = new Audio(pronunciationSrc)
+    else { audio.current.pause(); audio.current.src = pronunciationSrc }
     audio.current.onended = () => setSpeaking(false)
+    audio.current.onerror = () => setSpeaking(false)
     setSpeaking(true)
     void audio.current.play().catch(() => setSpeaking(false))
   }
@@ -77,7 +84,7 @@ export default function AmazighWordCards() {
             {t('amzCardsTitle', { defaultValue: 'بطاقات الكلمات' })}
           </h2>
           <p className="mt-1 text-[11px] font-semibold text-muted">
-            {t('amzCardsHint', { defaultValue: 'صورة حقيقية، كلمة أمازيغية، وصوتها المسجّل. اضغط واستمع ثم قلّد.' })}
+            {t('amzCardsHint', { defaultValue: 'صورة حقيقية وكلمة أمازيغية، ونطق بشري من الدرس المرجعي. استمع ثم قلّد.' })}
           </p>
         </div>
       </div>
@@ -106,6 +113,11 @@ export default function AmazighWordCards() {
           <p className="mt-2 font-display text-4xl font-black text-content sm:text-5xl" lang="zgh" dir="ltr">{word.tz}</p>
           <p className="mt-1 text-sm font-black text-muted">{word.latin}</p>
           <p className="mt-2 text-xl font-black text-brand-700 dark:text-brand-300">{word.ar}</p>
+          <p className="mt-1 text-[10px] font-bold text-muted">
+            {humanWordAudio
+              ? t('amzHumanWordSource', { defaultValue: 'تسجيل بشري للكلمة' })
+              : `${t('amzHumanSource', { defaultValue: 'النطق من الدرس المرجعي' })} — ${humanLesson.topic} (${humanLesson.id})`}
+          </p>
 
           <div className="mt-4 flex flex-wrap items-center gap-3">
             <button
@@ -115,7 +127,7 @@ export default function AmazighWordCards() {
               className={`inline-flex min-h-16 items-center gap-3 rounded-2xl px-6 text-sm font-black text-white outline-none transition active:scale-95 focus-visible:ring-4 focus-visible:ring-brand-300 ${speaking ? 'bg-gold-500 motion-safe:animate-pulse' : 'bg-brand-500 hover:bg-brand-600'}`}
             >
               <Volume2 className="h-6 w-6" aria-hidden="true" />
-              {t('amzPlayWord', { defaultValue: 'استمع إلى الكلمة' })}
+              {t('amzPlayWord', { defaultValue: 'استمع إلى النطق البشري' })}
             </button>
             <button
               type="button"

@@ -1,0 +1,71 @@
+[
+  {
+    "title": "Tzm ⴰⵣⵓⵍ (TOSD)",
+    "source": "Tamazight-NLP/TOSD",
+    "license": "Apache-2.0",
+    "url": "https://huggingface.co/datasets/Tamazight-NLP/TOSD",
+    "file": "azul.wav",
+    "tz": "ⴰⵣⵓⵍ"
+  },
+  {
+    "title": "Tzm ⵢⴰⵏ (TOSD)",
+    "source": "Tamazight-NLP/TOSD",
+    "license": "Apache-2.0",
+    "url": "https://huggingface.co/datasets/Tamazight-NLP/TOSD",
+    "file": "yan.wav",
+    "tz": "ⵢⴰⵏ"
+  },
+  {
+    "title": "Tzm ⵜⴰⴼⵓⴽⵜ (TOSD)",
+    "source": "Tamazight-NLP/TOSD",
+    "license": "Apache-2.0",
+    "url": "https://huggingface.co/datasets/Tamazight-NLP/TOSD",
+    "file": "tafukt.wav",
+    "tz": "ⵜⴰⴼⵓⴽⵜ"
+  },
+  {
+    "title": "Tzm ⵙⵉⵏ.ogg",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "artist": "Anass Sedrati",
+    "url": "https://commons.wikimedia.org/wiki/File:Tzm%20%E2%B5%99%E2%B5%89%E2%B5%8F.ogg",
+    "file": "sin.ogg",
+    "tz": "ⵙⵉⵏ"
+  },
+  {
+    "title": "Tzm ⴰⵖⵔⵓⵎ.ogg",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "artist": "Anass Sedrati",
+    "url": "https://commons.wikimedia.org/wiki/File:Tzm%20%E2%B4%B0%E2%B5%96%E2%B5%94%E2%B5%93%E2%B5%8E.ogg",
+    "file": "aghrum.ogg",
+    "tz": "ⴰⵖⵔⵓⵎ"
+  },
+  {
+    "title": "Tzm ⴰⴽⵙⵓⵎ.ogg",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "artist": "Anass Sedrati",
+    "url": "https://commons.wikimedia.org/wiki/File:Tzm%20%E2%B4%B0%E2%B4%BD%E2%B5%99%E2%B5%93%E2%B5%8E.ogg",
+    "file": "aksum.ogg",
+    "tz": "ⴰⴽⵙⵓⵎ"
+  },
+  {
+    "title": "Tzm ⴰⵎⴰⵏ.ogg",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "artist": "Anass Sedrati",
+    "url": "https://commons.wikimedia.org/wiki/File:Tzm%20%E2%B4%B0%E2%B5%8E%E2%B4%B0%E2%B5%8F.ogg",
+    "file": "aman.ogg",
+    "tz": "ⴰⵎⴰⵏ"
+  },
+  {
+    "title": "Zgh-shi ⴰⵢⵢⵓⵔ ayyur.ogg",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "artist": "Lucyin",
+    "url": "https://commons.wikimedia.org/wiki/File:Zgh-shi%20%E2%B4%B0%E2%B5%A2%E2%B5%A2%E2%B5%93%E2%B5%94%20ayyur.ogg",
+    "file": "ayyur.ogg",
+    "tz": "ⴰⵢⵢⵓⵔ"
+  }
+]
