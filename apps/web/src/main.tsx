@@ -21,4 +21,13 @@ void initI18n().then(() => {
       </BrowserRouter>
     </React.StrictMode>,
   )
+
+  // Offline app shell. Registered only for built deployments; never in dev.
+  if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      void navigator.serviceWorker
+        .register(`${import.meta.env.BASE_URL}sw.js`)
+        .catch(() => undefined)
+    })
+  }
 })

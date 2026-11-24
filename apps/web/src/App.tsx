@@ -22,7 +22,6 @@ const Reports = lazy(() => import('./pages/admin/Reports'))
 const Dashboard = lazy(() => import('./pages/Dashboard'))
 const AssessmentBank = lazy(() => import('./pages/teacher/AssessmentBank'))
 const Activities = lazy(() => import('./pages/family/Activities'))
-const Amazigh = lazy(() => import('./pages/family/Amazigh'))
 const FormativeAssessment = lazy(() => import('./pages/family/FormativeAssessment'))
 const ParentTimetable = lazy(() => import('./pages/family/Timetable'))
 const Children = lazy(() => import('./pages/family/Children'))
@@ -148,7 +147,6 @@ export default function App() {
           {/* Student space. */}
           <Route element={<ProtectedRoute roles={['student']} />}>
             <Route path="/student/path" element={<LearningPath />} />
-            <Route path="/student/amazigh" element={<Amazigh />} />
             <Route path="/student/timetable" element={<StudentTimetable />} />
             <Route path="/student/assessments" element={<FormativeAssessment />} />
             <Route path="/student/report-card" element={<FamilyReportCard />} />

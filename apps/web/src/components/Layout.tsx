@@ -19,7 +19,6 @@ import {
   FolderOpen,
   GraduationCap,
   HeartPulse,
-  Languages,
   LayoutDashboard,
   Library,
   Lightbulb,
@@ -104,7 +103,6 @@ const PARENT_NAV: ReadonlyArray<NavItem> = [
 
 const STUDENT_NAV: ReadonlyArray<NavItem> = [
   { key: 'navLearningPath', path: '/student/path', icon: Route },
-  { key: 'navAmazigh', path: '/student/amazigh', icon: Languages },
   { key: 'navTimetable', path: '/student/timetable', icon: CalendarClock },
   { key: 'navAssessments', path: '/student/assessments', icon: ClipboardCheck },
   { key: 'navReportCard', path: '/student/report-card', icon: FileText },

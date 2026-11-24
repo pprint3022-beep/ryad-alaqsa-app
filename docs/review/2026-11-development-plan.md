@@ -26,17 +26,12 @@
 - ✅ **نظافة المحتوى:** شروحات فرنسية/إنجليزية مُصحَّحة في `learningContent.ts`، وسم أسئلة الأمازيغية بـ `lang: 'amz'`، واستبدال 36 قيمة `defaultValue: 'عربي'` بنصوص عربية حقيقية في `Threads.tsx` و`TimetableBoard.tsx`.
 - ✅ **التحقق:** i18n 2074 مفتاحًا/لغة و`PARITY OK` و0 مفقود؛ v6 → 0 مشكلة؛ smoke 41/41؛ extended 144/144؛ typecheck وbuild ناجحان.
 - ⛔ **لا يزال معوّقًا خارجيًا:** المراجعة اللغوية الأمازيغية، نصوص دروس أمازيغية مُراجَعة للقراءة الكاملة، مزوّد TTS طبيعي للعربية/الفرنسية/الإنجليزية، PostgreSQL/Python، وPDF الحقيقي.
-- 🔲 **التثبيت/PWA مؤجّل للمرحلة الأخيرة** وفق طلب المستخدم.
+- ✅ **التثبيت/PWA مُفعّل:** manifest + service worker للتطبيقShell والعمل دون اتصال.
 
-### تحديث 2026-11-22 — عزل الأمازيغية في قسم احترافي مستقل
+### تحديث 2026-11-24 — إزالة القسم الأمازيغي المخصص وتفعيل باقي الأقسام
 
-- ✅ **إزالة الأمازيغية من مشغّل الدروس:** حُذف سجل المقاطع الأمازيغية وملاحظة `lpAmzSourceNote` من `LearningPath`، وتضييق `speakLocale` إلى `ar/fr/en` في `LearningPath` و`FormativeAssessment` حتى لا تُقرأ الأسئلة بصوت أمازيغي، وإزالة أسئلة الأمازيغية من بنك `learningContent.ts`.
-- ✅ **قسم مستقل جديد:** `apps/web/src/pages/family/Amazigh.tsx` على المسار `/student/amazigh` **للتلميذ فقط** مع عنصر تنقّل مخصّص؛ مسار دراسي كامل من 12 درساً في 3 مراحل (الحروف والقراءة → القصص والدروس → الحوار)، بصوت بشري حقيقي وشرح وتمارين وتدريب على النطق.
-- ✅ **نطق مغربي أصلي:** 90/90 ملف WAV صالحة (PCM16، 22.05 kHz، غير صامتة) من نموذج VITS التاشلحي عبر `tamazight-nlp-tts.hf.space` (الصوت `yan`)؛ أُضيفت معاني عربية/فرنسية/إنجليزية لـ17 مفردة منهجية. التفاصيل في `docs/review/amazigh-pronunciation.md`.
-- ✅ **نطق بشري موثّق بلا روابط خارجية:** استُبدلت المقاطع المولّدة آلياً بصوت بشري مُستخرَج من دروس المرجع التي زوّد بها المستخدم: 12 ملفاً (`audio/amz-human/`) مضمّنة محلياً، ولكل درس مشغّل صوت كامل + شرح + 3 أسئلة فهم + تسجيل صوت الطفل للمقارنة (`MediaRecorder`). لا يوجد أي رابط أو مشغّل خارجي، ولا يُنسخ محتوى الفيديو المرئي.
-- ✅ **صور ولوحة كتابة للطفل:** 7 رسومات SVG محلية (`images/amz/`) لكل عالم دراسي، ولوحة تتبّع الحروف باللمس/المسح لدروس تيفيناغ الستة، مع تبسيط العرض وإبراز الصور في بطاقات الدروس.
-- ✅ **أنشطة إضافية (`AmazighExtras.tsx`):** قاموس مصوّر (25 كلمة من دورات A1 المجانية) مع خطة يوم 10 دقائق وتكرار متباعد، 3 ألعاب (ذاكرة، تركيب كلمات، اصطياد الحرف)، قارئ قصة مصوّرة صفحة بصفحة من حوار A1، دفتر الطفل يحفظ الرسومات والتسجيلات، وأوراق عمل قابلة للطباعة. المصادر والمنهجية موثّقة في `docs/review/amazigh-sources.md` (دليل IRCAM + دورات A1).
-- ✅ **التحقق:** i18n 2120 مفتاحًا/لغة و`PARITY OK`؛ v6 بلا مشاكل؛ smoke 41/41؛ extended 144/144؛ typecheck وbuild ناجحان؛ حزمة القسم الجديد 17 kB منفصلة.
+- ✅ **إزالة نهائية للقسم الأمازيغي المستقل:** حُذف المسار `/student/amazigh` وعنصر التنقل والصفحات الثلاث وملفات البيانات والأصول الخاصة به (الصوت والصور) ومفاتيح الترجمة المرتبطة بها في اللغات الأربع. اللغة الأمازيغية نفسها تبقى مدعومة كلغة واجهة ومادة ضمن المنهج العام.
+- ✅ **تطبيق قابل للتثبيت والعمل دون اتصال:** أُضيف `manifest.webmanifest` و`sw.js` مع تسجيل في `main.tsx`، وترجمة `%BASE_URL%` تعمل تحت المسار الفرعي لـ GitHub Pages.
 
 ---
 
@@ -50,7 +45,6 @@
 | Git | `.github/workflows/ci.yml`، `scripts/check-runtime-env.js` | 🟡 | **Git 2.56 متاح** محليًا (`%LOCALAPPDATA%\github-copilot-git-*\cmd\git.exe`) ويُكتشف تلقائيًا في فحص البيئة، لكنه غير مضاف إلى PATH ولا يوجد مستودع في `ryad-alaqsa-app`. الخطوة: تهيئة المستودع وإضافة remote ثم الدفع (أو إضافة `cmd` إلى PATH لاستخدام `git` مباشرة). |
 | Python | `services/ml/app/main.py`، `services/ml/tests/test_api.py`، `services/ml/pytest.ini` | ⛔ | **Python غير متاح (stub من Microsoft Store)**. الخطوة: تثبيت Python 3.10+ من python.org وتعطيل "App execution aliases" لـ python/python3، ثم `pytest -c services/ml/pytest.ini services/ml/tests`. |
 | PDF حقيقي | `apps/web/src/pages/admin/ReportCards.tsx`، `apps/web/src/pages/family/ReportCard.tsx`، `apps/web/src/pages/admin/GradeResults.tsx`، `apps/web/src/pages/teacher/LessonEditor.tsx` | 🟡 | الطباعة الحالية عبر `window.print()` فقط. الخطوة: مولّد PDF خادمي/عميلي حقيقي مع خطوط عربية، ترقيم صفحات، وتوقيع مستندات مُعتمدة. |
-| مراجعة أمازيغية أصلية لـ `amz.ts` | `apps/web/src/i18n/locales/amz.ts`، `apps/web/src/lib/speech.ts`، `apps/web/public/audio/amz/` | 🟡 | المقاطع الصوتية الأصلية موجودة ومحفوظة بالحارس في speech، لكن المراجعة اللغوية البشرية لترجمات Tifinagh في `amz.ts` لم تُنجز بعد. الخطوة: مراجعة من مختص أمازيغي + اختبار parity. |
 
 **معايير القبول:** `node scripts/check-runtime-env.js` يُظهر node/npm/git READY (git جاهز بالفعل عبر Copilot CLI)، ويختفي BLOCKED عن python بعد التثبيت، وتُطبَّق الهجرة والبذرة بنجاح (psql اختياري).
 
@@ -77,7 +71,7 @@
 | البند | المسار | الحالة | الخطوة التالية |
 |---|---|---|---|
 | تجربة v7 ولوحات أوضح | `apps/web/src/components/ux/`، `pages/Dashboard.tsx`، `components/ExecutiveDashboard.tsx`، `pages/admin/ReportCards.tsx`، `pages/admin/GradeResults.tsx`، `pages/{admin,teacher}/Engagement.tsx`، `pages/family/ReportCard.tsx` | ✅ في النموذج / 🟡 تدقيق آلي | ملخّصات «القراءة السريعة»، مؤشرات ورسوم من بيانات حقيقية، إنجازات غير تنافسية، واحترام `prefers-reduced-motion`؛ يبقى فحص تباين آلي وقياس زمن التحميل. |
-| PWA / عمل دون اتصال | `apps/web/public/` (إضافة `manifest.webmanifest` وservice worker)، `apps/web/vite.config.ts` | 🔲 | تخزين الدروس والمقاطع الصوتية في cache، وتحديد ما يُخزَّن محليًا من بيانات التلميذ. |
+| PWA / عمل دون اتصال | `apps/web/public/manifest.webmanifest`، `apps/web/public/sw.js`، `apps/web/src/main.tsx` | ✅ | تخزين التطبيق shell والملفات الثابتة؛ طلبات `/api/` مستبعدة من الكاش حتى لا تُخزَّن بيانات التلميذ. |
 | WCAG | `apps/web/src/` (كل الصفحات، خصوصًا `apps/web/src/pages/family/LearningPath.tsx`) | 🟡 | تدقيق AA: تباين، تنقّل بلوحة المفاتيح، `aria-*`， إعلان تغيّر اللغة/الاتجاه، واختبار قارئ شاشة. |
 | تجربة الهاتف | `apps/web/src/`، `apps/web/src/components/` | 🟡 | اختبار لمسي على أحجام صغيرة، أهداف لمس ≥ 44px، وتقليل الرسوم المتحركة حسب تفضيل النظام. |
 | تقليل حجم الحزمة | `apps/web/vite.config.ts`، `apps/web/dist/assets/` | 🟡 | تقسيم إضافي حسب المسار، ضغط الصور والخطوط، وقياس حجم الحزمة قبل/بعد كل إصدار. |
