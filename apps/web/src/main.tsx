@@ -23,11 +23,14 @@ void initI18n().then(() => {
   )
 
   // Offline app shell. Registered only for built deployments; never in dev.
+  // The i18n bootstrap may finish after `load`, so handle both cases.
   if (import.meta.env.PROD && 'serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
+    const register = () => {
       void navigator.serviceWorker
         .register(`${import.meta.env.BASE_URL}sw.js`)
         .catch(() => undefined)
-    })
+    }
+    if (document.readyState === 'complete') register()
+    else window.addEventListener('load', register, { once: true })
   }
 })
