@@ -5,12 +5,13 @@ import axios, {
   type InternalAxiosRequestConfig,
 } from 'axios'
 import type { ApiError, RefreshResponse } from '../types'
+import { STATIC_DEMO, staticDemoAdapter } from './staticDemo'
 
 const rawApiUrl = import.meta.env.VITE_API_URL?.trim() || 'http://localhost:3001'
 const apiOrigin = rawApiUrl.replace(/\/+$/, '')
 
 /** Full API origin + prefix, e.g. http://localhost:3001/api. */
-export const API_BASE_URL = `${apiOrigin}/api`
+export const API_BASE_URL = STATIC_DEMO ? '/api' : `${apiOrigin}/api`
 
 export const api: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
@@ -19,6 +20,8 @@ export const api: AxiosInstance = axios.create({
     'Content-Type': 'application/json',
     Accept: 'application/json',
   },
+  // Static hosting has no API server; answer demo requests locally instead.
+  adapter: STATIC_DEMO ? staticDemoAdapter : undefined,
 })
 
 interface AuthBridge {
@@ -65,6 +68,7 @@ async function requestNewAccessToken(): Promise<string> {
     {
       timeout: 15_000,
       headers: { 'Content-Type': 'application/json' },
+      ...(STATIC_DEMO ? { adapter: staticDemoAdapter } : {}),
     },
   )
 
