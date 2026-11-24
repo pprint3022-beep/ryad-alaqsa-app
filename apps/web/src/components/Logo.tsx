@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { asset } from '../lib/asset'
 
 interface LogoProps {
   size?: number
@@ -45,7 +46,7 @@ export default function Logo({ size = 40, className = '', label }: LogoProps) {
   return (
     <img
       {...shared}
-      src="/logo.svg"
+      src={asset('/logo.svg')}
       alt={label ?? ''}
       onError={() => setFailed(true)}
       loading="eager"

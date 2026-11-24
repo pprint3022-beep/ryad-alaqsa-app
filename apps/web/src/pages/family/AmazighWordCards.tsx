@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ArrowLeft, ArrowRight, Check, Mic, Sparkles, Volume2 } from 'lucide-react'
 import { CATEGORIES, DICTIONARY, type DictWord } from '../../data/amzExtraContent'
+import { asset } from '../../lib/asset'
 
 /** Redesigned first experience: one photo, one word, its real recorded voice. */
 export default function AmazighWordCards() {
@@ -94,7 +95,7 @@ export default function AmazighWordCards() {
 
       <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
         <div className="relative overflow-hidden rounded-card border-4 border-brand-200 bg-surface">
-          <img src={`/images/amz-real/${category === 'all' ? word.category : category}.jpg`} alt={word.ar} className="h-64 w-full object-cover sm:h-80" onError={(event) => { event.currentTarget.src = `/images/amz-real/${word.category}.jpg` }} />
+          <img src={asset(`/images/amz-real/${category === 'all' ? word.category : category}.jpg`)} alt={word.ar} className="h-64 w-full object-cover sm:h-80" onError={(event) => { event.currentTarget.src = asset(`/images/amz-real/${word.category}.jpg`) }} />
           <span className="absolute bottom-2 start-2 rounded-full bg-surface/90 px-2 py-1 text-[9px] font-black text-content">
             {t('amzRealPhoto', { defaultValue: 'صورة حقيقية توضيحية' })}
           </span>
