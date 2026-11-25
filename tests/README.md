@@ -7,7 +7,7 @@ demo password `1234`, and only write through documented API routes.
 | File | Scope | Checks |
 | --- | --- | --- |
 | `prototype-smoke.js` | Auth, portals, RBAC, reports, refresh rotation | 41 |
-| `prototype-extended.js` | Wider product surface listed below | 136 |
+| `prototype-extended.js` | Wider product surface listed below | 144 |
 
 ## Running the extended suite
 
@@ -62,7 +62,7 @@ always printed.
 | 110-115 | Intervention plans: advisory warnings, scoped plans, human-authored create, weekly review with required notes and progress recompute, closing with notes, admin global oversight, role/portal separation |
 | 116-121 | Two-way messaging: child-scoped threads, parent create linked to case/card, parent reply, governance/consent-gated teacher reply, close stops replies, role/portal separation |
 | 122-127 | Lesson editor: scoped lesson plans, structured authoring and validation, draft→review submission, admin publish/return with role gates, CSV/JSON package export |
-| 128-136 | Grading engine (weighted averages, approval, bulletin export) + lesson content and timed assessments |
+| 128-144 | Grading engine (weighted averages, approval, bulletin export) + lesson content and timed assessments |
 
 ## Known findings in the prototype
 
@@ -139,20 +139,20 @@ The suite never edits `backend/data.json` directly and does not modify
 - The public `/api/showcase` feed hides `pending_review` and `rejected` work.
   Check 60 is green.
 - The eight documented prototype gaps (checks 09, 18, 19, 27, 39, 43, 75, 81)
-  are closed and converted into real PASS/FAIL assertions. All 136 checks are
+  are closed and converted into real PASS/FAIL assertions. All 144 checks are
   now active; no SKIPs remain. Eight further checks (84–91) cover term-aware
   curriculum, parallel-learning engagement, report cards and scoped views; six
   more (92–97) cover the question bank and formative assessment flow; six
   more (98–103) cover the weekly timetable; six more (104–109) cover the
   family approval/privacy center and weekly summary; six more (110–115) cover
   intervention plans and weekly review; six more (116–121) cover two-way messaging
-  linked to cases and cards; six more (122–127) cover the lesson editor and package export; nine more (128-136) cover the Moroccan grading engine, printable bulletin, real lesson content and timed exams.
+  linked to cases and cards; six more (122–127) cover the lesson editor and package export; seventeen more (128-144) cover the Moroccan grading engine, printable bulletin, real lesson content and timed exams.
 
 ## Current baseline
 
 Actual run results on 19 Nov 2026:
 
 - `node tests/prototype-smoke.js`: **41 checks - 41 PASS, 0 FAIL** ("ALL CHECKS PASSED").
-- `node tests/prototype-extended.js`: **136 checks - 136 PASS, 0 FAIL, 0 SKIP**.
+- `node tests/prototype-extended.js`: **144 checks - 144 PASS, 0 FAIL, 0 SKIP**.
   Reruns are safe: every created entity carries a unique run marker, and checks
   that use seeded rows restore terminal state where possible.

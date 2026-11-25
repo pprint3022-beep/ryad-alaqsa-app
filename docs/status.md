@@ -24,7 +24,7 @@
 | Prisma schema (PostgreSQL) | `apps/api/prisma/schema.prisma` | ✅ |
 | Fastify API (config/auth/RBAC/audit/health) | `apps/api/src/**` | ✅ تم التحقق (tsc + jest) |
 | React web (routing/auth/i18n/design) | `apps/web/**` | ✅ 49 صفحة محمّلة ديناميكيًا + تحقق متصفح |
-| Seed من `backend/data.json` | `apps/api/prisma/seed.ts` | 🚧 قيد الإنشاء |
+| Seed من `backend/data.json` | `apps/api/prisma/seed.ts` | ✅ مُنجَز (بانتظار PostgreSQL محلياً) |
 | ML service | `services/ml/**` | ✅ هيكل + endpoints استشارية |
 | Docker (prototype + production profiles) | `Dockerfile`, `docker-compose.yml`, `apps/*/Dockerfile` | ✅ (production profile يحتاج تحققًا) |
 | CI | `.github/workflows/ci.yml` | ✅ npm/workspaces إلزامي (لا `continue-on-error`) |
