@@ -190,6 +190,7 @@ export interface ExecutiveData {
   lessonPlans: LessonPlansData | null
   threads: ThreadsData | null
   gradesResults: GradesResultsData | null
+  consentGranted?: number
 }
 
 const EMPTY_EXEC: ExecutiveData = {
@@ -206,6 +207,7 @@ const EMPTY_EXEC: ExecutiveData = {
   lessonPlans: null,
   threads: null,
   gradesResults: null,
+  consentGranted: undefined,
 }
 
 export { EMPTY_EXEC }
@@ -293,6 +295,7 @@ export default function ExecutiveDashboard({ data, loading, error, locale }: Pro
     lessonPlans,
     threads,
     gradesResults,
+    consentGranted,
   } = data
 
   /* -- institution indicators ------------------------------------- */
@@ -727,7 +730,7 @@ export default function ExecutiveDashboard({ data, loading, error, locale }: Pro
           </div>
           <div className="rounded-card border-2 border-line bg-surface p-3">
             <ShieldCheck className="h-4 w-4 text-brand-600" aria-hidden="true" />
-            <p className="mt-1 font-display text-lg font-black leading-none">—</p>
+            <p className="mt-1 font-display text-lg font-black leading-none">{asNum(consentGranted)}</p>
             <p className="mt-1 text-[10px] font-bold text-muted">{t('exConsent', { defaultValue: 'موافقة التواصل' })}</p>
           </div>
           <div className="rounded-card border-2 border-line bg-surface p-3">

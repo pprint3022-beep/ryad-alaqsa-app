@@ -35,7 +35,7 @@ interface UpdateResponse {
 interface SendResponse {
   ok: boolean
   communication: Communication
-  delivery: { ok?: boolean; provider?: string; messageId?: string }
+  delivery: { ok?: boolean; provider?: string; messageId?: string; simulated?: boolean }
 }
 
 function messageOf(error: unknown, fallback: string): string {
@@ -81,7 +81,7 @@ export default function Communications() {
   const [reloadKey, setReloadKey] = useState(0)
 
   const [selectedId, setSelectedId] = useState<string | null>(null)
-  const [recipient, setRecipient] = useState('parent@ryad.ma')
+  const [recipient, setRecipient] = useState('')
   const [body, setBody] = useState('')
   const [notes, setNotes] = useState('')
   const [actionError, setActionError] = useState<string | null>(null)
@@ -118,7 +118,7 @@ export default function Communications() {
     setSelectedId(item.id)
     setBody(item.notes || draftBody)
     setNotes(item.notes || '')
-    setRecipient(item.channel === 'whatsapp' ? '0600000000' : 'parent@ryad.ma')
+    setRecipient('')
     setActionError(null)
     setActionSuccess(null)
   }
@@ -129,12 +129,17 @@ export default function Communications() {
     setActionSuccess(null)
     setBusy(true)
     try {
+      let simulated = false
       if (kind === 'sent') {
-        await apiPost<SendResponse, Record<string, string>>('/teacher/communications/send', {
-          id: selected.id,
-          recipientAddress: recipient.trim(),
-          body: body.trim(),
-        })
+        const result = await apiPost<SendResponse, Record<string, string>>(
+          '/teacher/communications/send',
+          {
+            id: selected.id,
+            recipientAddress: recipient.trim(),
+            body: body.trim(),
+          },
+        )
+        simulated = Boolean(result?.delivery?.simulated)
       } else {
         await apiPost<UpdateResponse, Record<string, string>>('/teacher/communications/update', {
           id: selected.id,
@@ -144,7 +149,11 @@ export default function Communications() {
       }
       setActionSuccess(
         kind === 'sent'
-          ? t('sentSuccess', { defaultValue: 'تم إرسال المراسلة.' })
+          ? simulated
+            ? t('simulatedSendNotice', {
+                defaultValue: 'محاكاة فقط — لم تُرسل رسالة فعلية. أضف مزوّد إرسال حقيقياً قبل الاعتماد.',
+              })
+            : t('sentSuccess', { defaultValue: 'تم إرسال المراسلة.' })
           : t('updateSuccess', { defaultValue: 'تم تحديث الحالة.' }),
       )
       setReloadKey((key) => key + 1)
@@ -280,6 +289,7 @@ export default function Communications() {
                     id="comm-recipient"
                     className="input-school"
                     value={recipient}
+                    placeholder={t('recipientPlaceholder', { defaultValue: 'عنوان ولي الأمر أو رقمه' })}
                     onChange={(event) => setRecipient(event.target.value)}
                   />
                   <label className="mt-1 text-xs font-black text-muted" htmlFor="comm-body">

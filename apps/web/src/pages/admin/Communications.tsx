@@ -66,12 +66,14 @@ const STATUS_DEFAULT: Record<string, string> = {
 const CONSENT_KEY: Record<string, string> = {
   granted: 'enumGranted',
   pending: 'enumPending',
+  declined: 'enumDeclined',
   denied: 'enumDeclined',
 }
 
 const CONSENT_DEFAULT: Record<string, string> = {
   granted: 'ممنوحة',
   pending: 'معلقة',
+  declined: 'مرفوضة',
   denied: 'مرفوضة',
 }
 
@@ -165,7 +167,13 @@ export default function Communications() {
         body: bodyText.trim() || undefined,
       }
       const response = await apiPost<{ ok: boolean; delivery: Delivery }, SendBody>('/admin/communications/send', body)
-      setNotice(t('admin.sentOk', { defaultValue: 'تم الإرسال بنجاح.' }) + ` · ${response.delivery?.provider ?? ''}`)
+      setNotice(
+        response.delivery?.simulated
+          ? t('simulatedSendNotice', {
+              defaultValue: 'محاكاة فقط — لم تُرسل رسالة فعلية. أضف مزوّد إرسال حقيقياً قبل الاعتماد.',
+            })
+          : t('admin.sentOk', { defaultValue: 'تم الإرسال بنجاح.' }) + ` · ${response.delivery?.provider ?? ''}`,
+      )
       setRecipient('')
       setBodyText('')
       setReload((n) => n + 1)
@@ -292,7 +300,14 @@ export default function Communications() {
 
                 {current.delivery ? (
                   <div className="rounded-card border-2 border-line bg-surface-muted p-3 text-[11px] font-semibold">
-                    <p className="font-black">{t('admin.delivery', { defaultValue: 'نتيجة الإرسال' })}</p>
+                    <p className="font-black">
+                      {t('admin.delivery', { defaultValue: 'نتيجة الإرسال' })}
+                      {current.delivery.simulated ? (
+                        <span className="ms-2 inline-flex rounded-full bg-gold-100 px-2 py-0.5 text-[10px] font-black text-gold-900 dark:bg-gold-400/15 dark:text-gold-200">
+                          {t('simulatedBadge', { defaultValue: 'محاكاة' })}
+                        </span>
+                      ) : null}
+                    </p>
                     <p className="mt-1 text-muted">{current.delivery.provider ?? '—'} · {current.delivery.messageId ?? '—'}</p>
                   </div>
                 ) : null}

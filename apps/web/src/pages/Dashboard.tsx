@@ -233,6 +233,7 @@ export default function Dashboard() {
 
   const [health, setHealth] = useState<HealthState>('checking')
   const [healthData, setHealthData] = useState<HealthResponse | null>(null)
+  const [scopedError, setScopedError] = useState(false)
   const [live, setLive] = useState<LiveStats>({})
   const [activity, setActivity] = useState<AgentActivity[]>([])
   const [refreshKey, setRefreshKey] = useState(0)
@@ -271,6 +272,7 @@ export default function Dashboard() {
   useEffect(() => {
     let active = true
     setActivity([])
+    setScopedError(false)
 
     async function load() {
       try {
@@ -280,7 +282,7 @@ export default function Dashboard() {
           const [
             overviewR, performanceR, warningR, experimentsR, cardsR, assistantR,
             systemStatsR, impactReportR, anonymizedR, learningAnalyticsR, impactR,
-            engagementR, interventionPlansR, lessonPlansR, threadsR, gradesR,
+            engagementR, interventionPlansR, lessonPlansR, threadsR, gradesR, communicationsR,
           ] = await Promise.allSettled([
             apiGet<AdminOverviewData>('/admin/overview'),
             apiGet<AdminPerformanceData>('/admin/performance'),
@@ -298,6 +300,9 @@ export default function Dashboard() {
             apiGet<LessonPlansData>('/admin/lesson-plans'),
             apiGet<ThreadsData>('/admin/threads'),
             apiGet<GradesResultsData>('/admin/grades/results'),
+            apiGet<{ communications: Array<{ governance?: { consent?: string } }> }>(
+              '/admin/communications',
+            ),
           ])
           if (!active) return
           const overview = settled(overviewR)
@@ -321,6 +326,10 @@ export default function Dashboard() {
           })
           const systemStats = settled(systemStatsR)
           const impactReport = settled(impactReportR)
+          const communications = settled(communicationsR)
+          const consentGranted = (communications?.communications ?? []).filter(
+            (item) => item.governance?.consent === 'granted',
+          ).length
           setExec({
             overview,
             performance,
@@ -335,6 +344,7 @@ export default function Dashboard() {
             lessonPlans: settled(lessonPlansR),
             threads: settled(threadsR),
             gradesResults: settled(gradesR),
+            consentGranted,
           })
           setExecError(!overview && !systemStats && !impactReport)
           setExecLoading(false)
@@ -404,7 +414,8 @@ export default function Dashboard() {
           })
         }
       } catch {
-        // The dashboard stays usable with placeholders when a scoped API is unavailable.
+        // Keep the dashboard usable with placeholders, but tell the user why.
+        if (active) setScopedError(true)
       }
     }
 
@@ -606,6 +617,17 @@ export default function Dashboard() {
           </div>
         </div>
       </section>
+
+      {scopedError ? (
+        <div
+          role="status"
+          className="rounded-card border-2 border-gold-300/60 bg-gold-50 px-4 py-3 text-xs font-bold text-gold-900 dark:bg-gold-400/10 dark:text-gold-200"
+        >
+          {t('dashPartialData', {
+            defaultValue: 'بعض بيانات اللوحة غير متاحة حالياً؛ القيم الناقصة تظهر كشرطة. لا تُتخذ قرارات نهائية بناءً على هذه البيانات.',
+          })}
+        </div>
+      ) : null}
 
       <section aria-label={t('overview')} className="ux-enter grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
         {stats.map(({ label, value, hint, icon: Icon, tone, bar, progress }) => (
