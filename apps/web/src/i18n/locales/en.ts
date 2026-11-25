@@ -1,6 +1,7 @@
 const en = {
   appName: 'Institut Ryad Al Aqsa',
   brandLine: 'رياض الأقصى — Institut Ryad Al Aqsa',
+  skipToContent: 'Skip to content',
   tagline: 'Playful learning for a confident future.',
   login: 'Sign in',
   loginTitle: 'Welcome back!',

@@ -3,6 +3,7 @@ import type { TranslationSchema } from './en'
 const amz: TranslationSchema = {
   appName: 'ⵔⵢⴰⴷ ⴰⵍⴰⵇⵚⴰ',
   brandLine: 'رياض الأقصى — Institut Ryad Al Aqsa',
+  skipToContent: 'Aller au contenu',
   tagline: 'ⵜⵉⵖⵔⵉ ⵙ ⵍⴼⴻⵕⵃ ⵉ ⵓⵎⴰⵢⵏⵓ ⵢⵓⵛⴽⴰⵏ.',
   login: 'ⴽⵛⵎ',
   loginTitle: 'ⴰⵣⵓⵍ ⴰⵎⴰⵢⵏⵓ!',

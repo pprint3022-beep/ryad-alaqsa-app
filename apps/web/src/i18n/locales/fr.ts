@@ -3,6 +3,7 @@ import type { TranslationSchema } from './en'
 const fr: TranslationSchema = {
   appName: 'Institut Ryad Al Aqsa',
   brandLine: 'رياض الأقصى — Institut Ryad Al Aqsa',
+  skipToContent: 'Aller au contenu',
   tagline: 'Un apprentissage ludique pour un avenir confiant.',
   login: 'Connexion',
   loginTitle: 'Ravi de vous revoir !',

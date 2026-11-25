@@ -339,6 +339,12 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen bg-canvas text-content">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:start-3 focus:top-3 focus:z-50 focus:rounded-xl focus:bg-brand-500 focus:px-4 focus:py-2 focus:text-sm focus:font-black focus:text-white"
+      >
+        {t('skipToContent', { defaultValue: 'تخطَّ إلى المحتوى' })}
+      </a>
       <aside className="fixed inset-y-0 start-0 z-40 hidden w-72 flex-col border-e-2 border-line bg-surface lg:flex">
         <SidebarContent />
       </aside>
@@ -444,7 +450,7 @@ export default function Layout() {
           </div>
         </header>
 
-        <main className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
+        <main id="main-content" tabIndex={-1} className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 sm:py-8">
           <Outlet />
         </main>
       </div>
